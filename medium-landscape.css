@@ -1,0 +1,111 @@
+@media only screen and (min-width: 741px) and (max-width: 1504px) and (orientation: landscape) {
+
+  /* Main changes: overflow containers, font sizes, container sizes, text padding */
+
+  * {
+    font-size: 14px;
+  }
+
+  html, body {
+    background-size: 38%;
+  }
+
+  #menu {
+    height: 6%;
+  }
+    .tab {
+      height: 100%;
+      width: 22%;
+      font-size: 16px;
+    }
+    .tab:hover {
+      text-shadow: none;
+    }
+
+  #container {
+    height: 90%;
+  }
+    .content {
+      height: 92%;
+      width: 82%;
+    }
+
+  #introduction {
+    height: 76%;
+    width: 98%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+    #introText {
+      height: 85%;
+      width: 88%;
+    }
+      #introText p {
+        margin-bottom: 1%;
+      }
+      #centerHome, #centerHome a {
+        font-size: 16px;
+      }
+      #centerHome {
+        text-align: center;
+      }
+      
+  #resume, #linkedin, #certificate, #links {
+    height: 6%;
+  }
+  #links {
+    margin-bottom: 1%;
+  }
+    #links a {
+      width: 30%;
+    }
+
+  .left, .right {
+    height: 70%;
+    width: 9%;
+    font-size: 35px;
+  }
+    .left:hover, .right:hover {
+      background-color: transparent;
+    }
+  #codeDescriptions, #artDescriptions {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+    .codeDescription p, .artDescription p {
+      padding-bottom: 1%;
+    }
+  .bulletContainer {
+    padding: 0 8%;
+    justify-content: space-around;
+  }
+    .bullet {
+      height: 9px;
+      width: 9px;
+    }
+      .bullet:hover {
+        background-color: #0c6d63;
+      }
+
+  #picContainer {
+    height: 35%;
+  }
+  #aboutDescription {
+    height: 65%;
+    width: 98%;
+    margin: 2% 1% 1% 1%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+    #aboutText {
+      width: 88%;
+    }
+      #aboutText p {
+        padding-bottom: 2%;
+      }
+
+  #footer {
+    height: 4%;
+  }
+
+}

@@ -1,0 +1,157 @@
+<div class="content code" id="code">
+  <!--.excludeBullets contains images/gifs and descriptions (separate from bullet section)-->
+  <div class="code excludeBullets">
+    <div class="code" id="codeImages">
+      <!--Left and right "arrows" (triangle characters)-->
+      <div class="code left codeLeft">&nbsp;&#10633;</div>
+      <div class="code right codeRight">&#10634;&nbsp;</div>
+      <img class="code codeImage" src="code\portfolio.gif">
+      <img class="code codeImage" src="code\simon.gif">
+      <img class="code codeImage" src="code\tictactoe.gif">
+      <img class="code codeImage" src="code\pomodoro.gif">
+      <img class="code codeImage" src="code\calculator.gif">
+      <img class="code codeImage" src="code\weather.gif">
+      <img class="code codeImage" src="code\quote.gif">
+      <img class="code codeImage" src="code\wedding.gif">
+    </div>
+    <div class="code" id="codeDescriptions">
+
+      <!--Each div corresponds to image/gif above-->
+      <div class="code codeDescription">
+        <p><b>PORTFOLIO WEBSITE</b></p>
+        <p><b>Date Completed:</b> 05.20.2018</p>
+        <p><b>Links:</b> (Site address?) (GitHub?)</p>
+        <p><b>Description:</b> Portfolio website mainly for collecting coding exercises and providing context for them 
+          as well as showcasing a few art/craftworks to demonstrate design experience and personal style. 
+          Practical application of knowledge gathered thus far - a self-guided project.</p>
+        <p><b>Notes:</b> Did not find a satisfactory solution for custom cross-browser scrollbars.</p>
+        <p><b>Things Learned:</b> jQuery/AJAX Single page application<br>
+        Using Node local-web-server package for testing/debugging<br>
+        CSS Media Queries<br>
+        jQuery slideshows<br>
+        jQuery .eq()<br>
+        Favicon sizes and .ico files<br>
+        No cross-browser scrollbars?<br>
+        Drawing a repeat pattern<br>
+        Making GIFs<br>
+        Good practice: commenting in code</p>
+      </div>
+
+      <div class="code codeDescription">
+        <p><b>SIMON GAME</b></p>
+        <p><b>Date Completed:</b> 03.21.2018</p>
+        <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/build-a-simon-game" target="_blank">fCC Project Requirements</a>, 
+          <a href="https://codepen.io/evaplaysviolin/pen/vdvYxV" target="_blank">Completed Project</a></p>
+        <p><b>Description:</b> Create a Simon Says game up to 20 moves. 
+          Each button has a color and a tone associated with it upon “light up” or user input. 
+          On each successful round another move is added. 
+          Include option to turn on “strict” mode which will completely reset the sequence upon any mistake. 
+          If strict mode is not selected, a mistake will restart the existing sequence. 
+          There is a display that shows how many moves are currently in the sequence.</p>
+        <p><b>Notes:</b> Audio “clipping” observed, more noticeable in Firefox.<br>
+          Tones selected are a B half-diminished chord.</p>
+        <p><b>Things Learned:</b> HTML5 Audio<br>
+          CSS Transform<br>
+          jQuery .unbind()<br>
+          Good Practice: Naming all Timeouts</p>
+      </div>
+
+      <div class="code codeDescription">
+        <p><b>TIC TAC TOE</b></p>
+        <p><b>Date Completed:</b> 02.27.2018</p>
+        <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/build-a-tic-tac-toe-game" target="_blank">fCC Project Requirements</a>, 
+          <a href="https://codepen.io/evaplaysviolin/pen/zRjMmG" target="_blank">Completed Project</a></p>
+        <p><b>Description:</b> Create a Tic Tac Toe game where the user can choose to be player X or O and play against the computer. 
+          The game restarts on a win, loss, or draw.</p>
+        <p><b>Notes:</b> Elected to make computer moves random (avoiding a draw every time).</p>
+        <p><b>Things Learned:</b> JavaScript For/In statement<br>
+          JavaScript array.every()<br>
+          CSS Pointer Events (“none”)<br>
+          HTML ID’s cannot begin with a number (0-9)</p>
+      </div>
+
+      <div class="code codeDescription">
+        <p><b>POMODORO CLOCK</b></p>
+        <p><b>Date Completed:</b> 02.21.2018</p>
+        <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/build-a-pomodoro-clock" target="_blank">fCC Project Requirements</a>, 
+          <a href="https://codepen.io/evaplaysviolin/pen/pabwBw" target="_blank">Completed Project</a></p>
+        <p><b>Description:</b> Create a Pomodoro Clock, essentially a system of timers set to break up work/study tasks into manageable blocks, 
+          traditionally of twenty-five minutes with fifteen-minute breaks between them. 
+          After four whole “pomodoros” a longer break is suggested before restarting. 
+          This clock needs to be able to be restarted as well as allow the user to determine the length of the pomodoro.</p>
+        <p><b>Notes:</b> Elected to include a pause function and only allow four pomodoros before forcing full reset.</p>
+        <p><b>Things Learned:</b> CSS Flexbox<br>
+          Using Unicode characters<br>
+          JavaScript parseInt()<br>
+          Most things will break if the user just clicks like a madman everywhere possible<br>
+          How to draw a cute tomato</p>
+      </div>
+
+      <div class="code codeDescription">
+        <p><b>JAVASCRIPT CALCULATOR</b></p>
+        <p><b>Date Completed:</b> 02.03.2018</p>
+        <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/build-a-javascript-calculator" target="_blank">fCC Project Requirements</a>, 
+          <a href="https://codepen.io/evaplaysviolin/pen/ypMLyX" target="_blank">Completed Project</a></p> 
+        <p><b>Description:</b> Create a calculator using JavaScript. 
+          Needs to add, subtract, multiply, and/or divide as numbers are being entered and display the final amount when the = button is clicked. 
+          An additional requirement is to have a clear button for clearing any existing input in the calculator.</p>
+        <p><b>Notes:</b> While example calculator provided by fCC resets when numbers exceed space on screen, elected to resize and add scrolling capability. 
+          Ultimately still feels inelegant/clunky but preferable to not continuing calculations.</p>
+        <p><b>Things Learned:</b> CSS Grid Layout<br>
+          CSS user-select (none)<br>
+          JavaScript RegExp<br>
+          JavaScript eval() and +eval()<br>
+          Code organization: placing functions together at the end for reference</p>
+      </div>
+
+      <div class="code codeDescription">
+        <p><b>LOCAL WEATHER</b></p>
+        <p><b>Date Completed:</b> 07.07.2017</p>
+        <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/show-the-local-weather" target="_blank">fCC Project Requirements</a>, 
+          <a href="https://codepen.io/evaplaysviolin/pen/QpqVBw" target="_blank">Completed Project</a></p>
+        <p><b>Description:</b> Create a weather app that will display weather information for the user’s browser location, 
+          including an icon or display that indicates the kind of weather. 
+          Allows user to toggle between Celsius and Fahrenheit units.
+        <p><b>Notes:</b> A long waiting period to get the weather information, 
+          not sure if this is due to API and workarounds needed for this challenge, 
+          which was possibly written before browsers needed permission to access location?<br>
+          Most time was spent drawing the backgrounds for different weather situations.</p>
+        <p><b>Things Learned:</b> Basics of API usage + working with/around cross-origin requests<br>
+          Navigator.geolocation<br>
+          jQuery: .getJSON()<br>
+          jQuery: insert CSS background image<br>
+          JavaScript: setTimeout()</p>
+      </div>
+      
+      <div class="code codeDescription">
+        <p><b>RANDOM QUOTE MACHINE</b></p>
+        <p><b>Date Completed:</b> 03.12.2017</p>
+        <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/build-a-random-quote-machine" target="_blank">fCC Project Requirements</a>, 
+          <a href="https://codepen.io/evaplaysviolin/pen/LWxbyL" target="_blank">Completed Project</a></p>
+        <p><b>Description:</b> Create a page that will “generate” a random quote for the visitor. 
+          Includes a button to generate a new quote as well as one to put the current quote into a tweet (Twitter).</p>
+        <p><b>Notes:</b> Did not use a library for quotes.<br>
+          Fading items in and out for page transitions quite inelegant.</p>
+        <p><b>Things Learned:</b> jQuery .hide(), .fadeIn(), .fadeOut()<br>
+          jQuery .attr()<br>
+          JavaScript Math.floor(), Math.random()<br>
+          Font Awesome icons</p>
+      </div>
+
+      <div class="code codeDescription">
+        <p><b>WEDDING WEBSITE</b></p>
+        <p><b>Date Completed:</b> 02.04.2017</p>
+        <p><b>Link:</b> <a href="https://github.com/evaplaysviolin/cheers" target="_blank">GitHub Repository</a></p>
+        <p><b>Description:</b> Wedding website, the primary function of which was to gather RSVP’s from guests, 
+          but also to list important information like date, time, and location.</p>
+        <p><b>Notes:</b> Form required back-end scripting to collect user-submitted information - this was outsourced to then-fiancé.</p>
+        <p><b>Things Learned:</b> JavaScript dynamically adding/removing elements<br>
+          CSS navigation/menu “bar”<br>
+          CSS “sticky” footer<br>
+          Favicons</p>
+      </div>
+    
+    </div>
+  </div>
+  <div class="code bulletContainer" id="codeBullets"></div>
+</div>

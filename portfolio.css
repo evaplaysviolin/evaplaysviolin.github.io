@@ -1,0 +1,289 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arsenal, Palatino, serif;
+  font-size: 15px;
+  line-height: 160%;
+  color: #052228;
+  box-sizing: border-box;
+}
+
+/* Used this to more clearly see boxes while designing pages*/
+/** {
+  border: 1px dashed red;
+}*/
+
+html, body {
+  height: 100%;
+  /* Image is mostly transparent, can change background color */
+  background-image: url("background.png");
+  background-size: 28%;
+  background-color: #193b41;
+}
+  ::selection {
+    color: #deedef;
+    background: #193b41;
+  }
+  ::-moz-selection {
+    color: #deedef;
+    background: #193b41;
+  }
+
+#main {
+  height: 100%;
+}
+
+#menu {
+  height: 8%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+  .tab {
+    height: 60%;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: bold;
+    color: #deedef;
+    user-select: none;
+  }
+    .tab:hover {
+      text-shadow: 0px 0px 20px #deedef;
+    }
+
+/* Contains all changing content for "pages" */
+#container {
+  height: 88%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  .content {
+    height: 82%;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: rgb(222, 237, 239, 0.8);
+  }
+
+#home {
+  flex-direction: column;
+}
+  .home a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0c6d63;
+    user-select: none;
+  }
+    .home a:hover {
+      color: #ce9c80;
+    }
+  #introduction {
+    height: 76%;
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px double #5b2f03;
+    border-radius: 20px;
+    margin: 1%;
+  }
+    #introText {
+      height: 86%;
+      width: 76%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+      #centerHome, #centerHome a {
+        font-size: 17px;
+        user-select: auto;
+      }
+      #centerHome {
+        font-weight: bold;
+        align-self: center;
+      }
+      
+  #resume, #linkedin, #certificate, #links {
+    height: 6%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #links {
+    justify-content: space-around;
+    margin-bottom: 1%;
+  }
+    #links a {
+      width: 20%;
+      display: flex;
+      justify-content: center;
+    }
+
+#code, #art {
+  display: flex;
+  flex-direction: column;
+}
+  .excludeBullets {
+    height: 95%;
+    width: 98%;
+    display: flex;
+    margin-top: 1%;
+  }
+    #codeImages, #artImages {
+      height: 100%;
+      width: 47%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: auto;
+    }
+      .left, .right {
+        height: 60%;
+        width: 8%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        font-size: 40px;
+        z-index: 88;
+        border-radius: 15px;
+        color: #ce9c80;
+        user-select: none;
+      }
+        .left:hover, .right:hover {
+          background-color: rgba(255, 255, 255, 0.3);
+        }
+        /* Arrow/triangle placement to sides */
+        .left {
+          left: 0;
+          display: flex;
+          justify-content: flex-start;
+        }
+        .right {
+          right: 0;
+          display: flex;
+          justify-content: flex-end;
+        }
+      .codeImage, .artImage {
+        max-height: 100%;
+        max-width: 100%;
+        border-radius: 20px;
+      }
+    #codeDescriptions, #artDescriptions {
+      height: 100%;
+      width: 52%;
+      border: 3px double #5b2f03;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+    }
+      .codeDescription, .artDescription {
+        height: 90%;
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: center;
+      }
+        /* Padding to space out text */
+        .codeDescription p, .artDescription p {
+          padding: 1% 0;
+        }
+        .codeDescription a, .artDescription a {
+          color: #0c6d63;
+        }
+        /* Flexbox centering was interfering with overflow:auto, centering using margin-top and bottom instead */
+        .codeDescription p:first-child, .artDescription p:first-child {
+          margin-top: auto;
+        }
+        .codeDescription p:last-child, .artDescription p:last-child {
+          margin-bottom: auto;
+        }
+  .bulletContainer {
+    height: 5%;
+    width: 100%;
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    .bullet {
+      height: 10px;
+      width: 10px;
+      margin: 0px 5px;
+      display: inline-block;
+      background-color: #193b41;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+      .bullet:hover {
+        background-color: #ce9c80;
+      }
+      .current {
+        background-color: #0c6d63;
+      }
+
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+  #picContainer {
+    height: 35%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+  }
+    #picture {
+      max-height: 100%;
+      max-width: 100%;
+      border-radius: 50%;
+      border: 3px solid #5b2f03;
+    }
+  #aboutDescription {
+    height: 60%;
+    width: 98%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    border: 3px double #5b2f03;
+    border-radius: 20px;
+  }
+    #aboutText {
+      height: 90%;
+      width: 85%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+      #aboutText a {
+        text-decoration: none;
+      }
+      /* Padding between text */
+      #aboutText p {
+        margin: 1% 0;
+      }
+      /* Centering text with margins instead of flex properties */
+      #aboutText p:first-child {
+        margin-top: auto;
+      }
+      #aboutText p:last-child {
+        margin-bottom: auto;
+      }
+
+#footer {
+  height: 4%;
+}

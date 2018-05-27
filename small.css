@@ -1,0 +1,134 @@
+@media only screen and (max-width: 420px) {
+
+  /* Main changes: slideshow change to top/bottom vs. left/right, overflow containers, font sizes, container sizes, text padding */
+  
+  * {
+    font-size: 13px;
+  }
+  
+  html, body {
+    background-size: 80%;
+  }
+
+  #menu {
+    height: 5%;
+  }
+    .tab {
+      height: 100%;
+      width: 22%;
+      font-size: 15px;
+    }
+      .tab:hover {
+        text-shadow: none;
+      }
+
+  #container {
+    height: 92%;
+  }
+    .content {
+      height: 98%;
+      width: 92%;
+    }
+  
+  #introduction {
+    height: 76%;
+    width: 95%;
+    margin: 1%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+    #introText {
+      height: 95%;
+      width: 85%;
+    }
+      #introText p {
+        margin-bottom: 4%;
+      }
+      #centerHome {
+        text-align: center;
+      }
+      #centerHome, #centerHome a {
+        font-size: 15px;
+      }
+   #resume, #linkedin, #certificate {
+      height: 4%;
+      width: 100%;
+    }
+    #links {
+      height: 8%;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      padding-top: 1%;
+      margin-bottom: 0;
+    }
+      #links a {
+        width: 32%;
+        text-align: center;
+      }
+
+  .excludeBullets {
+    flex-direction: column;
+    margin-top: 2%;
+  }
+    #codeImages, #artImages {
+      height: 60%;
+      width: 100%;
+    }
+      .left, .right {
+        height: 75%;
+        width: 10%;
+        font-size: 30px;
+      }
+        .left:hover, .right:hover {
+          background-color: transparent;
+        }
+      .codeImage, .artImage {
+        max-height: 98%;
+        max-width: 95%;
+      }
+    #codeDescriptions, #artDescriptions {
+      height: 40%;
+      width: 95%;
+      align-self: center;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+      .codeDescription, .artDescription {
+        height: 85%;
+        width: 85%;
+      }
+        .codeDescription p, .artDescription p {
+          padding-bottom: 3%;
+        }
+  .bulletContainer {
+    padding: 0 3%;
+    justify-content: space-around;
+  }
+    .bullet {
+      height: 8px;
+      width: 8px;
+    }
+    .bullet:hover {
+      background-color: #0c6d63;
+    }
+  
+  #aboutDescription {
+    width: 95%;
+    margin: 2% 1% 1% 1%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+    #aboutText {
+      width: 85%;
+    }
+      #aboutText p {
+        padding-bottom: 8%;
+      }
+    
+  #footer {
+    height: 3%;
+  }
+
+}
