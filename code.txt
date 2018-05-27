@@ -20,7 +20,7 @@
       <div class="code codeDescription">
         <p><b>PORTFOLIO WEBSITE</b></p>
         <p><b>Date Completed:</b> 05.20.2018</p>
-        <p><b>Links:</b> (Site address?) (GitHub?)</p>
+        <p><b>Links:</b> <a href="https://github.com/evaplaysviolin/evaplaysviolin.github.io" target="_blank">GitHub Repository</a></p>
         <p><b>Description:</b> Portfolio website mainly for collecting coding exercises and providing context for them 
           as well as showcasing a few art/craftworks to demonstrate design experience and personal style. 
           Practical application of knowledge gathered thus far - a self-guided project.</p>
