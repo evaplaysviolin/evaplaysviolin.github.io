@@ -5,14 +5,14 @@
       <!--Left and right "arrows" (triangle characters)-->
       <div class="code left codeLeft">&nbsp;&#10633;</div>
       <div class="code right codeRight">&#10634;&nbsp;</div>
-      <img class="code codeImage" src="code\portfolio.gif">
-      <img class="code codeImage" src="code\simon.gif">
-      <img class="code codeImage" src="code\tictactoe.gif">
-      <img class="code codeImage" src="code\pomodoro.gif">
-      <img class="code codeImage" src="code\calculator.gif">
-      <img class="code codeImage" src="code\weather.gif">
-      <img class="code codeImage" src="code\quote.gif">
-      <img class="code codeImage" src="code\wedding.gif">
+      <img class="code codeImage" src="code-gifs\portfolio.gif">
+      <img class="code codeImage" src="code-gifs\simon.gif">
+      <img class="code codeImage" src="code-gifs\tictactoe.gif">
+      <img class="code codeImage" src="code-gifs\pomodoro.gif">
+      <img class="code codeImage" src="code-gifs\calculator.gif">
+      <img class="code codeImage" src="code-gifs\weather.gif">
+      <img class="code codeImage" src="code-gifs\quote.gif">
+      <img class="code codeImage" src="code-gifs\wedding.gif">
     </div>
     <div class="code" id="codeDescriptions">
 

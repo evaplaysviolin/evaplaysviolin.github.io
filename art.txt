@@ -3,13 +3,13 @@
     <div class="art" id="artImages">
       <div class="art left artLeft">&nbsp;&#10633;</div>
       <div class="art right artRight">&#10634;&nbsp;</div>
-      <img class="art artImage" src="art\contentment.png">
-      <img class="art artImage" src="art\rabbit.jpg">
-      <img class="art artImage" src="art\calligraphy.png">
-      <img class="art artImage" src="art\flowers.png">
-      <img class="art artImage" src="art\invitation.png">
-      <img class="art artImage" src="art\stationery.png">
-      <img class="art artImage" src="art\commissions.png">
+      <img class="art artImage" src="art-images\contentment.png">
+      <img class="art artImage" src="art-images\rabbit.jpg">
+      <img class="art artImage" src="art-images\calligraphy.png">
+      <img class="art artImage" src="art-images\flowers.png">
+      <img class="art artImage" src="art-images\invitation.png">
+      <img class="art artImage" src="art-images\stationery.png">
+      <img class="art artImage" src="art-images\commissions.png">
     </div>
     <div class="art" id="artDescriptions">
 
