@@ -68,7 +68,7 @@ html, body {
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    background-color: rgb(222, 237, 239, 0.8);
+    background-color: rgba(222, 237, 239, 0.8);
   }
 
 #home {
