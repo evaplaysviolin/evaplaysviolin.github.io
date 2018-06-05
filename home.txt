@@ -33,7 +33,7 @@
   <!--Links leading out to other profiles/information-->
   <div class="home" id="resume"><a href="resume.pdf" target="_blank">Resume</a></div>
   <div class="home" id="linkedin"><a href="https://www.linkedin.com/in/evaplaysviolin/" target="_blank">LinkedIn Profile</a></div>
-  <div class="home" id="certificate"><a href="https://www.freecodecamp.org/evaplaysviolin/front-end-certification" target="_blank">freeCodeCamp Front End Development Certificate</a></div>
+  <div class="home" id="certificate"><a href="https://www.freecodecamp.org/certification/evaplaysviolin/legacy-front-end" target="_blank">freeCodeCamp Front End Development Certificate</a></div>
   <div class="home" id="links"><a href="https://www.codecademy.com/Percipience" target="_blank">Codecademy Profile</a>
                                        <a href="https://www.freecodecamp.org/evaplaysviolin" target="_blank">freeCodeCamp Profile</a>
                                        <a href="https://github.com/evaplaysviolin" target="_blank">GitHub Profile</a></div>
