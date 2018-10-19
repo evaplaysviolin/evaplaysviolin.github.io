@@ -45,8 +45,8 @@
     <div class="code code-description-container">
 
       <div class="code code-description">
-        <p><b>Date Completed:</b> ENTER DATE HERE</p>
-        <p><b>Link:</b> <a href="#" target="_blank">GitHub Repository</a></p>
+        <p><b>Date Completed:</b> 10.2018</p>
+        <p><b>Link:</b> <a href="https://github.com/evaplaysviolin/evaplaysviolin.github.io" target="_blank">GitHub Repository</a></p>
         <p><b>Description:</b> Redesign of original portfolio website to make it more polished and 
           mobile-friendly, as well as update where needed to ES6 syntax.</p>
         <p><b>Notes:</b> Hover animations for menu not available on touchscreens or Firefox. 
@@ -61,7 +61,7 @@
 
       <div class="code code-description">
         <p><b>Date Completed:</b> 05.2018</p>
-        <p><b>Link:</b> <a href="https://github.com/evaplaysviolin/evaplaysviolin.github.io" target="_blank">GitHub Repository</a></p>
+        <p><b>Link:</b> <a href="https://github.com/evaplaysviolin/portfolio-v1" target="_blank">GitHub Repository</a></p>
         <p><b>Description:</b> Portfolio website mainly for collecting coding exercises and providing context for them 
           as well as showcasing a few art/craftworks to demonstrate design experience and personal style. 
           Practical application of knowledge gathered thus far - a self-guided project.</p>
