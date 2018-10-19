@@ -1,0 +1,125 @@
+/* Border for menu items */
+.border-container {
+  position: absolute;
+  height: 90%;
+  width: 90%;
+  top: 5%;
+  left: 5%;
+}
+  .border-circles {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    z-index: 10;
+    cursor: pointer;
+  }
+  .border-circles2, 
+  .border-circles3, 
+  .border-squares {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .border-circles2, 
+  .border-circles3 {
+    border-radius: 100%;
+  }
+    /* Six circles */
+    .border-circles::before, 
+    .border-circles::after, 
+    .border-circles2::before, 
+    .border-circles2::after, 
+    .border-circles3::before, 
+    .border-circles3::after {
+      position: absolute;
+      content: "";
+      height: 92%;
+      width: 92%;
+      display: block;
+      border-radius: 100%;
+      border: 5px double #193b41;
+    }
+    /* Circles numbered clockwise by position */
+    /*      1
+        6       2
+
+        5       3
+            4      */
+    /* Top (1) */
+    .border-circles::before {
+      top: 0;
+      left: 4%;
+      border-color: rgba(24, 56, 65, 0.3)
+        rgba(24, 60, 65, 0.3) 
+        rgba(24, 65, 59, 0.3)
+        rgba(24, 65, 52, 0.3);
+    }
+    /* Bottom (4) */
+    .border-circles::after {
+      transform: rotate(180deg);
+      bottom: 0;
+      left: 4%;
+      border-color: rgba(16, 84, 104, 0.3)
+        rgba(17, 102, 114, 0.3)
+        rgba(18, 104, 92, 0.3) 
+        rgba(17, 114, 84, 0.3);
+    }
+    /* Top left (6) */
+    .border-circles2::before {
+      transform: rotate(-60deg);
+      top: 1%;
+      left: 1%;
+      border-color: rgba(3, 97, 124, 0.3)
+        rgba(4, 121, 137, 0.3)
+        rgba(6, 132, 114, 0.3) 
+        rgba(5, 135, 95, 0.3);
+    }
+    /* Bottom right (3) */
+    .border-circles2::after {
+      transform: rotate(120deg);
+      bottom: 1%;
+      right: 1%;
+      border-color: rgba(21, 79, 96, 0.3)
+        rgba(22, 92, 102, 0.3)
+        rgba(21, 91, 81, 0.3)
+        rgba(22, 99, 75, 0.3);
+    }
+    /* Top right (2) */
+    .border-circles3::before {
+      transform: rotate(60deg);
+      top: 1%;
+      right: 1%;
+      border-color: rgba(23, 66, 79, 0.3)
+        rgba(23, 72, 79, 0.3)  
+        rgba(23, 76, 68, 0.3)
+        rgba(24, 81, 63, 0.3);
+    }
+    /* Bottom left (5) */
+    .border-circles3::after {
+      transform: rotate(-120deg);
+      left: 1%;
+      bottom: 1%;
+      border-color: rgba(11, 91, 114, 0.3)
+        rgba(11, 113, 127, 0.3)
+        rgba(14, 117, 102, 0.3) 
+        rgba(10, 127, 91, 0.3);
+    }
+    /* Two squares */
+    .border-squares::before, 
+    .border-squares::after {
+      position: absolute;
+      content: "";
+      height: 89%;
+      width: 89%;
+      display: block;
+      top: 5.5%;
+      left: 5.5%;
+      border: 1px solid rgb(230, 196, 190);
+    }
+    .border-squares::before {
+      transform: rotate(1.125deg);
+    }
+    .border-squares::after {
+      transform: rotate(-1.125deg);
+    }

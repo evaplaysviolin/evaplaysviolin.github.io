@@ -1,0 +1,219 @@
+/* See borders while designing pages */
+/* * {
+  border: 1px dashed red;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arsenal, Palatino, serif;
+  font-size: 100%;
+  color: #193b41;
+}
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../images/background.png"), 
+    linear-gradient(#193b41, #193b41 60%, #010f11);
+  background-size: 28%;
+  background-attachment: fixed;
+}
+
+/* Class preventing (hidden) content being briefly seen */
+#splash.display-none,
+#main.display-none,
+.overlay-container.display-none {
+  display: none;
+}
+
+/* Splash page */
+#splash {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 25;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  #splash-image {
+    height: 100%;
+    width: 100%;
+    max-height: 450px;
+    max-width: 1400px;
+    background-image: url("../images/splash/welcome-large.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+
+/* Different font (headers, etc.) */ 
+.questrial {
+  font-family: Questrial, Tahoma, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  color: #193b41;
+}
+
+/* Main content for layout */
+#main {
+  height: 100vh;
+  width: 100vw;
+}
+
+#header {
+  height: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+  #header-link {
+    color: rgb(222, 237, 239);
+    display: none;
+    cursor: pointer;
+  }
+
+/* Container for loading content into */
+#container {
+  position: relative;
+  height: 84%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+  .content,
+  .content-galleries {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    background-color: rgba(222, 237, 239, 0.7);
+  }
+  .content {
+    position: relative;
+    height: 95%;
+  }
+  .content-galleries {
+    position: absolute;
+    top: 5%;
+    min-height: 95%;
+    /* 100vh (main), 84% (container), 95% (content), 5% (padding) */
+    padding-top: calc(.05 * .95 * .84 * 100vh);
+    padding-bottom: calc(.05 * .95 * .84 * 100vh);
+  }
+
+#menu {
+  height: 90%;
+  width: 88%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+  .menu-links {
+    position: relative;
+    height: 0;
+    width: 25%;
+    padding-bottom: 25%;
+  }
+    .menu-labels {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+/* Transition page (between main menu and overlay) */
+#transition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  z-index: 15;
+  overflow: hidden;
+}
+  .overlay-open::before,
+  .overlay-close::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../images/background.png");
+    background-size: 28%;
+    background-attachment: fixed;
+  }
+
+/* Overlay pages */
+.overlay-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/background.png");
+  background-size: 28%;
+  background-color: #8c9da0;
+  background-attachment: fixed;
+  z-index: 20;
+}
+  .overlay {
+    width: 42%;
+  }
+    .overlay-padding {
+      padding: 6% 0;
+    }
+    .overlay-header {
+      padding: 6% 0;
+      background-color: rgba(222, 237, 239, 0.7);
+      text-align: center;
+    }
+    .overlay-content {
+      padding: 0 10% 8% 10%;
+      background-color: rgba(222, 237, 239, 0.7);
+    }
+
+/* Overlay animations */
+.overlay-open {
+  animation: open 0.5s ease-out forwards;
+}
+@keyframes open {
+  0% { 
+    height: 100%;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #8c9da0;
+  }
+}
+.overlay-close {
+  animation: close 0.5s ease-out forwards;
+}
+@keyframes close {
+  0% {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #8c9da0;
+  }
+  100% {
+    height: 100%;
+    width: 0;
+    top: 0;
+  }
+}

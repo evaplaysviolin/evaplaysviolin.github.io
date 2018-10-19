@@ -1,0 +1,58 @@
+<div id="profiles-container">
+  <div class="profiles-item linkedin">
+    <div class="profiles-icon">
+      <span class="fab fa-linkedin"></span>
+    </div>
+    <div class="profiles-label">
+      LinkedIn
+      <a class="profiles-links" href="https://www.linkedin.com/in/evaplaysviolin/" target="_blank"></a>
+    </div>
+  </div>
+  <div class="profiles-item email">
+    <div class="profiles-icon">
+      <span class="far fa-envelope"></span>
+    </div>
+    <div class="profiles-label">
+      evaplaysviolin@gmail.com
+      <a class="profiles-links" href="mailto:evaplaysviolin@gmail.com"></a>
+    </div>
+  </div>
+  <div class="profiles-item freecodecamp">
+    <div class="profiles-icon">
+      <span class="fab fa-free-code-camp"></span>
+    </div>
+    <div class="profiles-label">
+      freeCodeCamp
+      <a class="profiles-links" href="https://www.freecodecamp.org/evaplaysviolin" target="_blank"></a>
+    </div>
+  </div>
+  <div class="profiles-item github">
+    <div class="profiles-icon">
+      <span class="fab fa-github"></span>
+    </div>
+    <div class="profiles-label">
+      GitHub
+      <a class="profiles-links" href="https://github.com/evaplaysviolin" target="_blank"></a>
+    </div>
+  </div>
+  <div class="profiles-item instagram">
+    <div class="profiles-icon">
+      <span class="fab fa-instagram"></span>
+    </div>
+    <div class="profiles-label">
+      Instagram
+      <a class="profiles-links" href="https://www.instagram.com/evaplaysviolin/" target="_blank"></a>
+    </div>
+  </div>
+  <div class="profiles-item codecademy">
+    <div class="profiles-icon">
+      <span class="codecademy-icon">
+        <span class="codecademy-icon2"></span>
+      </span>
+    </div>
+    <div class="profiles-label">
+      Codecademy
+      <a class="profiles-links" href="https://www.codecademy.com/Percipience" target="_blank"></a>
+    </div>
+  </div>
+</div>

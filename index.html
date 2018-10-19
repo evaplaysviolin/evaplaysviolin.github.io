@@ -3,14 +3,20 @@
 <html>
 
   <head>
-    <link href="portfolio.css" type="text/css" rel="stylesheet">
-    <link href="small.css" type="text/css" rel="stylesheet">
-    <link href="small-landscape.css" type="text/css" rel="stylesheet">
-    <link href="medium.css" type="text/css" rel="stylesheet">
-    <link href="medium-landscape.css" type="text/css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Mfizz -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-mfizz/2.4.1/font-mfizz.css">
+
+    <link href="css-files/portfolio.css" type="text/css" rel="stylesheet">
+    <link href="css-files/menu-item-borders.css" type="text/css" rel="stylesheet">
+    <link href="css-files/overlays.css" type="text/css" rel="stylesheet">
+    <link href="css-files/code-art-pages.css" type="text/css" rel="stylesheet">
+    <link href="css-files/hover-query.css" type="text/css" rel="stylesheet">
+    <link href="css-files/media-queries.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arsenal" type="text/css" rel="stylesheet">
-    <link href="favicon.ico" type="image/x-icon" rel="icon">
-    <script src="spa-github-pages.js"></script>
+    <link href="images/favicon.ico" type="image/x-icon" rel="icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="portfolio.js"></script>
     <meta charset="UTF-8"/>
@@ -19,24 +25,46 @@
   </head>
 
   <body>
+
+    <!-- Splash page -->
+    <div id="splash" class="display-none">
+      <div id="splash-image"></div>
+    </div>
+    
+    <!-- Main menu -->
     <div id="main">
-
-      <div id="menu">
-        <div class="tab home">h o m e</div>
-        <div class="tab code">c o d e</div>
-        <div class="tab art">a r t</div>
-        <div class="tab about">a b o u t</div>
+      <!-- Header placeholder for navigation link on code and art pages -->
+      <div id="header">
+        <div id="header-link" class="questrial">return to home</div>
       </div>
-
       <div id="container">
-
-        <!--Content from each "page" goes here, located in .txt files-->
-
+        <!-- Content from .txt files is loaded here -->
       </div>
+    </div>
 
-      <!--Empty space for bottom of page-->
-      <div id="footer"></div>
+    <!-- Transition element for overlays -->
+    <div id="transition"></div>
 
+    <!-- Overlay pages -->
+    <div class="overlay-container display-none">
+      <!-- Close button -->
+      <div class="close-container">
+        <div class="close-button">
+          <div class="close-x"></div>
+        </div>
+      </div>
+      <div class="overlay">
+        <div class="overlay-padding"></div>
+        <!-- Header/title area -->
+        <div class="overlay-header questrial">
+          <!-- Overlay header is loaded through JS -->
+        </div>
+        <!-- Content area -->
+        <div class="overlay-content">
+          <!-- Content from .txt files is loaded here -->
+        </div>
+        <div class="overlay-padding"></div>
+      </div>
     </div>
 
   </body>

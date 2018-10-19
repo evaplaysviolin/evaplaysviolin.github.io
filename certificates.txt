@@ -1,0 +1,61 @@
+<div id="cert-fcc-link">
+  <a href="https://learn.freecodecamp.org/" target="_blank">freeCodeCamp</a>
+</div>
+<div class="cert-fcc-divs">
+  <a href="https://www.freecodecamp.org/certification/evaplaysviolin/responsive-web-design" 
+    target="_blank">
+    Responsive Web Design
+  </a>
+  <p>
+    AUGUST 2018. Approximately 300 hours covering HTML/HTML5, 
+    CSS (including Flexbox and Grid), 
+    applied visual design and accessibility, 
+    responsive web design principles, and five final projects.
+  </p>
+</div>
+<div class="cert-fcc-divs">
+  <a href="https://www.freecodecamp.org/certification/evaplaysviolin/javascript-algorithms-and-data-structures" 
+    target="_blank">
+    JavaScript Algorithms and Data Structures
+  </a>
+  <p>
+    DECEMBER 2017 / JUNE 2018. Approximately 300 hours covering basic and intermediate JavaScript, 
+    regular expressions, debugging, data structures and algorithm scripting, 
+    object oriented and functional programming, and five final projects, 
+    which were completed as part of the old “legacy” front-end curriculum. 
+    New curriculum material associated with this certificate will be completed 
+    as soon as possible (includes exercises for ES6).
+  </p>
+</div>
+<div class="cert-fcc-divs">
+  <a href="https://www.freecodecamp.org/certification/evaplaysviolin/legacy-front-end" 
+    target="_blank">
+    Front End Development (Legacy)
+  </a>
+  <p>
+    MARCH 2018. freeCodeCamp revamped their curriculum in May of 2018, 
+    and while the previous projects all culminated in 
+    one main certificate each for front-end and back-end, 
+    the new curriculum splits major categories apart into their own mini-programs. 
+    This “legacy” certificate is for completion of the old front-end curriculum. 
+  </p>
+</div>
+
+<div id="cert-codecademy-link">
+  <a href="https://www.codecademy.com/catalog/subject/all" 
+    target="_blank">
+    Completed Codecademy Courses
+  </a>
+</div>
+  <ul id="cert-codecademy-list">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>Sass</li>
+    <li>JavaScript & Introduction to JavaScript</li>
+    <li>Introduction to jQuery</li>
+    <li>Angular JS 1.X</li>
+    <li>ReactJS Part I & II</li>
+    <li>Responsive Design</li>
+    <li>Git</li>
+    <li>Command Line</li>
+  </ul>

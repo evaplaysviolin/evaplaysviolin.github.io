@@ -1,45 +1,85 @@
-<div class="content code" id="code">
-  <!--.excludeBullets contains images/gifs and descriptions (separate from bullet section)-->
-  <div class="code excludeBullets">
-    <div class="code" id="codeImages">
-      <!--Left and right "arrows" (triangle characters)-->
-      <div class="code left codeLeft">&nbsp;&#10633;</div>
-      <div class="code right codeRight">&#10634;&nbsp;</div>
-      <img class="code codeImage" src="code-gifs\portfolio.gif">
-      <img class="code codeImage" src="code-gifs\simon.gif">
-      <img class="code codeImage" src="code-gifs\tictactoe.gif">
-      <img class="code codeImage" src="code-gifs\pomodoro.gif">
-      <img class="code codeImage" src="code-gifs\calculator.gif">
-      <img class="code codeImage" src="code-gifs\weather.gif">
-      <img class="code codeImage" src="code-gifs\quote.gif">
-      <img class="code codeImage" src="code-gifs\wedding.gif">
+<div class="content-galleries" id="code">
+  <div class="code left code-left">
+    <span class="fas fa-chevron-left"></span>
+  </div>
+  <div class="code right code-right">
+    <span class="fas fa-chevron-right"></span>
+  </div>
+  <div class="code slideshow-container">
+    <div class="code code-titles">
+      <div class="code code-title">PORTFOLIO WEBSITE (2.0)</div>
+      <div class="code code-title">PORTFOLIO WEBSITE (1.0)</div>
+      <div class="code code-title">SIMON GAME</div>
+      <div class="code code-title">TIC TAC TOE</div>
+      <div class="code code-title">POMODORO CLOCK</div>
+      <div class="code code-title">JAVASCRIPT CALCULATOR</div>
+      <div class="code code-title">LOCAL WEATHER</div>
+      <div class="code code-title">RANDOM QUOTE MACHINE</div>
+      <div class="code code-title">WEDDING WEBSITE</div>
     </div>
-    <div class="code" id="codeDescriptions">
+    <div class="code code-slides">
+      <img class="code code-slide" src="images\code-slides\portfolio2.gif" 
+        alt="examples of scrolling through/navigating portfolio site (2.0), including possible mobile views in portrait or landscape">
+      <img class="code code-slide" src="images\code-slides\portfolio.gif" 
+        alt="examples of scrolling through/navigating portfolio site (1.0), including possible mobile views in portrait or landscape">
+      <img class="code code-slide" src="images\code-slides\simon.gif" 
+        alt="example of playing 'simon says' game for a few moves, including demonstration of power button/reset">
+      <img class="code code-slide" src="images\code-slides\tictactoe.gif" 
+        alt="example of playing, and winning, tic tac toe game against computer opponent">
+      <img class="code code-slide" src="images\code-slides\pomodoro.gif" 
+        alt="example of using pomodoro clock, showing transition to breaks and the message displayed at the end of four full pomodoros">
+      <img class="code code-slide" src="images\code-slides\calculator.gif" 
+        alt="example of using calculator, clear button, and scroll-able display if content is too long">
+      <img class="code code-slide" src="images\code-slides\weather.gif" 
+        alt="example of using local weather app, including changing units between fahrenheit and celsius">
+      <img class="code code-slide" src="images\code-slides\quote.gif" 
+        alt="example of using random quote generator and showing functionality of tweet button">
+      <img class="code code-slide" src="images\code-slides\wedding.gif" 
+        alt="example of navigating wedding/rsvp website and showing user input form functionality">
+    </div>
+    <div id="code-bullets" class="code slideshow-bullets"></div>
+    <div class="code slideshow-show show-controls">
+      <p class="code slideshow-more show-more">+ tell me more +</p>
+      <p class="code slideshow-less show-less">- tell me less -</p>
+    </div>
+    <div class="code code-description-container">
 
-      <!--Each div corresponds to image/gif above-->
-      <div class="code codeDescription">
-        <p><b>PORTFOLIO WEBSITE</b></p>
-        <p><b>Date Completed:</b> 05.20.2018</p>
+      <div class="code code-description">
+        <p><b>Date Completed:</b> ENTER DATE HERE</p>
+        <p><b>Link:</b> <a href="#" target="_blank">GitHub Repository</a></p>
+        <p><b>Description:</b> Redesign of original portfolio website to make it more polished and 
+          mobile-friendly, as well as update where needed to ES6 syntax.</p>
+        <p><b>Notes:</b> Hover animations for menu not available on touchscreens or Firefox. 
+          Doesn’t support screens smaller than an iPhone 4 or larger than certain aspect ratio (long and narrow).</p>
+        <p><b>Things Learned:</b> CSS Animations<br>
+          CSS Icons<br>
+          Creating cookies<br>
+          Making a splash page<br>
+          Media queries with aspect ratios<br>
+          Media queries with pointer types</p> 
+      </div>
+
+      <div class="code code-description">
+        <p><b>Date Completed:</b> 05.2018</p>
         <p><b>Link:</b> <a href="https://github.com/evaplaysviolin/evaplaysviolin.github.io" target="_blank">GitHub Repository</a></p>
         <p><b>Description:</b> Portfolio website mainly for collecting coding exercises and providing context for them 
           as well as showcasing a few art/craftworks to demonstrate design experience and personal style. 
           Practical application of knowledge gathered thus far - a self-guided project.</p>
         <p><b>Notes:</b> Did not find a satisfactory solution for custom cross-browser scrollbars.</p>
         <p><b>Things Learned:</b> jQuery/AJAX Single page application<br>
-        Using Node local-web-server package for testing/debugging<br>
-        CSS Media Queries<br>
-        jQuery slideshows<br>
-        jQuery .eq()<br>
-        Favicon sizes and .ico files<br>
-        No cross-browser scrollbars?<br>
-        Drawing a repeat pattern<br>
-        Making GIFs<br>
-        Good practice: commenting in code</p>
+          Using Node local-web-server package for testing/debugging<br>
+          CSS Media Queries<br>
+          jQuery slideshows<br>
+          jQuery .eq()<br>
+          Favicon sizes and .ico files<br>
+          No cross-browser scrollbars?<br>
+          Drawing a repeat pattern<br>
+          Making GIFs<br>
+          Good practice: commenting in code</p> 
       </div>
 
-      <div class="code codeDescription">
-        <p><b>SIMON GAME</b></p>
-        <p><b>Date Completed:</b> 03.21.2018</p>
+      <div class="code code-description">
+        <p><b>Date Completed:</b> 03.2018</p>
         <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/build-a-simon-game" target="_blank">fCC Project Requirements</a>, 
           <a href="https://codepen.io/evaplaysviolin/pen/vdvYxV" target="_blank">Completed Project</a></p>
         <p><b>Description:</b> Create a Simon Says game up to 20 moves. 
@@ -56,9 +96,8 @@
           Good Practice: Naming all Timeouts</p>
       </div>
 
-      <div class="code codeDescription">
-        <p><b>TIC TAC TOE</b></p>
-        <p><b>Date Completed:</b> 02.27.2018</p>
+      <div class="code code-description">
+        <p><b>Date Completed:</b> 02.2018</p>
         <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/build-a-tic-tac-toe-game" target="_blank">fCC Project Requirements</a>, 
           <a href="https://codepen.io/evaplaysviolin/pen/zRjMmG" target="_blank">Completed Project</a></p>
         <p><b>Description:</b> Create a Tic Tac Toe game where the user can choose to be player X or O and play against the computer. 
@@ -70,9 +109,8 @@
           HTML ID’s cannot begin with a number (0-9)</p>
       </div>
 
-      <div class="code codeDescription">
-        <p><b>POMODORO CLOCK</b></p>
-        <p><b>Date Completed:</b> 02.21.2018</p>
+      <div class="code code-description">
+        <p><b>Date Completed:</b> 02.2018</p>
         <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/build-a-pomodoro-clock" target="_blank">fCC Project Requirements</a>, 
           <a href="https://codepen.io/evaplaysviolin/pen/pabwBw" target="_blank">Completed Project</a></p>
         <p><b>Description:</b> Create a Pomodoro Clock, essentially a system of timers set to break up work/study tasks into manageable blocks, 
@@ -87,9 +125,8 @@
           How to draw a cute tomato</p>
       </div>
 
-      <div class="code codeDescription">
-        <p><b>JAVASCRIPT CALCULATOR</b></p>
-        <p><b>Date Completed:</b> 02.03.2018</p>
+      <div class="code code-description"> 
+        <p><b>Date Completed:</b> 02.2018</p>
         <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/build-a-javascript-calculator" target="_blank">fCC Project Requirements</a>, 
           <a href="https://codepen.io/evaplaysviolin/pen/ypMLyX" target="_blank">Completed Project</a></p> 
         <p><b>Description:</b> Create a calculator using JavaScript. 
@@ -104,9 +141,8 @@
           Code organization: placing functions together at the end for reference</p>
       </div>
 
-      <div class="code codeDescription">
-        <p><b>LOCAL WEATHER</b></p>
-        <p><b>Date Completed:</b> 07.07.2017</p>
+      <div class="code code-description">
+        <p><b>Date Completed:</b> 07.2017</p>
         <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/show-the-local-weather" target="_blank">fCC Project Requirements</a>, 
           <a href="https://codepen.io/evaplaysviolin/pen/QpqVBw" target="_blank">Completed Project</a></p>
         <p><b>Description:</b> Create a weather app that will display weather information for the user’s browser location, 
@@ -122,10 +158,9 @@
           jQuery: insert CSS background image<br>
           JavaScript: setTimeout()</p>
       </div>
-      
-      <div class="code codeDescription">
-        <p><b>RANDOM QUOTE MACHINE</b></p>
-        <p><b>Date Completed:</b> 03.12.2017</p>
+
+      <div class="code code-description">
+        <p><b>Date Completed:</b> 03.2017</p>
         <p><b>Links:</b> <a href="https://www.freecodecamp.org/challenges/build-a-random-quote-machine" target="_blank">fCC Project Requirements</a>, 
           <a href="https://codepen.io/evaplaysviolin/pen/LWxbyL" target="_blank">Completed Project</a></p>
         <p><b>Description:</b> Create a page that will “generate” a random quote for the visitor. 
@@ -138,9 +173,8 @@
           Font Awesome icons</p>
       </div>
 
-      <div class="code codeDescription">
-        <p><b>WEDDING WEBSITE</b></p>
-        <p><b>Date Completed:</b> 02.04.2017</p>
+      <div class="code code-description"> 
+        <p><b>Date Completed:</b> 02.2017</p>
         <p><b>Link:</b> <a href="https://github.com/evaplaysviolin/cheers" target="_blank">GitHub Repository</a></p>
         <p><b>Description:</b> Wedding website, the primary function of which was to gather RSVP’s from guests, 
           but also to list important information like date, time, and location.</p>
@@ -150,8 +184,7 @@
           CSS “sticky” footer<br>
           Favicons</p>
       </div>
-    
+
     </div>
   </div>
-  <div class="code bulletContainer" id="codeBullets"></div>
 </div>

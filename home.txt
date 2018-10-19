@@ -1,40 +1,85 @@
-<div class="content home" id="home">
-  <div class="home" id="introduction">
-    <div class="home" id="introText">
-      <!--Work history in a nutshell-->
-      <p id="centerHome">Thanks for stopping by! Any questions, comments, or hellos can be directed to 
-        <a href="mailto:evaplaysviolin@gmail.com">evaplaysviolin@gmail.com</a>.</p>
-
-      <p><b>Current year:</b> Continued self-study for front-end web development. 
-        Recently acquired a certificate from freeCodeCamp. 
-        As always, working on “commissions” from friends and family.</p>
-
-      <p><b>Last year:</b> Event planning for (own) wedding. 
-        Coordination of all aspects, including creation of wedding website, which was the first project undertaken shortly after deciding to study web development. 
-        “What’s a server side language?”</p>
-
-      <p><b>Two years ago:</b> Second half of two-woman team responsible for planning 10,000-participant medical congress in Guadalajara. 
-        Two years of Spanish in high school came in somewhat useful. 
-        Upon return, immediately commenced preparation for next meeting in Barcelona.</p>
-
-      <p><b>Four years ago:</b> Began event management position. 
-        100% work-from-home (new and exciting). 
-        Learned to spell and pronounce “ophthalmology” in a hurry.</p>
-
-      <p><b>Five years ago:</b> Purchasing Department, AKA “The people who stock your coffee and cannot believe how quickly it is consumed.” 
-        Stocking 20+ essentially independent offices (not just for coffee) was an exercise in maintaining both productivity and sanity.</p>
-
-      <p><b>Six years ago:</b> Despite not knowing anything about wine, was hired to handle administrative work for wine certification exams. 
-        Annual conference was an experience in watching sommeliers get absolutely sloshed together through consecutive wine tasting sessions.</p>
-
-      <p><b>Twenty something years ago:</b> Born, with no prior work experience.</p>
+<div class="content" id="home">
+  <div id="menu">
+    <div class="menu-links">
+      <div class="border-container">
+        <a class="border-circles resume" href="resume.pdf" target="_blank">
+          <div class="border-circles2"></div>
+          <div class="border-circles3"></div>
+        </a>
+        <div class="border-squares"></div>
+      </div>
+      <!-- It's weird-looking, but it's French, right? -->
+      <div class="menu-labels questrial">résumé</div>
+    </div>
+    <div class="menu-links">
+      <div class="border-container">
+        <div class="border-circles code-gallery">
+          <div class="border-circles2"></div>
+          <div class="border-circles3"></div>
+        </div>
+        <div class="border-squares"></div>
+      </div>
+      <div class="menu-labels questrial">code gallery</div>
+    </div>
+    <div class="menu-links">
+      <div class="border-container">
+        <div class="border-circles art-gallery">
+          <div class="border-circles2"></div>
+          <div class="border-circles3"></div>
+        </div>
+        <div class="border-squares"></div>
+      </div>
+      <div class="menu-labels questrial">art gallery</div>
+    </div>
+    <div class="menu-links">
+      <div class="border-container">
+        <div class="border-circles overlay-action certificates">
+          <div class="border-circles2"></div>
+          <div class="border-circles3"></div>
+        </div>
+        <div class="border-squares"></div>
+      </div>
+      <div class="menu-labels questrial">certificates</div>
+    </div>
+    <div class="menu-links">
+      <div class="border-container">
+        <div class="border-circles overlay-action skills">
+          <div class="border-circles2"></div>
+          <div class="border-circles3"></div>
+        </div>
+        <div class="border-squares"></div>
+      </div>
+      <div class="menu-labels questrial">skills</div>
+    </div>
+    <div class="menu-links">
+      <div class="border-container">
+        <div class="border-circles overlay-action about-work">
+          <div class="border-circles2"></div>
+          <div class="border-circles3"></div>
+        </div>
+        <div class="border-squares"></div>
+      </div>
+      <div class="menu-labels questrial">about (work)</div>
+    </div>
+    <div class="menu-links">
+      <div class="border-container">
+        <div class="border-circles overlay-action about-me">
+          <div class="border-circles2"></div>
+          <div class="border-circles3"></div>
+        </div>
+        <div class="border-squares"></div>
+      </div>
+      <div class="menu-labels questrial">about (me)</div>
+    </div>
+    <div class="menu-links">
+      <div class="border-container">
+        <div class="border-circles overlay-action profiles">
+          <div class="border-circles2"></div>
+          <div class="border-circles3"></div>
+        </div>
+        <div class="border-squares"></div>
+      </div>
+      <div class="menu-labels questrial">eva online</div>
     </div>
   </div>
-  <!--Links leading out to other profiles/information-->
-  <div class="home" id="resume"><a href="resume.pdf" target="_blank">Resume</a></div>
-  <div class="home" id="linkedin"><a href="https://www.linkedin.com/in/evaplaysviolin/" target="_blank">LinkedIn Profile</a></div>
-  <div class="home" id="certificate"><a href="https://www.freecodecamp.org/certification/evaplaysviolin/legacy-front-end" target="_blank">freeCodeCamp Front End Development Certificate</a></div>
-  <div class="home" id="links"><a href="https://www.codecademy.com/Percipience" target="_blank">Codecademy Profile</a>
-                                       <a href="https://www.freecodecamp.org/evaplaysviolin" target="_blank">freeCodeCamp Profile</a>
-                                       <a href="https://github.com/evaplaysviolin" target="_blank">GitHub Profile</a></div>
 </div>

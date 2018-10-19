@@ -1,0 +1,864 @@
+/* All portrait orientation sizes */
+/* Applies different splash, rectangular menu items, 
+   background for slideshow arrows, adjusts container sizes */
+@media only screen and (min-width: 320px) and (max-width: 1100px) and (orientation: portrait) {
+  /* Change splash image to "mobile" version */
+  #splash {
+    background-color: #cbcbcb;
+  }
+    #splash-image {
+      max-height: 560px;
+      max-width: 500px;
+      background-image: url("../images/splash/welcome-small.png");
+    }
+  /* Adjust container, content, menu sizes */
+  #container {
+    height: 86%;
+  }
+    .content,
+    .content-galleries {
+      width: 90%;
+    }
+    .content {
+      height: 98%;
+    }
+    .content-galleries {
+      top: 2%;
+      min-height: 98%;
+      /* 100vh (main), 86% (container), 98% (content), 5% (padding) */
+      padding-top: calc(.05 * .98 * .86 * 100vh);
+      padding-bottom: calc(.05 * .98 * .86 * 100vh); 
+    }
+  /* Change menu item borders to fit screen - no circles */
+  .border-circles {
+    border-radius: 0;
+    transform: rotate(0deg);
+    transition: none;
+  }
+    .border-circles::before, 
+    .border-circles::after {
+      border-radius: 0;
+    }
+    .border-circles2, 
+    .border-circles3 {
+      display: none;
+    }
+  /* Calculate heights of menu items to fit inside menu container */
+  /* 100vh (main), 86% (container), 98% (content), 90% (menu),
+     25% (1/4 of space for each row) */
+  .menu-links {
+    width: 50%;
+    padding-bottom: calc(.25 * .9 * .98 * .86 * 100vh);
+  }
+  /* Widen overlay container */
+  .overlay {
+    width: 80%;
+  }
+    /* Adjust size of close button */
+    .close-container {
+      height: 10vw;
+      width: 10vw;
+    }
+  /* Add white background to slideshow arrows */
+  .code-left span,
+  .code-right span,
+  .art-left span,
+  .art-right span {
+    padding: 8% 8%;
+    background-image: radial-gradient(
+      rgba(222, 237, 239, 0.5) 0%,
+      rgba(222, 237, 239, 0.4) 16%,
+      rgba(222, 237, 239, 0.3) 32%,
+      rgba(222, 237, 239, 0.2) 48%,
+      rgba(222, 237, 239, 0.1) 64%,
+      transparent 80%);
+    z-index: 5;
+  }
+}
+
+/* Mobile & Tablet (small), portrait, or Mobile, landscape */
+/* Applies two column format for skills & profiles pages */
+@media only screen and (min-width: 320px) and (max-width: 700px) and (orientation: portrait),
+       only screen and (min-width: 480px) and (max-width: 1100px) and (orientation: landscape) {
+  /* Split icons into two columns and resize */
+  /* At smallest width, email address doesn't fit :( */
+  .skills-item,
+  .profiles-item {
+    width: 50%;
+  }
+  /* Bottom-margin 0 for last two items -
+     skills:last and profiles:last & (2) already set */
+  .skills-item:nth-last-child(2) {
+    margin-bottom: 0;
+  }
+  /* Reset to 8% margin for third last child for profiles */
+  .profiles-item:nth-last-child(3) {
+    margin-bottom: 8%;
+  }  
+}
+
+/* Mobile, portrait or landscape */
+/* Adjusts icon sizes for skills & profiles pages */
+@media only screen and (min-width: 320px) and (max-width: 500px) and (orientation: portrait),
+       only screen and (min-width: 480px) and (max-width: 800px) and (orientation: landscape) {
+  /* Adjust size of icons for skills & profiles */
+  .skills-icon,
+  .profiles-icon {
+    font-size: 4rem;
+  }
+    .skills-icon i {
+      font-size: 3.1rem;
+    }
+    .profiles-links {
+      padding-top: 5.5rem;
+    }
+  /* Adjust Ps icon to match FA icons */
+  .photoshop {
+    width: 3.85rem;
+  }
+    .photoshop::before {
+      height: 3.85rem;
+      border: 4px solid #0c6d63;
+    }
+    /* "Ps" */
+    .photoshop::after {
+      top: 15%;
+      left: 25%;
+      font-size: 2rem;
+    }
+  /* Adjust codecademy icon to match FA icons */
+  .codecademy-icon {
+    height: 4rem;
+    width: 4.5rem;
+  }
+    /* Left box */
+    .codecademy-icon::before {
+      height: 3.6rem;
+      width: 3rem;
+      border: 5px solid #0c6d63;
+    }
+    /* Right bottom line */
+    .codecademy-icon::after {
+      width: 1.125rem;
+      border-bottom: 5px solid #0c6d63;
+    }
+    /* "c" */
+    .codecademy-icon2::before {
+      top: 10%;
+      font-size: 2.75rem;
+    }
+}
+
+/* Tablet (small), portrait or landscape */
+/* Adjusts icon sizes for skills & profiles pages */
+@media only screen and (min-width: 501px) and (max-width: 700px) and (orientation: portrait), 
+       only screen and (min-width: 804px) and (max-width: 1100px) and (orientation: landscape) {
+  .skills-icon,
+  .profiles-icon {
+    font-size: 4.75rem;
+  }
+    .skills-icon i {
+      font-size: 3.8rem;
+    }
+    .profiles-links {
+      padding-top: 6.5rem;
+    }
+  /* Adjust Ps icon to match FA icons */
+  .photoshop {
+    width: 4.75rem;
+  }
+    .photoshop::before {
+      height: 4.75rem;
+      border: 5px solid #0c6d63;
+    }
+    /* "Ps" */
+    .photoshop::after {
+      top: 15%;
+      left: 24%;
+      font-size: 2.5rem;
+    }
+  /* Adjust codecademy icon to match FA icons */
+  .codecademy-icon {
+    height: 4.75rem;
+    width: 5.25rem;
+  }
+    /* Left box */
+    .codecademy-icon::before {
+      height: 4.25rem;
+      width: 3.5rem;
+      border: 6px solid #0c6d63;
+    }
+    /* Right bottom line */
+    .codecademy-icon::after {
+      width: 1.4rem;
+      border-bottom: 6px solid #0c6d63;
+    }
+    /* "c" */
+    .codecademy-icon2::before {
+      top: 12%;
+      font-size: 3.25rem;
+    }
+}
+
+/* Mobile & Tablet (small), portrait */
+/* Adjusts padding and related for overlays */
+@media only screen and (min-width: 320px) and (max-width: 700px) and (orientation: portrait) { 
+  /* Adjust padding (add more) for overlays */
+  .overlay-padding {
+    padding: 8% 0;
+  }
+  .overlay-content {
+    padding: 0 6% 10% 6%;
+  }
+  /* Adjust padding for about-work */
+  .about-work-divs {
+    margin-top: 4%;
+  }
+    .about-work-show {
+      padding-top: 4%;
+    }
+    .about-work-additional {
+      margin-top: 4%;
+    }
+  /* Adjust picture size, padding, and text-align for about-me */
+  #about-me-img {
+    width: 90%;
+  }
+  #about-me-sections {
+    margin-top: 8%;
+    text-align: left;
+  }
+    .about-me-likes {
+      margin: 0 5% 3% 5%;
+    }
+    #about-me-text,
+    #about-me-joke {
+      margin-top: 8%;
+    }
+    #about-me-text {
+      text-align: justify;
+    }
+  .add-margin {
+    margin-bottom: 15%;
+  }
+}
+
+/* Mobile & Tablet (small), landscape */
+/* Adjusts padding for about-work */
+@media only screen and (min-width: 480px) and (max-width: 1100px) and (orientation: landscape) {
+  .about-work-divs {
+    margin-top: 3%;
+  }
+    .about-work-show {
+      padding-top: 3%;
+    }
+    .about-work-additional {
+      margin-top: 3%;
+    }
+}
+
+/* Mobile & Tablet (small) or aspect ratio of Really Long + Narrow, landscape */
+/* Applies rectangular menu item styles and 3-2-3 format */
+@media only screen and (min-width: 480px) and (max-width: 1100px) and (orientation: landscape),
+       only screen and (min-width: 480px) and (max-height: 700px) and (min-aspect-ratio: 11/6) and (orientation: landscape) {
+  #menu {
+    width: 98%;
+  }
+  .menu-links {
+    display: flex;
+    justify-content: center;
+  }
+   .menu-links:nth-child(4),
+    .menu-links:nth-child(5) {
+      width: 34%;
+    } 
+  /* Change menu borders to fit screen - no circles */
+  .border-circles {
+    border-radius: 0;
+    transform: rotate(0deg);
+    transition: none;
+  }
+    .border-circles::before, 
+    .border-circles::after {
+      border-radius: 0;
+    }
+    .border-circles2, 
+    .border-circles3 {
+      display: none;
+    }
+}
+
+/* Mobile, portrait */
+@media only screen and (min-width: 320px) and (max-width: 500px) and (orientation: portrait) {
+  /* Reduce font size */
+  * {
+    font-size: 97%;
+  }
+  /* Enlarge background */
+  body {
+    background-size: 70%;
+  }
+  /* Adjust font size */ 
+  .questrial {
+    font-size: 1.2rem;
+  }
+  #menu {
+    width: 98%;
+  }
+  .menu-links {
+    display: flex;
+    justify-content: center;
+  }
+    /* Wrap label onto two lines */
+    div.menu-labels {
+      width: 40%;
+      font-size: 1rem;
+      text-align: center;
+    }
+  /* Adjust transition/overlay pages, match main background size */
+  .overlay-open::before,
+  .overlay-close::before {
+    background-size: 70%;
+  }
+  .overlay-container {
+    background-size: 70%;
+  }
+    .overlay-header {
+      padding: 8% 0;
+    }
+    /* Wrapped text is indented */
+    #cert-codecademy-list {
+      list-style-position: outside;
+    }
+  /* Adjust position of X, not perfectly centered :( */
+  .close-x {
+    height: 100%;
+    width: 100%;
+  }
+    .close-x::before, 
+    .close-x::after {
+      top: 32.75%;
+    }
+  /* Adjust padding for certificates */
+  #cert-fcc-link,
+  #cert-codecademy-link {
+    margin-bottom: 6%;
+  }
+  #cert-codecademy-link {
+    margin-top: 4%;
+  }
+  .cert-fcc-divs {
+    padding-bottom: 6%;
+  }
+    .cert-fcc-divs a {
+      margin-bottom: 6%;
+    }
+  /* Adjust padding and heights for galleries */
+  .code-left,
+  .code-right,
+  .art-left,
+  .art-right {
+    width: 12%;
+    font-size: 2.5rem;
+  }
+  /* 100vh (main), 86% (container),
+     98% (content),
+     90% (subtract 10% (5% padding x 2)) */
+  /* All heights (-titles, -slides, etc.) should add up to 100% */
+  .code-titles,
+  .art-titles {
+    height: calc(.1 * .9 * .98 * .86 * 100vh);
+    font-size: 1.175rem;
+  }
+  .code-slides,
+  .art-slides {
+    height: calc(.6 * .9 * .98 * .86 * 100vh);
+  }
+  /* Wrap bullets, two lines (narrow screen) */
+  /* Width calculated with vw instead of vh to avoid issues with long screens */
+  /* 100vw (main), 100vw - 24% (slideshow arrows 12% x 2), 
+     90% (content), 100% of remaining space (1, unneeded) */
+  .slideshow-bullets {
+    height: calc(.18 * .9 * .98 * .86 * 100vh);
+    width: calc(.9 * .76 * 100vw);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+    .bullet {
+      height: 12px;
+      width: 12px;
+      margin: 0px 7%;
+    }
+  .slideshow-show {
+    height: calc(.12 * .9 * .98 * .86 * 100vh);
+    width: calc(.9 * .76 * 100vw);
+  }
+  .code-description-container,
+  .art-description-container {
+    width: calc(.9 * .76 * 100vw);
+  }
+    .code-description p,
+    .art-description p {
+      padding: 3.25%;
+    }
+}
+
+/* Tablet (small), portrait */
+@media only screen and (min-width: 501px) and (max-width: 700px) and (orientation: portrait) {
+  /* Adjust background size */
+  body {
+    background-size: 85%;
+  }
+  /* Adjust font size */ 
+  .questrial {
+    font-size: 1.3rem;
+  }
+  /* Adjust transition/overlay pages, match main background size */
+  .overlay-open::before,
+  .overlay-close::before {
+    background-size: 85%;
+  }
+  .overlay-container {
+    background-size: 85%;
+  }
+  /* Adjust position of X, not perfectly centered...but better */
+  .close-x {
+    height: 94%;
+    width: 94%;
+  }
+    .close-x::before, 
+    .close-x::after {
+      top: 38%;
+    }
+  /* Adjust padding for certificates */
+  #cert-fcc-link,
+  #cert-codecademy-link {
+    margin-bottom: 4%;
+  }
+  #cert-codecademy-link {
+    margin-top: 2.5%;
+  }
+  .cert-fcc-divs {
+    padding-bottom: 4%;
+  }
+    .cert-fcc-divs a {
+      margin-bottom: 4%;
+    }
+  /* Adjust padding and heights for galleries */
+  .code-left,
+  .code-right,
+  .art-left,
+  .art-right {
+    width: 12%;
+    font-size: 3rem;
+  }
+  /* 100vh (main), 86% (container),
+     98% (content),
+     90% (subtract 10% (5% padding x 2)) */
+  /* All heights (-titles, -slides, etc.) should add up to 100% */
+  .code-titles,
+  .art-titles {
+    height: calc(.08 * .9 * .98 * .86 * 100vh);
+  }
+  .code-slides,
+  .art-slides {
+    height: calc(.66 * .9 * .98 * .86 * 100vh);
+  }
+  /* Wrap bullets, two lines (narrow screen) */
+  /* Width calculated with vw instead of vh to avoid issues with long screens */
+  /* 100vw (main), 100vw - 24% (slideshow arrows 12% x 2), 
+     90% (content), 100% of remaining space (1, unneeded) */
+  .slideshow-bullets {
+    height: calc(.15 * .9 * .98 * .86 * 100vh);
+    width: calc(.9 * .76 * 100vw);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+    .bullet {
+      height: 12px;
+      width: 12px;
+      margin: 0px 8%;
+    }
+  .slideshow-show {
+    height: calc(.11 * .9 * .98 * .86 * 100vh);
+    width: calc(.9 * .76 * 100vw);
+  }
+  .code-description-container,
+  .art-description-container {
+    width: calc(.9 * .76 * 100vw);
+  }
+    .code-description p,
+    .art-description p {
+      padding: 2.5%;
+    }
+}
+
+/* Tablet (large), portrait */
+@media only screen and (min-width: 701px) and (max-width: 1100px) and (orientation: portrait) {
+  /* Adjust background size */
+  body {
+    background-size: 70%;
+  }
+  .overlay-open::before,
+  .overlay-close::before {
+    background-size: 70%;
+  }
+  .overlay-container {
+    background-size: 70%;
+  }
+    .overlay-content {
+      padding: 0 6% 8% 6%;
+    }
+      .close-x::before, 
+      .close-x::after {
+        top: 39%;
+      }
+  /* If arrow overlaps content, keep arrow on top */
+  .code-left span,
+  .code-right span,
+  .art-left span,
+  .art-right span {
+    z-index: 5;
+  }
+  /* 100vh (main), 86% (container),
+      98% (content),
+      90% (subtract 10% (5% padding x 2)) */
+  /* All heights (-titles, -slides, etc.) should add up to 100% */
+  .code-titles,
+  .art-titles {
+    height: calc(.09 * .9 * .98 * .86 * 100vh);
+  }
+  .code-slides,
+  .art-slides {
+    height: calc(.72 * .9 * .98 * .86 * 100vh);
+  }
+  /* 100vw (main), 100vw - 20% (slideshow arrows 10% x 2), 
+     90% (content), 100% of remaining space (1, unneeded) */
+  .slideshow-bullets {
+    height: calc(.09 * .9 * .98 * .86 * 100vh);
+    width: calc(.9 * .8 * 100vw);
+  }
+  .slideshow-show {
+    height: calc(.1 * .9 * .98 * .86 * 100vh);
+    width: calc(.9 * .8 * 100vw);
+  }
+  .code-description-container,
+  .art-description-container {
+    width: calc(.9 * .8 * 100vw);
+  }
+  .add-margin {
+    margin-bottom: 10%;
+  }
+}
+
+/* Mobile, landscape */
+/* Why does the iPhone X exist? */
+@media only screen and (min-width: 480px) and (max-width: 800px) and (orientation: landscape) {
+  /* Reduce font size */
+  * {
+    font-size: 97%;
+  }
+  /* Adjust background size */
+  body {
+    background-size: 32%;
+  }
+  /* Adjust font size */ 
+  .questrial {
+    font-size: 1rem;
+  }
+  #header {
+    height: 7%;
+  }
+  .content,
+  .content-galleries {
+    width: 85%;
+  }
+  .content {
+    height: 97%;
+  }
+  .content-galleries {
+    top: 3%;
+    min-height: 97%;
+    /* 100vh (main), 84% (container), 97% (content), 4% (padding) */
+    padding-top: calc(.04 * .97 * .84 * 100vh);
+    padding-bottom: calc(.04 * .97 * .84 * 100vh);
+  }
+  /* Wrap label onto two lines */
+  div.menu-labels {
+    width: 40%;
+    font-size: 1rem;
+    text-align: center;
+  }
+  /* 100vh (main), 84% (container), 97% (content), 90% (menu),
+     33% (~1/3 of container for each row) */
+  .menu-links {
+    width: 33.3%;
+    padding-bottom: calc(.33 * .9 * .97 * .86 * 100vh);
+  }
+  .overlay-open::before,
+  .overlay-close::before {
+    background-size: 32%;
+  }
+  .overlay-container {
+    background-size: 32%;
+  }
+   /* Widen overlay container */
+   .overlay {
+    width: 65%;
+  }
+    .overlay-content {
+      padding: 0 5% 10% 5%;
+    }
+    /* Adjust size of close button */
+    .close-container {
+      height: 11vw;
+      width: 11vw;
+    }
+      /* Adjust position of X, not perfectly centered :( */
+      .close-x {
+        height: 75%;
+        width: 75%;
+      }
+        .close-x::before, 
+        .close-x::after {
+          top: 37.5%;
+        }
+  /* Adjust padding for certificates */
+  #cert-fcc-link,
+  #cert-codecademy-link {
+    margin-bottom: 3%;
+  }
+  #cert-codecademy-link {
+    margin-top: 2%;
+  }
+  .cert-fcc-divs {
+    padding-bottom: 3%;
+  }
+    .cert-fcc-divs a {
+      margin-bottom: 3%;
+    }
+  .about-me-likes {
+    margin: 0 6% 1% 6%;
+  }
+  /* Adjust picture size, padding, and text-align for about-me */
+  #about-me-img {
+    width: 70%;
+  }
+  #about-me-sections {
+    margin-top: 6%;
+  }
+    .about-me-likes {
+      margin: 0 5% 3% 5%;
+    }
+    #about-me-text,
+    #about-me-joke {
+      margin-top: 6%;
+    }
+  .code-left,
+  .code-right,
+  .art-left,
+  .art-right {
+    font-size: 3rem;
+  }
+  /* 100vh (main), 84% (container),
+     97% (content),
+     92% (subtract 8% (4% padding x 2)) */
+  /* All heights (-titles, -slides, etc.) should add up to 100% */
+  .code-titles,
+  .art-titles {
+    height: calc(.08 * .92 * .97 * .84 * 100vh);
+    font-size: 1rem;
+  }
+  .code-slides,
+  .art-slides {
+    height: calc(.76 * .92 * .97 * .84 * 100vh);
+  }
+  /* 100vw (main), 100vw - 20% (slideshow arrows 10% x 2), 
+     85% (content), 90% of remaining */
+  .slideshow-bullets {
+    height: calc(.08 * .92 * .97 * .84 * 100vh);
+    width: calc(.9 * .85 * .8 * 100vw);
+  }
+  .slideshow-show {
+    height: calc(.08 * .92 * .97 * .84 * 100vh);
+    width: calc(.9 * .85 * .8 * 100vw);
+  }
+  .code-description-container,
+  .art-description-container {
+    width: calc(.9 * .85 * .8 * 100vw);
+  }
+  .add-margin {
+    margin-bottom: 6%;
+  }
+}
+
+/* Tablet (small), landscape */
+@media only screen and (min-width: 801px) and (max-width: 1100px) and (orientation: landscape) {
+  /* Adjust background size */
+  body {
+    background-size: 40%;
+  }
+  /* Adjust font size */ 
+  .questrial {
+    font-size: 1.2rem;
+  }
+  #header {
+    height: 8%;
+  }
+  .content,
+  .content-galleries {
+    width: 86%;
+  }
+  .content {
+    height: 98%;
+  }
+  .content-galleries {
+    top: 2%;
+    min-height: 98%;
+    /* 100vh (main), 84% (container), 98% (content)*/
+    padding-top: calc(.04 * .98 * .84 * 100vh);
+    padding-bottom: calc(.04 * .98 * .84 * 100vh);
+  }
+  /* 100vh (main), 84% (container), 98% (content), 90% (menu),
+     33% (~1/3 of container for each row) */
+  .menu-links {
+    width: 33.3%;
+    padding-bottom: calc(.33 * .9 * .98 * .84 * 100vh);
+  }
+  .overlay-open::before,
+  .overlay-close::before {
+    background-size: 40%;
+  }
+  .overlay-container {
+    background-size: 40%;
+  }
+    /* Widen overlay container */
+    .overlay {
+      width: 60%;
+    }
+    /* Adjust size of close button */
+    .close-container {
+      height: 10vw;
+      width: 10vw;
+    }
+      /* Adjust size of X */
+      .close-x {
+        height: 68%;
+        width: 68%;
+      }
+  /* Adjust picture size, padding, and text-align for about-me */
+  #about-me-img {
+    width: 56%;
+  }
+  .about-me-likes {
+    margin: 0 6% 2% 6%;
+  }
+  .code-left,
+  .code-right,
+  .art-left,
+  .art-right {
+    font-size: 3.5rem;
+  }
+  /* 100vh (main), 84% (container),
+     98% (content),
+     92% (subtract 8% (4% padding x 2)) */
+  /* All heights (-titles, -slides, etc.) should add up to 100% */
+  .code-titles,
+  .art-titles {
+    height: calc(.07 * .92 * .98 * .84 * 100vh);
+    font-size: 1.125rem;
+  }
+  .code-slides,
+  .art-slides {
+    height: calc(.78 * .92 * .98 * .84 * 100vh);
+  }
+  /* 100vw (main), 100vw - 20% (slideshow arrows 10% x 2), 
+     86% (content), 90% of remaining */
+  .slideshow-bullets {
+    height: calc(.07 * .92 * .98 * .84 * 100vh);
+    width: calc(.9 * .86 * .8 * 100vw);
+  }
+  .slideshow-show {
+    height: calc(.08 * .92 * .98 * .84 * 100vh);
+    width: calc(.9 * .86 * .8 * 100vw);
+  }
+  .code-description-container,
+  .art-description-container {
+    width: calc(.9 * .86 * .8 * 100vw);
+  }
+  .add-margin {
+    margin-bottom: 7%;
+  }
+}
+
+/* Tablet (large) & Desktop (small), landscape */
+@media only screen and (min-width: 1101px) and (max-width: 1500px) and (orientation: landscape) {
+   /* Adjust background size */
+   body {
+    background-size: 42%;
+  }
+  /* Adjust font size */ 
+  .questrial {
+    font-size: 1.4rem;
+  }
+  .content,
+  .content-galleries {
+    width: 82%;
+  }
+  #menu {
+    width: 95%;
+  }
+  .overlay-open::before,
+  .overlay-close::before {
+    background-size: 42%;
+  }
+  .overlay-container {
+    background-size: 42%;
+  }
+    /* Widen overlay container */
+    .overlay {
+      width: 50%;
+    }
+      .close-x::before, 
+      .close-x::after {
+        top: 38%;
+      }
+      /* Email address on profiles overlay larger than container at smallest */
+      .overlay-content {
+        padding: 0 8% 8% 8%;
+      }
+   /* Adjust picture size, padding, and text-align for about-me */
+   #about-me-img {
+    width: 52%;
+  }
+  .about-me-likes {
+    margin: 0 10% 1% 10%;
+  }
+  .add-margin {
+    margin-bottom: 6%;
+  }
+}
+
+/* Aspect ratio of Really Long + Narrow, landscape */
+/* Applies sizing for rectangular menu items */
+@media only screen and (min-width: 1101px) and (max-height: 700px) and (min-aspect-ratio: 11/6) and (orientation: landscape) {
+  /* 100vh (main), 84% (container), 95% (content), 90% (menu),
+     33% (~1/3 of container for each row) */
+  .menu-links {
+    width: 33.3%;
+    padding-bottom: calc(.33 * .9 * .95 * .84 * 100vh);
+  }
+  /* Change calculation for width items, use vw instead */
+  /* 100vw (main), 100vw - 20% (slideshow arrows 10% x 2), 
+     70% (content), 80% of remaining space */
+  .slideshow-bullets {
+    width: calc(.8 * .7 * .8 * 100vw);
+  }
+  .slideshow-show {
+    width: calc(.8 * .7 * .8 * 100vw);
+  }
+  .code-description-container,
+  .art-description-container {
+    width: calc(.8 * .7 * .8 * 100vw);
+  }
+}

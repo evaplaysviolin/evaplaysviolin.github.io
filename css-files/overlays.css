@@ -1,0 +1,249 @@
+/* Certificates */
+#cert-fcc-link,
+#cert-codecademy-link {
+  font-size: 110%;
+  font-weight: bold;
+  margin-bottom: 2%;
+  text-align: center;
+}
+#cert-codecademy-link {
+  margin-top: 3%;
+}
+  #cert-fcc-link a,
+  #cert-codecademy-link a {
+    text-decoration: none;
+  }
+.cert-fcc-divs {
+  padding-bottom: 3%;
+}
+  .cert-fcc-divs a {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 3%;
+    color: #0c6d63;
+  }
+#cert-codecademy-list {
+  list-style-position: inside;
+  list-style-type: circle;
+  padding-left: 6%;
+}
+
+/* Skills and Profiles (two overlays!) */
+#skills-container,
+#profiles-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; 
+}
+  .skills-item,
+  .profiles-item {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8%;
+  }
+  .skills-item:last-child,
+  .profiles-item:last-child,
+  .profiles-item:nth-last-child(2),
+  .profiles-item:nth-last-child(3) {
+    margin-bottom: 0;
+  }
+    .skills-icon,
+    .profiles-icon {
+      width: 100%;
+      font-size: 6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+      .skills-icon span,
+      .skills-icon i,
+      .profiles-icon span {
+        color: #0c6d63;
+      }
+      .skills-icon i {
+        font-size: 4.75rem;
+      }
+    .skills-label,
+    .profiles-label {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      color: #193b41;
+      margin-top: 4%;
+    }
+      .profiles-links {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding-top: 7.75rem;
+        text-decoration: none;
+      }
+
+  /* Photoshop icon */
+  .photoshop {
+    position: relative;
+    display: inline-block;
+    width: 6rem;
+  }
+    .photoshop::before {
+      content: "";
+      display: block;
+      height: 6rem;
+      border: 6px solid #0c6d63;
+    }
+    .photoshop::after {
+      position: absolute;
+      top: 12%;
+      left: 22%;
+      content: "Ps";
+      font-size: 3.5rem;
+      font-weight: bold;
+    }
+
+  /* Codecademy icon */
+  .codecademy-icon {
+    position: relative;
+    display: inline-block;
+    height: 6rem;
+    width: 6.5rem;
+  }
+    .codecademy-icon::before {
+      position: absolute;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 5.5rem;
+      width: 4.5rem;
+      border: 7px solid #0c6d63;
+    }
+    .codecademy-icon::after {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      content: "";
+      width: 1.5rem;
+      border-bottom: 7px solid #0c6d63;
+    }
+    .codecademy-icon2 {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+      .codecademy-icon2::before {
+        position: absolute;
+        top: 8%;
+        left: 14%;
+        content: "c";
+        font-size: 4.5rem;
+        font-weight: bold;
+      }
+
+/* About (work) */
+.about-work-divs {
+  margin-top: 2%;
+}
+.about-work-divs:first-child {
+  margin-top: 0;
+}
+  .about-work-show {
+    padding-top: 2%;
+    font-size: 0.8rem;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+  }
+    .about-work-less {
+      display: none;
+    }
+  .about-work-additional {
+    display: none;
+    margin-top: 2%;
+  }
+  .about-work-sections {
+    font-weight: bold;
+  }
+
+/* About (me) */
+#about-me-img-container {
+  text-align: center;
+}
+  #about-me-img {
+    border-radius: 100%;
+    width: 45%;
+  }
+#about-me-sections {
+  margin-top: 4%;
+  text-align: justify;
+}
+  .about-me-likes {
+    margin: 0 12% 1% 12%;
+  }
+    .about-me-likes a {
+      text-decoration: none;
+    }
+  #about-me-text,
+  #about-me-joke {
+    margin-top: 4%;
+  }
+  #about-me-text {
+    text-align: justify;
+  }
+  #about-me-joke {
+    text-align: center;
+  }
+
+/* Close button for overlay */
+.close-container {
+  position: fixed;
+}
+.close-button, 
+.close-x, 
+.close-x::before, 
+.close-x::after {
+  position: absolute;
+}
+.close-container, 
+.close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.close-container {
+  height: 6.5vw;
+  width: 6.5vw;
+  top: 0;
+  right: 0;
+}
+  .close-button {
+    height: 86%;
+    width: 86%;
+    border-radius: 15%;
+    background-color: rgba(25, 59, 65, 0.4);
+  }
+  .close-button:active {
+    transform: translate(2%, 2%);
+  }
+    .close-x {
+      height: 60%;
+      width: 60%;
+    }
+      .close-x::before, 
+      .close-x::after {
+        top: 40%;
+        content: "";
+        height: 0;
+        width: 100%;
+        display: block;
+        border: 5px double rgba(25, 59, 65, 0.8);
+      }
+      .close-x::before {
+        transform: rotate(45deg);
+      }
+      .close-x::after {
+        transform: rotate(-45deg);
+      }

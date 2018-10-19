@@ -1,0 +1,135 @@
+<div class="about-work-divs">
+  <span class="about-work-sections">Current year: </span>
+  Continued self-study for front-end web development and 
+  now searching for employment. 
+  Recently acquired certificates from freeCodeCamp. 
+  As always, working on “commissions” from friends and family.
+</div>
+<div class="about-work-show show-controls">
+  <p class="about-work-more show-more">+ tell me more +</p>
+  <p class="about-work-less show-less">- tell me less -</p>
+</div>
+<div class="about-work-additional">
+  freeCodeCamp added new material to their curriculum and 
+  changed their certificate structure - currently working on 
+  completing those courses. Also looking into possible options 
+  for co-programming instead of continuing to work solo. 
+  Upcoming project: website for a local childcare facility.
+</div>
+
+<div class="about-work-divs">
+  <span class="about-work-sections">Last year: </span>
+  Event planning for (own) wedding. 
+  Coordination of all aspects, including creation of wedding website, 
+  which was the first project undertaken shortly after deciding to 
+  study web development. “What’s a server side language?”
+</div>
+<div class="about-work-show show-controls">
+  <p class="about-work-more show-more">+ tell me more +</p>
+  <p class="about-work-less show-less">- tell me less -</p>
+</div>
+<div class="about-work-additional">
+  The website ended up being really simple but functional, 
+  which is what’s really important, right? Then-fiancé had to code 
+  the bit where information submitted through the RSVP form 
+  was recorded in a Google Sheet (above my abilities at the time). 
+  Everything else (decor, food, stationery, budget) was kept track of 
+  in a spreadsheet. Spreadsheets for everyone! 
+</div>
+
+<div class="about-work-divs">
+  <span class="about-work-sections">Two years ago: </span>
+  Second half of two-woman team responsible for 
+  planning 10,000-participant medical congress in Guadalajara. 
+  Two years of Spanish in high school came in somewhat useful. 
+  Upon return, immediately commenced preparation 
+  for next meeting in Barcelona.
+</div>
+<div class="about-work-show show-controls">
+  <p class="about-work-more show-more">+ tell me more +</p>
+  <p class="about-work-less show-less">- tell me less -</p>
+</div>
+<div class="about-work-additional">
+  The congress involved corralling hundreds of 
+  ophthalmologists (eye surgeons) and getting them to work together 
+  to compose a program for other ophthalmologists, 
+  including sessions, symposia, and special presentations, 
+  while we organized the information in our event management software 
+  and maintained communications with all participants.
+</div>
+
+<div class="about-work-divs">
+  <span class="about-work-sections">Four years ago: </span>
+  Began event management position. 
+  100% work-from-home (new and exciting). Learned to spell and 
+  pronounce “ophthalmology” in a hurry.
+</div>
+<div class="about-work-show show-controls">
+  <p class="about-work-more show-more">+ tell me more +</p>
+  <p class="about-work-less show-less">- tell me less -</p>
+</div>
+<div class="about-work-additional">
+  Event management is another beast entirely, 
+  with all the moving parts and people involved. 
+  Organization is key, followed closely by communication. 
+  Things can change at the drop of a hat and everyone has to be prepared. 
+  Working from home was a learning experience - getting responses 
+  from other coworkers is simply a different process when 
+  the entire team is working remotely.
+</div>
+
+<div class="about-work-divs">
+  <span class="about-work-sections">Five years ago: </span>
+  Purchasing Department, AKA “The people who stock your coffee 
+  and cannot believe how quickly it is consumed.” 
+  Stocking 20+ essentially independent offices (not just for coffee) 
+  was an exercise in maintaining both productivity and sanity.
+</div>
+<div class="about-work-show show-controls">
+  <p class="about-work-more show-more">+ tell me more +</p>
+  <p class="about-work-less show-less">- tell me less -</p>
+</div>
+<div class="about-work-additional">
+  Floor five needs extra boxes of printer paper every two weeks 
+  as opposed to floor three which only requires refreshing every month, 
+  and this particular office on floor nine must have this 
+  specific type of coffee creamer instead of the usual kind. 
+  Spreadsheets are king, and every order has a mile of paperwork behind it. 
+  Learn fast or be faced with disgruntled employees who need more binder clips, 
+  pink highlighters, or compostable forks...
+</div>
+
+<div class="about-work-divs">
+  <span class="about-work-sections">Six years ago: </span>
+  Despite not knowing anything about wine, 
+  was hired to handle administrative work for 
+  wine certification exams. Annual conference was an experience in 
+  watching sommeliers get absolutely sloshed together 
+  through consecutive wine tasting sessions.
+</div>
+<div class="about-work-show show-controls">
+  <p class="about-work-more show-more">+ tell me more +</p>
+  <p class="about-work-less show-less">- tell me less -</p>
+</div>
+<div class="about-work-additional">
+  Add scheduled exam to the calendar, print exam materials including 
+  packets for each individual testee, mail out, receive back (hopefully), 
+  grade (sounds impressive but it was just a Scantron machine), 
+  input results, create result letters with certificates (and a pin!) 
+  for the passers, rinse and repeat. 
+  Still don’t know anything about wine or spirits though.
+</div>
+
+<div class="about-work-divs">
+  <span class="about-work-sections">Twenty something years ago: </span>
+  Born, with no prior work experience.
+</div>
+<div class="about-work-show show-controls">
+  <p class="about-work-more show-more">+ tell me more +</p>
+  <p class="about-work-less show-less">- tell me less -</p>
+</div>
+<div class="about-work-additional">
+  Rumor has it that as a toddler my first steps were because 
+  the stroller had just been stolen, so that’s pretty much proof 
+  of my quick learning abilities.
+</div>

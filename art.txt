@@ -1,21 +1,59 @@
-<div class="content art" id="art">
-  <div class="art excludeBullets">
-    <div class="art" id="artImages">
-      <div class="art left artLeft">&nbsp;&#10633;</div>
-      <div class="art right artRight">&#10634;&nbsp;</div>
-      <img class="art artImage" src="art-images\contentment.png">
-      <img class="art artImage" src="art-images\rabbit.jpg">
-      <img class="art artImage" src="art-images\calligraphy.png">
-      <img class="art artImage" src="art-images\flowers.png">
-      <img class="art artImage" src="art-images\invitation.png">
-      <img class="art artImage" src="art-images\stationery.png">
-      <img class="art artImage" src="art-images\commissions.png">
+<div class="content-galleries" id="art">
+  <div class="art left art-left">
+    <span class="fas fa-chevron-left"></span>
+  </div>
+  <div class="art right art-right">
+    <span class="fas fa-chevron-right"></span>
+  </div>
+  <div class="art slideshow-container">
+    <div class="art art-titles">
+      <div class="art art-title">CALLIGRAPHY & LETTERING</div>
+      <div class="art art-title">"CONTENTMENT" PAPERCUT</div>
+      <div class="art art-title">COMMISSIONS</div>
+      <div class="art art-title">RABBIT?</div>
+      <div class="art art-title">FAKE FLOWERS</div>
+      <div class="art art-title">WEDDING INVITATION</div>
+      <div class="art art-title">WEDDING STATIONERY</div>
     </div>
-    <div class="art" id="artDescriptions">
+    <div class="art art-slides">
+      <img class="art art-slide" src="images\art-slides\calligraphy.png" 
+        alt="4-image collage: wedding calligraphed sign, geometric monkey drawing, metallic lettered HP quote, purple calligraphed lyrics.">
+      <img class="art art-slide" src="images\art-slides\contentment.png" 
+        alt="chinese-inspired papercut on red paper between clear acrylic of chinese phrase very roughly translating to 'contentment'">
+      <img class="art art-slide" src="images\art-slides\commissions.png" 
+        alt="4-image collage: diner-style menu, B&W cowgirl graphic logo, childcare t-shirt logo, calligraphed wedding seating chart">
+      <img class="art art-slide" src="images\art-slides\rabbit.png" 
+        alt="B&W line drawing of rabbit, made up of concentric circles (mandala-type)">
+      <img class="art art-slide" src="images\art-slides\flowers.png" 
+        alt="4-image collage: backdrop with felt flowers, felt flowers close-up, coffee filter flower wreaths, filter flowers close-up">
+      <img class="art art-slide" src="images\art-slides\invitation.png" 
+        alt="wedding invitation with calligraphy/lettering, 'stained glass' background, florals in corners">
+      <img class="art art-slide" src="images\art-slides\stationery.png" 
+        alt="4-image collage: save the date with lettering & florals, calligraphed invitation envelopes (2 pics), thank you note template">
+    </div>
+    <div id="art-bullets" class="art slideshow-bullets"></div>
+    <div class="art slideshow-show show-controls">
+      <p class="art slideshow-more show-more">+ tell me more +</p>
+      <p class="art slideshow-less show-less">- tell me less -</p>
+    </div>
+    <div class="art art-description-container">
 
-      <div class="art artDescription">
-        <p><b>“CONTENTMENT” PAPER CUT</b></p>
-        <p><b>Date Completed:</b> 05.08.2018</p>
+      <div class="art art-description">
+        <p><b>Dates Completed (clockwise):</b> 05.2018, 07.2018, 07.2016, 08.2018</p>
+        <p><b>Descriptions (clockwise):</b> One of four wedding reception signs 
+          on clear acrylic commissioned by a friend, 
+          colorful geometric doodle of my zodiac animal,  
+          lettered quote from Harry Potter, 
+          trying new brush pens with calligraphy of lyrics to “Stand By Me”.</p>
+        <p><b>Materials:</b> Paper<br>
+          Acrylic panes<br>
+          Prismacolor color pencils<br>
+          Pentel Fude Touch brush pens<br>
+          Uni-ball Signo 0.8mm in gold</p>
+      </div>
+
+      <div class="art art-description">
+        <p><b>Date Completed:</b> 05.2018</p>
         <p><b>Description:</b> Hand-cut with an X-Acto, inspired by traditional Chinese papercutting. 
           Vaguely commissioned by my mother, who just wanted “some art that is red”.</p>
         <p><b>Materials:</b> Paper<br>
@@ -25,30 +63,28 @@
           Standoff bolts</p>
       </div>
 
-      <div class="art artDescription">
-        <p><b>RABBIT?</b></p>
-        <p><b>Date Completed:</b> 06.06.2016</p>
+      <div class="art art-description">
+        <p><b>Dates Completed (clockwise):</b> 06.2017, 01.2013, 09.2015, 05.2018</p>
+        <p><b>Descriptions (clockwise):</b> Diner-style menu (11” x 17”) commissioned by a friend for her young daughter to use during mealtimes. 
+          T-shirt/apparel design for college women's ultimate team "Betty Gone Wild". 
+          T-shirts designed for a child care called My Little Sunshine to create army of brightly-dressed toddlers when out on a field trip. 
+          Though very interested in learning how to screen print, printing was done through Custom Ink. 
+          Seating chart on clear acrylic for wedding reception.</p>
+        <p><b>Materials:</b> Photoshop<br>
+          Paper<br>
+          Acrylic panes<br>
+          Sharpies (water- and oil-based)</p>
+      </div>
+
+      <div class="art art-description">
+        <p><b>Date Completed:</b> 06.2016</p>
         <p><b>Description:</b> Intricate doodle of concentric circles creating the shape of a rabbit (though apparently it looks like a kangaroo to some).</p>
         <p><b>Materials:</b> Paper<br>
           Marvy Le Pen 0.03mm</p>
       </div>
-      
-      <div class="art artDescription">
-        <p><b>ASSORTED CALLIGRAPHY & LETTERING</b></p>
-        <p><b>Dates Completed:</b> 01.19.2014, 06.08.2016, 07.22.2016</p>
-        <p><b>Description:</b> Debussy quote from four years ago during initial interest and trials with calligraphy, 
-          Planet Mnemonic from two years ago during experiments with watercolor pencils, 
-          and Harry Potter quote also from two years ago.</p>
-        <p><b>Materials:</b> Paper<br>
-          Various calligraphy nibs and holder<br>
-          Calligraphy ink<br>
-          Watercolor pencils<br>
-          Uni-ball Signo 0.8mm in gold</p>
-      </div>
-      
-      <div class="art artDescription">
-        <p><b>FAKE FLOWERS</b></p>
-        <p><b>Dates Completed:</b> 09.14 & 20.2017</p>
+
+      <div class="art art-description">
+        <p><b>Dates Completed:</b> 09.2017</p>
         <p><b>Description:</b> Rolled felt flowers + tissue paper for a photobooth backdrop assembled on a sheet. 
           Rolled coffee filter flowers (dyed with diluted acrylic paint) for floral wreath centerpieces, 
           the wreath forms being dissected pool noodles wrapped in ribbon. 
@@ -63,20 +99,18 @@
           Wide polyester ribbon<br>
           An infinite number of glue sticks and a glue gun</p>
       </div>
-      
-      <div class="art artDescription">
-        <p><b>WEDDING INVITATIONS</b></p>
-        <p><b>Date Completed:</b> 05.07.2017</p>
+
+      <div class="art art-description">
+        <p><b>Date Completed:</b> 05.2017</p>
         <p><b>Description:</b> Wedding invitation that was mailed out to all invitees, hand-drawn in Photoshop (including lettering, excluding Chinese characters). 
           Background inspired by stained glass windows. Printed on 8.5” x 11” paper.</p>
         <p><b>Materials:</b> Photoshop<br>
           Laser color printer<br>
           80 lb. paper</p>
       </div>
-      
-      <div class="art artDescription">
-        <p><b>OTHER WEDDING STATIONERY</b></p>
-        <p><b>Dates Completed:</b> 01.28.2017, 02.24.2017</p>
+
+      <div class="art art-description">
+        <p><b>Dates Completed:</b> 01.2017, 02.2017</p>
         <p><b>Description:</b> Save the Dates and Thank You cards drawn in Photoshop, themed to match each other (reusing floral graphics, 
           which were also used on the wedding website). Cut to A1 size. 
           Envelopes for all were hand-lettered and quadruple-checked for mistakes, of which we found two.</p>
@@ -87,17 +121,7 @@
           A1 and #10 envelopes<br>
           Metallic gold Sharpies</p>
       </div>
-      
-      <div class="art artDescription">
-        <p><b>ASSORTED COMMISSIONS</b></p>
-        <p><b>Dates Completed:</b> 06.09.2017, 09.22.2015</p>
-        <p><b>Description:</b> Diner-style menu (11” x 17”) commissioned by a friend for her young daughter to use during mealtimes. 
-          T-shirts designed for a child care called My Little Sunshine to create army of brightly-dressed toddlers when out on a field trip. 
-          Though very interested in learning how to screen print, printing was done through Custom Ink.</p>
-        <p><b>Materials:</b> Photoshop</p>
-      </div>
-    
+
     </div>
   </div>
-  <div class="art bulletContainer" id="artBullets"></div>
 </div>
