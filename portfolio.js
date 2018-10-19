@@ -64,7 +64,6 @@ $(document).ready(function() {
       $("#main").removeClass("display-none");
       $(".overlay-container").addClass("display-none");
       $("#transition").removeClass("overlay-open");
-      //history.pushState(pushPage, "", pushPage);
       historyPushState(pushPage);
     } else { 
       $(".overlay-container").removeClass("display-none");
