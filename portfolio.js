@@ -6,7 +6,7 @@ $(document).ready(function() {
   $("#splash").addClass("display-none");
   // Check cookie and show splash
   if (!document.cookie) {
-    document.cookie = "splash=true; max-age=60*60*24";
+    document.cookie = "splash=true; max-age=86400";
     $("#splash").removeClass("display-none");
   }
   // Click to enter
