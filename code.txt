@@ -7,6 +7,7 @@
   </div>
   <div class="code slideshow-container">
     <div class="code code-titles">
+      <div class="code code-title">MY LITTLE SUNSHINE</div>
       <div class="code code-title">PORTFOLIO WEBSITE (2.0)</div>
       <div class="code code-title">PORTFOLIO WEBSITE (1.0)</div>
       <div class="code code-title">SIMON GAME</div>
@@ -18,6 +19,8 @@
       <div class="code code-title">WEDDING WEBSITE</div>
     </div>
     <div class="code code-slides">
+      <img class="code code-slide" src="images\code-slides\mls.gif" 
+        alt="examples of scrolling through/navigating child care site, including possible mobile views in portrait or landscape">
       <img class="code code-slide" src="images\code-slides\portfolio2.gif" 
         alt="examples of scrolling through/navigating portfolio site (2.0), including possible mobile views in portrait or landscape">
       <img class="code code-slide" src="images\code-slides\portfolio.gif" 
@@ -43,6 +46,22 @@
       <p class="code slideshow-less show-less">- tell me less -</p>
     </div>
     <div class="code code-description-container">
+
+      <div class="code code-description">
+        <p><b>Date Completed:</b> 12.2018</p>
+        <p><b>Links:</b> <a href="https://mylittlesunshine.net" target="_blank">Website</a>,
+          <a href="https://github.com/evaplaysviolin/My-Little-Sunshine" target="_blank">GitHub Repository</a></p>
+        <p><b>Description:</b> A website built for My Little Sunshine Child Care, a local facility in San Francisco. 
+          First time using React - site is hosted using GitHub Pages. 
+          Google Forms used as solution/alternative to previous system of paper applications.</p>
+        <p><b>Notes:</b> Admittedly a bit messy, especially considering abstractions (or lack thereof). 
+          There are few items the client wishes to add to the site in the near future as well.</p>
+        <p><b>Things Learned:</b> React<br>
+          JSX<br>
+          Babel Standalone<br>
+          Domain name registration<br>
+          DNS administration</p> 
+      </div>
 
       <div class="code code-description">
         <p><b>Date Completed:</b> 10.2018</p>
