@@ -1,4 +1,4 @@
-export default { 
+export default {
   name: "media",
   methods: {
     checkMediaQuery: function() {
@@ -8,12 +8,12 @@ export default {
       // this.lessThan599 = window.matchMedia("(max-width: 599px)").matches;
       // this.lessThan499 = window.matchMedia("(max-width: 499px)").matches;
       // this.lessThan399 = window.matchMedia("(max-width: 399px)").matches;
-    },
+    }
   },
   mounted() {
     window.addEventListener("resize", this.checkMediaQuery);
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.checkMediaQuery);
-  } 
-}
+  }
+};

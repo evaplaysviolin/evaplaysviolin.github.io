@@ -1,12 +1,12 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 // import Banner from "./components/Banner.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
-  // { 
+  // {
   //   path: "/",
   //   name: "home",
   //   components: {
@@ -16,7 +16,7 @@ const routes = [
   //     "featured-galleries": FeaturedGalleries
   //   }
   // },
-  // { 
+  // {
   //   path: "/collection",
   //   name: "collection",
   //   components: {
