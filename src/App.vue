@@ -174,18 +174,18 @@ body {
 }
 
 body {
-  background-color: #f5f5f5;
+  background-color: white;
   overflow: hidden;
   transition: background-color 0.2s ease-in-out;
 }
   body.nightmode {
-    background-color: #0a0a0a;
+    background-color: black;
   }
   body.nightmode #moon-container {
-    color: #fff;
+    color: white;
   }
   body.nightmode #moon-container:hover {
-    background-color: #fefefe;
+    background-color: white;
     color: #000;
   }
 
@@ -203,7 +203,8 @@ body {
   transition:background-color 0.2s ease-in-out;
 }
 #moon-container:hover {
-  background-color:#0a0a0a;color:#fff
+  background-color: black;
+  color: white;
 }
 
 
