@@ -2,13 +2,14 @@
 
 <div id="app">
 
-  <div id="node-garden-container"></div>
+  <div id="node-garden-container" ref="nodeGardenContainer" @click="gardenListener($event)"></div>
   <!-- <svg class="moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
     <path d="M86.576,84.239c-0.102-0.44-0.448-0.781-0.889-0.876c-1.441-0.311-2.879-0.689-4.271-1.127  C66.969,77.707,55.8,66.938,50.77,52.692C45.739,38.445,47.67,23.05,56.07,10.454c0.812-1.218,1.692-2.415,2.617-3.559  c0.284-0.351,0.339-0.834,0.143-1.24C58.632,5.25,58.219,4.994,57.768,5c-4.879,0.064-9.708,0.928-14.354,2.568  c-23.396,8.261-35.71,34.016-27.449,57.412c8.261,23.397,34.017,35.711,57.414,27.45c4.645-1.64,8.945-3.999,12.783-7.014  C86.516,85.138,86.678,84.679,86.576,84.239z">
     </path>
   </svg> -->
-  <div id="moon-container">
-    <font-awesome-icon :icon="['fas', 'moon']" />
+  <div id="moon-container" @click="nightToggle()">
+    <font-awesome-icon :icon="['fas', 'moon']" v-if="!night" />
+    <font-awesome-icon :icon="['fas', 'sun']" v-else />
   </div>
 
   <div id="page-container">
@@ -46,6 +47,13 @@ export default {
   // mixins: [media],
   data() {
     return {
+      pixelRatio: window.devicePixelRatio,
+      // container: document.getElementById("node-garden-container"),
+      moon: document.getElementById("moon-container"),
+      nodeGarden: {},
+      date: new Date(),
+      resetNode: 0,
+      night: false
     }
   },
   watch: {
@@ -53,50 +61,79 @@ export default {
     }
   },
   methods: {
-  },
-  mounted() {
-    const pixelRatio = window.devicePixelRatio;
-    const $container = document.getElementById('node-garden-container');
-    const $moon = document.getElementById('moon-container');
-
-    const nodeGarden = new NodeGarden($container);
-
-    // start simulation
-    nodeGarden.start();
-
-    // trigger nightMode automatically
-    const date = new Date();
-
-    if (date.getHours() > 18 || date.getHours() < 6) {
-      nodeGarden.toggleNightMode();
-    }
-
-    let resetNode = 0;
-
-    $container.addEventListener('click', (e) => {
-      const bcr = $container.getBoundingClientRect();
+    createGarden: function() {
+      // this.nodeGarden = new NodeGarden(this.container);
+      this.nodeGarden = new NodeGarden(this.$refs.nodeGardenContainer);
+    },
+    gardenListener: function(e) {
+      // const bcr = this.container.getBoundingClientRect();
+      const bcr = this.$refs.nodeGardenContainer.getBoundingClientRect();
       const scrollPos = {
         x: window.scrollX,
         y: window.scrollY
       };
-      resetNode++;
-      if (resetNode > nodeGarden.nodes.length - 1) {
-        resetNode = 1;
+      this.resetNode++;
+      if (this.resetNode > this.nodeGarden.nodes.length - 1) {
+        this.resetNode = 1;
       }
-      nodeGarden.nodes[resetNode].reset({
-        x: (e.pageX - scrollPos.x - bcr.left) * pixelRatio,
-        y: (e.pageY - scrollPos.y - bcr.top) * pixelRatio,
+      this.nodeGarden.nodes[this.resetNode].reset({
+        x: (e.pageX - scrollPos.x - bcr.left) * this.pixelRatio,
+        y: (e.pageY - scrollPos.y - bcr.top) * this.pixelRatio,
         vx: 0,
         vy: 0
       });
-    });
+    },
+    nightToggle: function() {
+      this.nodeGarden.toggleNightMode();
+      this.night = !this.night;
+    }
+  },
+  mounted() {
+    // const pixelRatio = window.devicePixelRatio;
+    // const $container = document.getElementById("node-garden-container");
+    // const $moon = document.getElementById("moon-container");
 
-    $moon.addEventListener('click', () => {
-      nodeGarden.toggleNightMode();
-    });
+    // const nodeGarden = new NodeGarden($container);
+
+    // start simulation
+    // nodeGarden.start();
+    this.createGarden();
+    this.nodeGarden.start();
+
+    // trigger nightMode automatically
+    // const date = new Date();
+
+    if (this.date.getHours() > 18 || this.date.getHours() < 6) {
+      this.nodeGarden.toggleNightMode();
+      this.night = true;
+    }
+
+    // let resetNode = 0;
+
+    // $container.addEventListener('click', (e) => {
+    //   const bcr = $container.getBoundingClientRect();
+    //   const scrollPos = {
+    //     x: window.scrollX,
+    //     y: window.scrollY
+    //   };
+    //   resetNode++;
+    //   if (resetNode > nodeGarden.nodes.length - 1) {
+    //     resetNode = 1;
+    //   }
+    //   nodeGarden.nodes[resetNode].reset({
+    //     x: (e.pageX - scrollPos.x - bcr.left) * pixelRatio,
+    //     y: (e.pageY - scrollPos.y - bcr.top) * pixelRatio,
+    //     vx: 0,
+    //     vy: 0
+    //   });
+    // });
+
+    // $moon.addEventListener('click', () => {
+    //   nodeGarden.toggleNightMode();
+    // });
 
     window.addEventListener('resize', () => {
-      nodeGarden.resize();
+      this.nodeGarden.resize();
     });
   }
 }
