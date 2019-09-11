@@ -12,6 +12,19 @@ export default class NodeGarden {
     this.started = false;
     this.nightmode = false;
 
+    this.width = this.container.clientWidth * devicePixelRatio;
+    // Pink
+    this.color1 = "222, 22, 79";
+    // Blue
+    this.color2 = "42, 67, 232";
+    // Green
+    this.color3 = "47, 189, 40";
+    
+    this.fillGradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+    this.fillGradient.addColorStop("0", `rgb(${this.color1})`);
+    this.fillGradient.addColorStop("0.5" , `rgb(${this.color2})`);
+    this.fillGradient.addColorStop("1.0", `rgb(${this.color3})`);
+
     if (devicePixelRatio && (devicePixelRatio !== 1)) {
       // if retina screen, scale canvas
       this.canvas.style.transform = 'scale(' + 1 / devicePixelRatio + ')';
@@ -85,7 +98,7 @@ export default class NodeGarden {
     if (this.nightMode) {
       this.ctx.fillStyle = '#ffffff';
     } else {
-      this.ctx.fillStyle = '#000000';
+      this.ctx.fillStyle = this.fillGradient;
     }
 
     // create nodes
@@ -103,7 +116,7 @@ export default class NodeGarden {
       this.ctx.fillStyle = '#ffffff';
       document.body.classList.add('nightmode');
     } else {
-      this.ctx.fillStyle = '#000000';
+      this.ctx.fillStyle = this.fillGradient;
       document.body.classList.remove('nightmode');
     }
   }
@@ -163,9 +176,19 @@ export default class NodeGarden {
         // draw gravity lines
         this.ctx.beginPath();
         if (this.nightMode) {
-          this.ctx.strokeStyle = 'rgba(191,191,191,' + (opacity < 1 ? opacity : 1) + ')';
+          this.ctx.strokeStyle = 'rgba(200,200,200,' + (opacity < 1 ? opacity : 1) + ')';
         } else {
-          this.ctx.strokeStyle = 'rgba(63,63,63,' + (opacity < 1 ? opacity : 1) + ')';
+          // this.ctx.strokeStyle = 'rgba(124,217,217,' + (opacity < 1 ? opacity : 1) + ')';
+          // var o = Math.round, r = Math.random, s = 255;
+          // let r = 255*Math.random()|0;
+          // let g = 255*Math.random()|0;
+          // let b = 255*Math.random()|0;
+          // this.ctx.strokeStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + (opacity < 1 ? opacity : 1) + ')';
+          let lineGradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+          lineGradient.addColorStop("0", `rgba(${this.color1},${(opacity < 1 ? opacity : 1)})`);
+          lineGradient.addColorStop("0.5" , `rgba(${this.color2},${(opacity < 1 ? opacity : 1)})`);
+          lineGradient.addColorStop("1.0", `rgba(${this.color3},${(opacity < 1 ? opacity : 1)})`);
+          this.ctx.strokeStyle = lineGradient;
         }
         this.ctx.moveTo(nodeA.x, nodeA.y);
         this.ctx.lineTo(nodeB.x, nodeB.y);
