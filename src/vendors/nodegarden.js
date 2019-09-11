@@ -114,13 +114,13 @@ export default class NodeGarden {
     fillGradient.addColorStop("0", `rgb(${this.color1})`);
     fillGradient.addColorStop("0.5" , `rgb(${this.color2})`);
     fillGradient.addColorStop("1.0", `rgb(${this.color3})`);
-    
+
     this.nightMode = !this.nightMode;
     if (this.nightMode) {
       this.ctx.fillStyle = '#ffffff';
       document.body.classList.add('nightmode');
     } else {
-      this.ctx.fillStyle = this.fillGradient;
+      this.ctx.fillStyle = fillGradient;
       document.body.classList.remove('nightmode');
     }
   }
