@@ -12,18 +12,12 @@ export default class NodeGarden {
     this.started = false;
     this.nightmode = false;
 
-    this.width = this.container.clientWidth * devicePixelRatio;
     // Pink
     this.color1 = "222, 22, 79";
     // Blue
     this.color2 = "42, 67, 232";
     // Green
     this.color3 = "47, 189, 40";
-    
-    this.fillGradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-    this.fillGradient.addColorStop("0", `rgb(${this.color1})`);
-    this.fillGradient.addColorStop("0.5" , `rgb(${this.color2})`);
-    this.fillGradient.addColorStop("1.0", `rgb(${this.color3})`);
 
     if (devicePixelRatio && (devicePixelRatio !== 1)) {
       // if retina screen, scale canvas
@@ -95,10 +89,15 @@ export default class NodeGarden {
     this.canvas.width = this.width;
     this.canvas.height = this.height;
 
+    let fillGradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+    fillGradient.addColorStop("0", `rgb(${this.color1})`);
+    fillGradient.addColorStop("0.5" , `rgb(${this.color2})`);
+    fillGradient.addColorStop("1.0", `rgb(${this.color3})`);
+
     if (this.nightMode) {
       this.ctx.fillStyle = '#ffffff';
     } else {
-      this.ctx.fillStyle = this.fillGradient;
+      this.ctx.fillStyle = fillGradient;
     }
 
     // create nodes
@@ -111,6 +110,11 @@ export default class NodeGarden {
   }
 
   toggleNightMode () {
+    let fillGradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+    fillGradient.addColorStop("0", `rgb(${this.color1})`);
+    fillGradient.addColorStop("0.5" , `rgb(${this.color2})`);
+    fillGradient.addColorStop("1.0", `rgb(${this.color3})`);
+    
     this.nightMode = !this.nightMode;
     if (this.nightMode) {
       this.ctx.fillStyle = '#ffffff';
