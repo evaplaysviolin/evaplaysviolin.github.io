@@ -2,19 +2,18 @@
 
 <div id="app">
 
-  <div id="node-garden-container" ref="nodeGardenContainer" @click="gardenListener($event)"></div>
-  <!-- <svg class="moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-    <path d="M86.576,84.239c-0.102-0.44-0.448-0.781-0.889-0.876c-1.441-0.311-2.879-0.689-4.271-1.127  C66.969,77.707,55.8,66.938,50.77,52.692C45.739,38.445,47.67,23.05,56.07,10.454c0.812-1.218,1.692-2.415,2.617-3.559  c0.284-0.351,0.339-0.834,0.143-1.24C58.632,5.25,58.219,4.994,57.768,5c-4.879,0.064-9.708,0.928-14.354,2.568  c-23.396,8.261-35.71,34.016-27.449,57.412c8.261,23.397,34.017,35.711,57.414,27.45c4.645-1.64,8.945-3.999,12.783-7.014  C86.516,85.138,86.678,84.679,86.576,84.239z">
-    </path>
-  </svg> -->
-  <div id="moon-container" @click="nightToggle()">
-    <font-awesome-icon :icon="['fas', 'moon']" v-if="!night" />
-    <font-awesome-icon :icon="['fas', 'sun']" v-else />
-  </div>
-
   <div id="page-container">
 
-    <div id="header-container">header?</div>
+    <div id="node-garden-container" ref="nodeGardenContainer" @click="gardenListener($event)">
+      <canvas id="spaces" ref="spaces"></canvas>
+    </div>
+
+    <div id="header-container">
+      <div id="mode-container" @click="nightToggle()">
+        <font-awesome-icon :icon="['fas', 'moon']" v-if="!night" />
+        <font-awesome-icon :icon="['fas', 'sun']" v-else />
+      </div>
+    </div>
 
     <!-- Set up "views" for components -->
     <!-- Empty view is where main components for other pages is inserted -->
@@ -25,8 +24,6 @@
     <router-view></router-view>
     <router-view name="featured-partners"></router-view>
     <router-view name="featured-galleries"></router-view> -->
-
-    <div id="footer-container">footer?</div>
   
   </div>
 
@@ -48,12 +45,12 @@ export default {
   data() {
     return {
       pixelRatio: window.devicePixelRatio,
-      // container: document.getElementById("node-garden-container"),
-      moon: document.getElementById("moon-container"),
       nodeGarden: {},
       date: new Date(),
       resetNode: 0,
-      night: false
+      night: false,
+      appHeight: null,
+      appWidth: null,
     }
   },
   watch: {
@@ -61,12 +58,10 @@ export default {
     }
   },
   methods: {
-    createGarden: function() {
-      // this.nodeGarden = new NodeGarden(this.container);
+    createGarden() {
       this.nodeGarden = new NodeGarden(this.$refs.nodeGardenContainer);
     },
-    gardenListener: function(e) {
-      // const bcr = this.container.getBoundingClientRect();
+    gardenListener(e) {
       const bcr = this.$refs.nodeGardenContainer.getBoundingClientRect();
       const scrollPos = {
         x: window.scrollX,
@@ -83,58 +78,47 @@ export default {
         vy: 0
       });
     },
-    nightToggle: function() {
+    nightToggle() {
       this.nodeGarden.toggleNightMode();
       this.night = !this.night;
+    },
+    setAppHeightAndWidth() {
+      this.appHeight = this.$refs.nodeGardenContainer.clientHeight;
+      this.appWidth = this.$refs.nodeGardenContainer.clientWidth;
+    },
+    resizeSpaces() {
+      this.setAppHeightAndWidth();
+      this.$refs.spaces.height = this.appHeight;
+      this.$refs.spaces.width = this.appWidth;
+
+      let spacesCanvas = this.$refs.spaces;
+      let spacesCtx = spacesCanvas.getContext("2d");
+      spacesCtx.clearRect(0, 0, spacesCanvas.width, spacesCanvas.height);
+      spacesCtx.beginPath();
+      spacesCtx.rect((spacesCanvas.width * 0.20) , (spacesCanvas.height * 0.25), 200, 200);
+      spacesCtx.fillStyle = "#000000";
+      spacesCtx.fill();
     }
   },
   mounted() {
-    // const pixelRatio = window.devicePixelRatio;
-    // const $container = document.getElementById("node-garden-container");
-    // const $moon = document.getElementById("moon-container");
-
-    // const nodeGarden = new NodeGarden($container);
 
     // start simulation
-    // nodeGarden.start();
     this.createGarden();
     this.nodeGarden.start();
 
     // trigger nightMode automatically
-    // const date = new Date();
-
     if (this.date.getHours() > 18 || this.date.getHours() < 6) {
       this.nodeGarden.toggleNightMode();
       this.night = true;
     }
 
-    // let resetNode = 0;
-
-    // $container.addEventListener('click', (e) => {
-    //   const bcr = $container.getBoundingClientRect();
-    //   const scrollPos = {
-    //     x: window.scrollX,
-    //     y: window.scrollY
-    //   };
-    //   resetNode++;
-    //   if (resetNode > nodeGarden.nodes.length - 1) {
-    //     resetNode = 1;
-    //   }
-    //   nodeGarden.nodes[resetNode].reset({
-    //     x: (e.pageX - scrollPos.x - bcr.left) * pixelRatio,
-    //     y: (e.pageY - scrollPos.y - bcr.top) * pixelRatio,
-    //     vx: 0,
-    //     vy: 0
-    //   });
-    // });
-
-    // $moon.addEventListener('click', () => {
-    //   nodeGarden.toggleNightMode();
-    // });
-
     window.addEventListener('resize', () => {
       this.nodeGarden.resize();
+      this.resizeSpaces();
     });
+
+    this.resizeSpaces();
+
   }
 }
 
@@ -159,21 +143,14 @@ export default {
   box-sizing: border-box;
 }
 
-body {
-  height: 100%;
-}
-
-#app {
-  height: 100%;
-}
-
-#node-garden-container {
+html {
   height: 100%;
   width: 100%;
-  position: fixed;
 }
 
 body {
+  height: 100%;
+  width: 100%;
   background-color: white;
   overflow: hidden;
   transition: background-color 0.2s ease-in-out;
@@ -181,61 +158,68 @@ body {
   body.nightmode {
     background-color: black;
   }
-  body.nightmode #moon-container {
+  body.nightmode #mode-container {
     color: white;
   }
-  body.nightmode #moon-container:hover {
+  body.nightmode #mode-container:hover {
     background-color: white;
     color: #000;
   }
 
-#moon-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 45px;
-  height: 45px;
-  padding: 1rem;
-  cursor: pointer;
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+#page-container {
+  height: 100%;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  transition:background-color 0.2s ease-in-out;
-}
-#moon-container:hover {
-  background-color: black;
-  color: white;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
+#node-garden-container {
+  height: calc(100% - 75px);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+}
+  #spaces {
+    position: fixed;
+    overflow: hidden;
+  }
 
-
-// #page-container {
-//   @include flex-center;
-//   flex-direction: column;
-//   justify-content: flex-start;
-//   width: 1350px;
-//   max-width: 1350px;
-//   box-shadow: 0 2px 8px 2px $shadow-grey;
-// }
-
-// #header-container {
-//   @include flex-center;
-//   position: relative;
-//   justify-content: space-between;
-//   height: 80px;
-//   width: 100%;
-//   color: $light-text;
-//   background-color: $dark-blue;
-// }
-    
-// #footer-container {
-//   @include flex-center;
-//   height: 40px;
-//   width: 100%;  
-//   font-size: 14px;
-//   color: $light-text;
-//   background-color: $dark-blue;
-//   text-align: center;
-// }
+#header-container {
+  height: 75px;
+  width: 100%;
+  @include flex-center;
+  justify-content: space-between;
+  position: relative;
+}
+  #mode-container {
+    height: 75px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    z-index: 50;
+  }
+    #mode-container:hover {
+      background-color: black;
+      color: white;
+    }
 
 </style>
