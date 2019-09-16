@@ -91,13 +91,21 @@ export default {
       this.$refs.spaces.height = this.appHeight;
       this.$refs.spaces.width = this.appWidth;
 
-      let spacesCanvas = this.$refs.spaces;
-      let spacesCtx = spacesCanvas.getContext("2d");
-      spacesCtx.clearRect(0, 0, spacesCanvas.width, spacesCanvas.height);
-      spacesCtx.beginPath();
-      spacesCtx.rect((spacesCanvas.width * 0.20) , (spacesCanvas.height * 0.25), 200, 200);
-      spacesCtx.fillStyle = "#000000";
-      spacesCtx.fill();
+      // let spacesCanvas = this.$refs.spaces;
+      // let spacesCtx = spacesCanvas.getContext("2d");
+      // spacesCtx.clearRect(0, 0, spacesCanvas.width, spacesCanvas.height);
+      // spacesCtx.beginPath();
+      // spacesCtx.fillStyle = "#000";
+      // let scw = spacesCanvas.width;
+      // let sch = spacesCanvas.height;
+      // spacesCtx.fillRect((scw * 0.19), (sch * 0.25), (scw * 0.3), (sch * 0.08));
+      // spacesCtx.fillRect((scw * 0.49 + 10), (sch * 0.05), (scw * 0.15), (sch * 0.28));
+      // spacesCtx.fillRect((scw * 0.29), (sch * 0.33 + 10), (scw * 0.12), (sch * 0.38));
+      // spacesCtx.fillRect((scw * 0.41 + 10), (sch * 0.33 + 10), (scw * 0.18), (sch * 0.6));
+      // spacesCtx.fillRect((scw * 0.59 + 20), (sch * 0.33 + 10), (scw * 0.22), (sch * 0.3));
+
+      // this.nodeGarden.ctx.globalCompositeOperation = "destination-out";
+      // this.nodeGarden.ctx.drawImage(spacesCanvas, 0, 0);
     }
   },
   mounted() {
