@@ -26,9 +26,9 @@ export default class NodeGarden {
     }
     this.canvas.id = 'nodegarden';
 
-    window.addEventListener('mousedown', (e) => {
+    this.container.addEventListener('mousedown', (e) => {
       e.preventDefault();
-      const bcr = container.getBoundingClientRect();
+      const bcr = this.container.getBoundingClientRect();
       const scrollPos = {
         x: window.scrollX,
         y: window.scrollY
@@ -45,12 +45,12 @@ export default class NodeGarden {
 
       this.nodes.unshift(mouseNode);
 
-      window.addEventListener('mousemove', (e) => {
+      this.container.addEventListener('mousemove', (e) => {
         mouseNode.x = (e.pageX - scrollPos.x - bcr.left) * devicePixelRatio;
         mouseNode.y = (e.pageY - scrollPos.y - bcr.top) * devicePixelRatio;
       });
 
-      window.addEventListener('mouseup', (e) => {
+      this.container.addEventListener('mouseup', (e) => {
         for (let i = 0; i < this.nodes.length; i++) {
           if (this.nodes[i] === mouseNode) {
             this.nodes.splice(i--, 1);
@@ -208,5 +208,48 @@ export default class NodeGarden {
       this.nodes[i].render();
       this.nodes[i].update(deltaTime || 0);
     }
+
+    // let w = this.canvas.width;
+    // let h = this.canvas.height;
+    // this.ctx.clearRect((w * 0.19), (h * 0.25), (w * 0.3), (h * 0.08));
+    // this.ctx.clearRect((w * 0.49 + 10), (h * 0.05), (w * 0.15), (h * 0.28));
+    // this.ctx.clearRect((w * 0.29), (h * 0.33 + 10), (w * 0.12), (h * 0.38));
+    // this.ctx.clearRect((w * 0.41 + 10), (h * 0.33 + 10), (w * 0.18), (h * 0.6));
+    // this.ctx.clearRect((w * 0.59 + 20), (h * 0.33 + 10), (w * 0.22), (h * 0.3));
+    
+    // if (this.nightMode) {
+    //   this.ctx.strokeStyle = 'rgb(200,200,200)';
+    // } else {
+    //   let lineGradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
+    //   lineGradient.addColorStop("0", `rgb(${this.color1}`);
+    //   lineGradient.addColorStop("0.5" , `rgb(${this.color2}`);
+    //   lineGradient.addColorStop("1.0", `rgb(${this.color3}`);
+    //   this.ctx.strokeStyle = lineGradient;
+    // }
+    // this.ctx.beginPath();
+    // this.ctx.lineWidth = "1";
+    // this.ctx.rect((w * 0.19), (h * 0.25), (w * 0.3), (h * 0.08));
+    // this.ctx.stroke();
+
+    // this.ctx.beginPath();
+    // this.ctx.lineWidth = "1";
+    // this.ctx.rect((w * 0.49 + 10), (h * 0.05), (w * 0.15), (h * 0.28));
+    // this.ctx.stroke();
+
+    // this.ctx.beginPath();
+    // this.ctx.lineWidth = "1";
+    // this.ctx.rect((w * 0.29), (h * 0.33 + 10), (w * 0.12), (h * 0.38));
+    // this.ctx.stroke();
+
+    // this.ctx.beginPath();
+    // this.ctx.lineWidth = "1";
+    // this.ctx.rect((w * 0.41 + 10), (h * 0.33 + 10), (w * 0.18), (h * 0.6));
+    // this.ctx.stroke();
+
+    // this.ctx.beginPath();
+    // this.ctx.lineWidth = "1";
+    // this.ctx.rect((w * 0.59 + 20), (h * 0.33 + 10), (w * 0.22), (h * 0.3));
+    // this.ctx.stroke();
+
   }
 }

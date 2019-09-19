@@ -4,15 +4,28 @@
 
   <div id="page-container">
 
-    <div id="node-garden-container" ref="nodeGardenContainer" @click="gardenListener($event)">
-      <canvas id="spaces" ref="spaces"></canvas>
+    <div id="node-garden-container" 
+      ref="nodeGardenContainer" 
+      @click="gardenListener($event, $refs.nodeGardenContainer)">
+      <canvas id="menu" ref="menu" v-show="$route.path === '/'"></canvas>
     </div>
 
-    <div id="header-container">
+    <!-- Placeholder section for header component -->
+    <div id="header-section">
       <div id="mode-container" @click="nightToggle()">
-        <font-awesome-icon :icon="['fas', 'moon']" v-if="!night" />
-        <font-awesome-icon :icon="['fas', 'sun']" v-else />
+        <div id="mode">
+          <font-awesome-icon :icon="['fas', 'moon']" v-if="!night" />
+          <font-awesome-icon :icon="['fas', 'sun']" v-else />
+        </div>
       </div>
+    </div>
+
+    <div id="menu-container">
+      <div id="menu-resume"></div>
+      <div id="menu-about"></div>
+      <div id="menu-design"></div>
+      <div id="menu-code"></div>
+      <div id="menu-contact"></div>
     </div>
 
     <!-- Set up "views" for components -->
@@ -20,9 +33,10 @@
     <!-- Refer to route.js -->
     <!-- <router-view name="banner"></router-view>
     <router-view name="navigation"></router-view>
-    <router-view name="sub-banner"></router-view>
+    <router-view name="sub-banner"></router-view> -->
+    <router-view name="header"></router-view>
     <router-view></router-view>
-    <router-view name="featured-partners"></router-view>
+    <!-- <router-view name="featured-partners"></router-view>
     <router-view name="featured-galleries"></router-view> -->
   
   </div>
@@ -37,81 +51,122 @@
 
 import NodeGarden from './vendors/nodegarden.js';
 
-
+import garden from "./mixins/garden.js";
 // import media from "./mixins/media.js";
 export default {
   name: "App",
   // mixins: [media],
+  mixins: [garden],
   data() {
     return {
-      pixelRatio: window.devicePixelRatio,
+      // pixelRatio: window.devicePixelRatio,
       nodeGarden: {},
-      date: new Date(),
+      // date: new Date(),
       resetNode: 0,
-      night: false,
-      appHeight: null,
-      appWidth: null,
+      // night: false,
+      // appHeight: null,
+      // appWidth: null,
     }
   },
   watch: {
     "$route" (to, from) {
+      this.resizeApp();
     }
   },
   methods: {
-    createGarden() {
-      this.nodeGarden = new NodeGarden(this.$refs.nodeGardenContainer);
-    },
-    gardenListener(e) {
-      const bcr = this.$refs.nodeGardenContainer.getBoundingClientRect();
-      const scrollPos = {
-        x: window.scrollX,
-        y: window.scrollY
-      };
-      this.resetNode++;
-      if (this.resetNode > this.nodeGarden.nodes.length - 1) {
-        this.resetNode = 1;
-      }
-      this.nodeGarden.nodes[this.resetNode].reset({
-        x: (e.pageX - scrollPos.x - bcr.left) * this.pixelRatio,
-        y: (e.pageY - scrollPos.y - bcr.top) * this.pixelRatio,
-        vx: 0,
-        vy: 0
-      });
-    },
+    // createGarden() {
+    //   this.nodeGarden = new NodeGarden(this.$refs.nodeGardenContainer);
+    // },
+    // gardenListener(e) {
+    //   const bcr = this.$refs.nodeGardenContainer.getBoundingClientRect();
+    //   const scrollPos = {
+    //     x: window.scrollX,
+    //     y: window.scrollY
+    //   };
+    //   this.resetNode++;
+    //   if (this.resetNode > this.nodeGarden.nodes.length - 1) {
+    //     this.resetNode = 1;
+    //   }
+    //   this.nodeGarden.nodes[this.resetNode].reset({
+    //     x: (e.pageX - scrollPos.x - bcr.left) * this.pixelRatio,
+    //     y: (e.pageY - scrollPos.y - bcr.top) * this.pixelRatio,
+    //     vx: 0,
+    //     vy: 0
+    //   });
+    // },
     nightToggle() {
       this.nodeGarden.toggleNightMode();
       this.night = !this.night;
+      this.resizeApp();
     },
     setAppHeightAndWidth() {
       this.appHeight = this.$refs.nodeGardenContainer.clientHeight;
       this.appWidth = this.$refs.nodeGardenContainer.clientWidth;
     },
-    resizeSpaces() {
+    resizeApp() {
       this.setAppHeightAndWidth();
-      this.$refs.spaces.height = this.appHeight;
-      this.$refs.spaces.width = this.appWidth;
 
-      // let spacesCanvas = this.$refs.spaces;
-      // let spacesCtx = spacesCanvas.getContext("2d");
-      // spacesCtx.clearRect(0, 0, spacesCanvas.width, spacesCanvas.height);
-      // spacesCtx.beginPath();
-      // spacesCtx.fillStyle = "#000";
-      // let scw = spacesCanvas.width;
-      // let sch = spacesCanvas.height;
-      // spacesCtx.fillRect((scw * 0.19), (sch * 0.25), (scw * 0.3), (sch * 0.08));
-      // spacesCtx.fillRect((scw * 0.49 + 10), (sch * 0.05), (scw * 0.15), (sch * 0.28));
-      // spacesCtx.fillRect((scw * 0.29), (sch * 0.33 + 10), (scw * 0.12), (sch * 0.38));
-      // spacesCtx.fillRect((scw * 0.41 + 10), (sch * 0.33 + 10), (scw * 0.18), (sch * 0.6));
-      // spacesCtx.fillRect((scw * 0.59 + 20), (sch * 0.33 + 10), (scw * 0.22), (sch * 0.3));
+      if (this.$route.path === "/") {
+        this.$refs.menu.height = this.appHeight;
+        this.$refs.menu.width = this.appWidth;
 
-      // this.nodeGarden.ctx.globalCompositeOperation = "destination-out";
-      // this.nodeGarden.ctx.drawImage(spacesCanvas, 0, 0);
+        let menuCanvas = this.$refs.menu;
+        let menuCtx = menuCanvas.getContext("2d");
+        menuCtx.clearRect(0, 0, menuCanvas.width, menuCanvas.height);
+        menuCtx.beginPath();
+        let scw = menuCanvas.width;
+        let sch = menuCanvas.height;
+
+        if (this.night) {
+          menuCtx.fillStyle = "#000";
+          menuCtx.strokeStyle = 'rgb(200,200,200)';
+        } else {
+          menuCtx.fillStyle = "#FFF";
+          let lineGradient = menuCtx.createLinearGradient(0, 0, scw, 0);
+          lineGradient.addColorStop("0", `rgb(222, 22, 79)`);
+          lineGradient.addColorStop("0.5" , `rgb(42, 67, 232)`);
+          lineGradient.addColorStop("1.0", `rgb(47, 189, 40)`);
+          menuCtx.strokeStyle = lineGradient;
+        }
+
+        menuCtx.fillRect((scw * 0.19), (sch * 0.25), (scw * 0.3), (sch * 0.08));
+        menuCtx.fillRect((scw * 0.49 + 10), (sch * 0.05), (scw * 0.15), (sch * 0.28));
+        menuCtx.fillRect((scw * 0.29), (sch * 0.33 + 10), (scw * 0.12), (sch * 0.38));
+        menuCtx.fillRect((scw * 0.41 + 10), (sch * 0.33 + 10), (scw * 0.18), (sch * 0.6));
+        menuCtx.fillRect((scw * 0.59 + 20), (sch * 0.33 + 10), (scw * 0.22), (sch * 0.3));
+
+        menuCtx.beginPath();
+        menuCtx.lineWidth = "1";
+        menuCtx.rect((scw * 0.19), (sch * 0.25), (scw * 0.3), (sch * 0.08));
+        menuCtx.stroke();
+
+        menuCtx.beginPath();
+        menuCtx.lineWidth = "1";
+        menuCtx.rect((scw * 0.49 + 10), (sch * 0.05), (scw * 0.15), (sch * 0.28));
+        menuCtx.stroke();
+
+        menuCtx.beginPath();
+        menuCtx.lineWidth = "1";
+        menuCtx.rect((scw * 0.29), (sch * 0.33 + 10), (scw * 0.12), (sch * 0.38));
+        menuCtx.stroke();
+
+        menuCtx.beginPath();
+        menuCtx.lineWidth = "1";
+        menuCtx.rect((scw * 0.41 + 10), (sch * 0.33 + 10), (scw * 0.18), (sch * 0.6));
+        menuCtx.stroke();
+
+        menuCtx.beginPath();
+        menuCtx.lineWidth = "1";
+        menuCtx.rect((scw * 0.59 + 20), (sch * 0.33 + 10), (scw * 0.22), (sch * 0.3));
+        menuCtx.stroke();
+      }
     }
   },
   mounted() {
 
     // start simulation
-    this.createGarden();
+    // this.createGarden();
+    this.createGarden(this.$refs.nodeGardenContainer);
     this.nodeGarden.start();
 
     // trigger nightMode automatically
@@ -122,10 +177,10 @@ export default {
 
     window.addEventListener('resize', () => {
       this.nodeGarden.resize();
-      this.resizeSpaces();
+      this.resizeApp();
     });
 
-    this.resizeSpaces();
+    this.resizeApp();
 
   }
 }
@@ -169,9 +224,13 @@ body {
   body.nightmode #mode-container {
     color: white;
   }
-  body.nightmode #mode-container:hover {
+  // body.nightmode #mode-container:hover {
+  //   background-color: white;
+  //   color: #000;
+  // }
+  body.nightmode #mode:hover {
     background-color: white;
-    color: #000;
+    color: black;
   }
 
 #app {
@@ -198,12 +257,12 @@ body {
   bottom: 0;
   overflow: hidden;
 }
-  #spaces {
+  #menu {
     position: fixed;
     overflow: hidden;
   }
 
-#header-container {
+#header-section {
   height: 75px;
   width: 100%;
   @include flex-center;
@@ -213,21 +272,76 @@ body {
   #mode-container {
     height: 75px;
     width: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     position: fixed;
     top: 0;
     left: 0;
     padding: 1rem;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
     z-index: 50;
   }
-    #mode-container:hover {
+    // #mode-container:hover {
+    //   background-color: black;
+    //   color: white;
+    // }
+    #mode {
+      height: 45px;
+      width: 45px;
+      @include flex-center;
+      border-radius: 50%;
+      transition: background-color 0.2s ease-in-out;
+    }
+    #mode:hover {
       background-color: black;
       color: white;
+    }
+  
+  #menu-container {
+    height: calc(100% - 75px);
+    width: 100%;
+    position: relative;
+    background-color: rgba(0,0,0,0.1);
+  }
+    #menu-resume {
+      height: 8%;
+      width: 30%;
+      background-color: rgba(0,0,0,0.1);
+      position: absolute;
+      top: 25%;
+      left: 19%;
+    }
+    #menu-about {
+      height: 28%;
+      width: 15%;
+      background-color: rgba(0,0,0,0.1);
+      position: absolute;
+      top: 5%;
+      left: calc(49% + 10px);
+    }
+    #menu-design {
+      height: 38%;
+      width: 12%;
+      background-color: rgba(0,0,0,0.1);
+      position: absolute;
+      top: calc(33% + 10px);
+      left: 29%;
+    }
+    #menu-code {
+      height: 60%;
+      width: 18%;
+      background-color: rgba(0,0,0,0.1);
+      position: absolute;
+      top: calc(33% + 10px);
+      left: calc(41% + 10px);
+    }
+    #menu-contact {
+      height: 30%;
+      width: 22%;
+      background-color: rgba(0,0,0,0.1);
+      position: absolute;
+      top: calc(33% + 10px);
+      left: calc(59% + 20px);
     }
 
 </style>
