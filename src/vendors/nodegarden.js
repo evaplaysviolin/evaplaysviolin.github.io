@@ -3,6 +3,8 @@ import Node from './node';
 
 const { devicePixelRatio = 1, requestAnimationFrame } = window;
 
+let bcr, mouseNode, scrollPos;
+
 export default class NodeGarden {
   constructor (container) {
     this.nodes = [];
@@ -24,17 +26,19 @@ export default class NodeGarden {
       this.canvas.style.transform = 'scale(' + 1 / devicePixelRatio + ')';
       this.canvas.style.transformOrigin = '0 0';
     }
-    this.canvas.id = 'nodegarden';
+    // this.canvas.id = 'nodegarden';
+
+    this.mouseUp = this.mouseUp.bind(this);
 
     this.container.addEventListener('mousedown', (e) => {
-      e.preventDefault();
-      const bcr = this.container.getBoundingClientRect();
-      const scrollPos = {
+      e.stopPropagation();
+      bcr = this.container.getBoundingClientRect();
+      scrollPos = {
         x: window.scrollX,
         y: window.scrollY
       };
       // Add mouse node
-      const mouseNode = new Node(this);
+      mouseNode = new Node(this);
       mouseNode.x = (e.pageX - scrollPos.x - bcr.left) * devicePixelRatio;
       mouseNode.y = (e.pageY - scrollPos.y - bcr.top) * devicePixelRatio;
       mouseNode.m = 15;
@@ -45,23 +49,30 @@ export default class NodeGarden {
 
       this.nodes.unshift(mouseNode);
 
-      this.container.addEventListener('mousemove', (e) => {
-        mouseNode.x = (e.pageX - scrollPos.x - bcr.left) * devicePixelRatio;
-        mouseNode.y = (e.pageY - scrollPos.y - bcr.top) * devicePixelRatio;
-      });
-
-      this.container.addEventListener('mouseup', (e) => {
-        for (let i = 0; i < this.nodes.length; i++) {
-          if (this.nodes[i] === mouseNode) {
-            this.nodes.splice(i--, 1);
-            break;
-          }
-        }
-      });
+      this.container.addEventListener("mousemove", this.mouseMove);
+      this.container.addEventListener("mouseup", this.mouseUp);
     });
 
     this.container.appendChild(this.canvas);
     this.resize();
+  }
+
+  mouseMove(e) {
+    console.log("move");
+    mouseNode.x = (e.pageX - scrollPos.x - bcr.left) * devicePixelRatio;
+    mouseNode.y = (e.pageY - scrollPos.y - bcr.top) * devicePixelRatio; 
+  }
+
+  mouseUp(e) {
+    this.container.removeEventListener("mousemove", this.mouseMove);
+    this.container.removeEventListener("mouseup", this.mouseUp);
+    console.log("up");
+    for (let i = 0; i < this.nodes.length; i++) {
+      if (this.nodes[i] === mouseNode) {
+        this.nodes.splice(i--, 1);
+        break;
+      }
+    }
   }
 
   start () {

@@ -6,8 +6,15 @@
 
     <div id="node-garden-container" 
       ref="nodeGardenContainer" 
-      @click="gardenListener($event, $refs.nodeGardenContainer)">
-      <canvas id="menu" ref="menu" v-show="$route.path === '/'"></canvas>
+      @click.stop.prevent="gardenListener($event, $refs.nodeGardenContainer, 'nodeGarden', 'resetNode')">
+      <!-- move these out into own shit -->
+      <!-- <canvas id="menu" ref="menu" v-show="$route.path === '/'"></canvas>
+      <div id="menu-resume"></div>
+      <div id="menu-about"></div>
+      <div id="menu-design"></div>
+      <div id="menu-code"></div>
+      <div id="menu-contact"></div> -->
+      <Menu v-if="$route.path === '/'" :night="night"></Menu>
     </div>
 
     <!-- Placeholder section for header component -->
@@ -20,13 +27,13 @@
       </div>
     </div>
 
-    <div id="menu-container">
-      <div id="menu-resume"></div>
+    <!-- <div id="menu-container"> -->
+      <!-- <div id="menu-resume"></div>
       <div id="menu-about"></div>
       <div id="menu-design"></div>
       <div id="menu-code"></div>
-      <div id="menu-contact"></div>
-    </div>
+      <div id="menu-contact"></div> -->
+    <!-- </div> -->
 
     <!-- Set up "views" for components -->
     <!-- Empty view is where main components for other pages is inserted -->
@@ -50,20 +57,23 @@
 <script>
 
 import NodeGarden from './vendors/nodegarden.js';
-
+import Menu from "./components/Menu.vue";
 import garden from "./mixins/garden.js";
 // import media from "./mixins/media.js";
 export default {
   name: "App",
   // mixins: [media],
   mixins: [garden],
+  components: {
+    "Menu": Menu
+  },
   data() {
     return {
       // pixelRatio: window.devicePixelRatio,
       nodeGarden: {},
       // date: new Date(),
       resetNode: 0,
-      // night: false,
+      night: false,
       // appHeight: null,
       // appWidth: null,
     }
@@ -99,74 +109,74 @@ export default {
       this.night = !this.night;
       this.resizeApp();
     },
-    setAppHeightAndWidth() {
-      this.appHeight = this.$refs.nodeGardenContainer.clientHeight;
-      this.appWidth = this.$refs.nodeGardenContainer.clientWidth;
-    },
+    // setAppHeightAndWidth() {
+    //   this.appHeight = this.$refs.nodeGardenContainer.clientHeight;
+    //   this.appWidth = this.$refs.nodeGardenContainer.clientWidth;
+    // },
     resizeApp() {
-      this.setAppHeightAndWidth();
+      this.setAppHeightAndWidth(this.$refs.nodeGardenContainer);
 
-      if (this.$route.path === "/") {
-        this.$refs.menu.height = this.appHeight;
-        this.$refs.menu.width = this.appWidth;
+      // if (this.$route.path === "/") {
+      //   this.$refs.menu.height = this.appHeight;
+      //   this.$refs.menu.width = this.appWidth;
 
-        let menuCanvas = this.$refs.menu;
-        let menuCtx = menuCanvas.getContext("2d");
-        menuCtx.clearRect(0, 0, menuCanvas.width, menuCanvas.height);
-        menuCtx.beginPath();
-        let scw = menuCanvas.width;
-        let sch = menuCanvas.height;
+      //   let menuCanvas = this.$refs.menu;
+      //   let menuCtx = menuCanvas.getContext("2d");
+      //   menuCtx.clearRect(0, 0, menuCanvas.width, menuCanvas.height);
+      //   menuCtx.beginPath();
+      //   let scw = menuCanvas.width;
+      //   let sch = menuCanvas.height;
 
-        if (this.night) {
-          menuCtx.fillStyle = "#000";
-          menuCtx.strokeStyle = 'rgb(200,200,200)';
-        } else {
-          menuCtx.fillStyle = "#FFF";
-          let lineGradient = menuCtx.createLinearGradient(0, 0, scw, 0);
-          lineGradient.addColorStop("0", `rgb(222, 22, 79)`);
-          lineGradient.addColorStop("0.5" , `rgb(42, 67, 232)`);
-          lineGradient.addColorStop("1.0", `rgb(47, 189, 40)`);
-          menuCtx.strokeStyle = lineGradient;
-        }
+      //   if (this.night) {
+      //     menuCtx.fillStyle = "#000";
+      //     menuCtx.strokeStyle = 'rgb(200,200,200)';
+      //   } else {
+      //     menuCtx.fillStyle = "#FFF";
+      //     let lineGradient = menuCtx.createLinearGradient(0, 0, scw, 0);
+      //     lineGradient.addColorStop("0", `rgb(222, 22, 79)`);
+      //     lineGradient.addColorStop("0.5" , `rgb(42, 67, 232)`);
+      //     lineGradient.addColorStop("1.0", `rgb(47, 189, 40)`);
+      //     menuCtx.strokeStyle = lineGradient;
+      //   }
 
-        menuCtx.fillRect((scw * 0.19), (sch * 0.25), (scw * 0.3), (sch * 0.08));
-        menuCtx.fillRect((scw * 0.49 + 10), (sch * 0.05), (scw * 0.15), (sch * 0.28));
-        menuCtx.fillRect((scw * 0.29), (sch * 0.33 + 10), (scw * 0.12), (sch * 0.38));
-        menuCtx.fillRect((scw * 0.41 + 10), (sch * 0.33 + 10), (scw * 0.18), (sch * 0.6));
-        menuCtx.fillRect((scw * 0.59 + 20), (sch * 0.33 + 10), (scw * 0.22), (sch * 0.3));
+      //   menuCtx.fillRect((scw * 0.19), (sch * 0.25), (scw * 0.3), (sch * 0.08));
+      //   menuCtx.fillRect((scw * 0.49 + 10), (sch * 0.05), (scw * 0.15), (sch * 0.28));
+      //   menuCtx.fillRect((scw * 0.29), (sch * 0.33 + 10), (scw * 0.12), (sch * 0.38));
+      //   menuCtx.fillRect((scw * 0.41 + 10), (sch * 0.33 + 10), (scw * 0.18), (sch * 0.6));
+      //   menuCtx.fillRect((scw * 0.59 + 20), (sch * 0.33 + 10), (scw * 0.22), (sch * 0.3));
 
-        menuCtx.beginPath();
-        menuCtx.lineWidth = "1";
-        menuCtx.rect((scw * 0.19), (sch * 0.25), (scw * 0.3), (sch * 0.08));
-        menuCtx.stroke();
+      //   menuCtx.beginPath();
+      //   menuCtx.lineWidth = "1";
+      //   menuCtx.rect((scw * 0.19), (sch * 0.25), (scw * 0.3), (sch * 0.08));
+      //   menuCtx.stroke();
 
-        menuCtx.beginPath();
-        menuCtx.lineWidth = "1";
-        menuCtx.rect((scw * 0.49 + 10), (sch * 0.05), (scw * 0.15), (sch * 0.28));
-        menuCtx.stroke();
+      //   menuCtx.beginPath();
+      //   menuCtx.lineWidth = "1";
+      //   menuCtx.rect((scw * 0.49 + 10), (sch * 0.05), (scw * 0.15), (sch * 0.28));
+      //   menuCtx.stroke();
 
-        menuCtx.beginPath();
-        menuCtx.lineWidth = "1";
-        menuCtx.rect((scw * 0.29), (sch * 0.33 + 10), (scw * 0.12), (sch * 0.38));
-        menuCtx.stroke();
+      //   menuCtx.beginPath();
+      //   menuCtx.lineWidth = "1";
+      //   menuCtx.rect((scw * 0.29), (sch * 0.33 + 10), (scw * 0.12), (sch * 0.38));
+      //   menuCtx.stroke();
 
-        menuCtx.beginPath();
-        menuCtx.lineWidth = "1";
-        menuCtx.rect((scw * 0.41 + 10), (sch * 0.33 + 10), (scw * 0.18), (sch * 0.6));
-        menuCtx.stroke();
+      //   menuCtx.beginPath();
+      //   menuCtx.lineWidth = "1";
+      //   menuCtx.rect((scw * 0.41 + 10), (sch * 0.33 + 10), (scw * 0.18), (sch * 0.6));
+      //   menuCtx.stroke();
 
-        menuCtx.beginPath();
-        menuCtx.lineWidth = "1";
-        menuCtx.rect((scw * 0.59 + 20), (sch * 0.33 + 10), (scw * 0.22), (sch * 0.3));
-        menuCtx.stroke();
-      }
+      //   menuCtx.beginPath();
+      //   menuCtx.lineWidth = "1";
+      //   menuCtx.rect((scw * 0.59 + 20), (sch * 0.33 + 10), (scw * 0.22), (sch * 0.3));
+      //   menuCtx.stroke();
+      // }
     }
   },
   mounted() {
 
     // start simulation
     // this.createGarden();
-    this.createGarden(this.$refs.nodeGardenContainer);
+    this.createGarden("nodeGarden", this.$refs.nodeGardenContainer);
     this.nodeGarden.start();
 
     // trigger nightMode automatically
@@ -257,10 +267,6 @@ body {
   bottom: 0;
   overflow: hidden;
 }
-  #menu {
-    position: fixed;
-    overflow: hidden;
-  }
 
 #header-section {
   height: 75px;
@@ -295,53 +301,6 @@ body {
     #mode:hover {
       background-color: black;
       color: white;
-    }
-  
-  #menu-container {
-    height: calc(100% - 75px);
-    width: 100%;
-    position: relative;
-    background-color: rgba(0,0,0,0.1);
-  }
-    #menu-resume {
-      height: 8%;
-      width: 30%;
-      background-color: rgba(0,0,0,0.1);
-      position: absolute;
-      top: 25%;
-      left: 19%;
-    }
-    #menu-about {
-      height: 28%;
-      width: 15%;
-      background-color: rgba(0,0,0,0.1);
-      position: absolute;
-      top: 5%;
-      left: calc(49% + 10px);
-    }
-    #menu-design {
-      height: 38%;
-      width: 12%;
-      background-color: rgba(0,0,0,0.1);
-      position: absolute;
-      top: calc(33% + 10px);
-      left: 29%;
-    }
-    #menu-code {
-      height: 60%;
-      width: 18%;
-      background-color: rgba(0,0,0,0.1);
-      position: absolute;
-      top: calc(33% + 10px);
-      left: calc(41% + 10px);
-    }
-    #menu-contact {
-      height: 30%;
-      width: 22%;
-      background-color: rgba(0,0,0,0.1);
-      position: absolute;
-      top: calc(33% + 10px);
-      left: calc(59% + 20px);
     }
 
 </style>

@@ -34,7 +34,8 @@ export default class Node {
     this.x += this.vx * deltaTime / targetFPS;
     this.y += this.vy * deltaTime / targetFPS;
 
-    if (this.x > this.garden.width + 50 || this.x < -50 || this.y > this.garden.height + 50 || this.y < -50) {
+    // if (this.x > this.garden.width + 50 || this.x < -50 || this.y > this.garden.height + 50 || this.y < -50) {'
+    if (this.x > this.garden.width + 5 || this.x < -5 || this.y > this.garden.height + 5 || this.y < -5) {
       // if node over screen limits - reset to a init position
       this.reset();
     }
