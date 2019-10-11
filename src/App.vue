@@ -209,7 +209,7 @@ export default {
 * {
   margin: 0;
   padding: 0;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Archivo", sans-serif;
   font-size: 100%;
 }
 *, ::before, ::after {
