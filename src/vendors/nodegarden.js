@@ -31,6 +31,7 @@ export default class NodeGarden {
     this.mouseUp = this.mouseUp.bind(this);
 
     this.container.addEventListener('mousedown', (e) => {
+      console.log("down");
       e.stopPropagation();
       bcr = this.container.getBoundingClientRect();
       scrollPos = {
@@ -58,7 +59,6 @@ export default class NodeGarden {
   }
 
   mouseMove(e) {
-    console.log("move");
     mouseNode.x = (e.pageX - scrollPos.x - bcr.left) * devicePixelRatio;
     mouseNode.y = (e.pageY - scrollPos.y - bcr.top) * devicePixelRatio; 
   }
