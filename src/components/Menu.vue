@@ -161,27 +161,27 @@ export default {
         menuCtx.fillRect((scw * 0.59 + 20), (sch * 0.33 + 10), (scw * 0.22), (sch * 0.3));
 
         menuCtx.beginPath();
-        menuCtx.lineWidth = "1";
+        menuCtx.lineWidth = "2";
         menuCtx.rect((scw * 0.19), (sch * 0.25), (scw * 0.3), (sch * 0.08));
         menuCtx.stroke();
 
         menuCtx.beginPath();
-        menuCtx.lineWidth = "1";
+        menuCtx.lineWidth = "2";
         menuCtx.rect((scw * 0.49 + 10), (sch * 0.05), (scw * 0.15), (sch * 0.28));
         menuCtx.stroke();
 
         menuCtx.beginPath();
-        menuCtx.lineWidth = "1";
+        menuCtx.lineWidth = "2";
         menuCtx.rect((scw * 0.29), (sch * 0.33 + 10), (scw * 0.12), (sch * 0.38));
         menuCtx.stroke();
 
         menuCtx.beginPath();
-        menuCtx.lineWidth = "1";
+        menuCtx.lineWidth = "2";
         menuCtx.rect((scw * 0.41 + 10), (sch * 0.33 + 10), (scw * 0.18), (sch * 0.6));
         menuCtx.stroke();
 
         menuCtx.beginPath();
-        menuCtx.lineWidth = "1";
+        menuCtx.lineWidth = "2";
         menuCtx.rect((scw * 0.59 + 20), (sch * 0.33 + 10), (scw * 0.22), (sch * 0.3));
         menuCtx.stroke();
       // }
