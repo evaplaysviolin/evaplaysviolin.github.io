@@ -3,7 +3,11 @@ import VueRouter from "vue-router";
 
 // import Banner from "./components/Banner.vue";
 import Header from "./components/Header.vue";
+import Resume from "./components/Resume.vue";
 import About from "./components/About.vue";
+import Design from "./components/Design.vue";
+import Code from "./components/Code.vue";
+import Contact from "./components/Contact.vue";
 
 Vue.use(VueRouter);
 
@@ -19,11 +23,55 @@ const routes = [
     }
   },
   {
+    path: "/resume",
+    name: "resume",
+    components: {
+      "header": Header,
+      default: Resume
+      // "navigation": Navigation,
+      // "sub-banner": SubBanner,
+      // default: CollectionSearch
+    }
+  },
+  {
     path: "/about",
     name: "about",
     components: {
       "header": Header,
       default: About
+      // "navigation": Navigation,
+      // "sub-banner": SubBanner,
+      // default: CollectionSearch
+    }
+  },
+  {
+    path: "/design",
+    name: "design",
+    components: {
+      "header": Header,
+      default: Design
+      // "navigation": Navigation,
+      // "sub-banner": SubBanner,
+      // default: CollectionSearch
+    }
+  },
+  {
+    path: "/code",
+    name: "code",
+    components: {
+      "header": Header,
+      default: Code
+      // "navigation": Navigation,
+      // "sub-banner": SubBanner,
+      // default: CollectionSearch
+    }
+  },
+  {
+    path: "/contact",
+    name: "contact",
+    components: {
+      "header": Header,
+      default: Contact
       // "navigation": Navigation,
       // "sub-banner": SubBanner,
       // default: CollectionSearch
