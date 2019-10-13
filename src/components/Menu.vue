@@ -3,11 +3,37 @@
 <div id="menu-container">
   <!-- <canvas id="menu" ref="menu" v-show="$route.path === '/'"></canvas> -->
   <canvas id="menu" ref="menu"></canvas>
-  <div id="menu-resume" ref="resumeGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.resumeGarden, 'resumeGarden', 'resetResumeNode')"></div>
-  <div id="menu-about" ref="aboutGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.aboutGarden, 'aboutGarden', 'resetAboutNode')"></div>
-  <div id="menu-design" ref="designGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.designGarden, 'designGarden', 'resetDesignNode')"></div>
-  <div id="menu-code" ref="codeGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.codeGarden, 'codeGarden', 'resetCodeNode')"></div>
-  <div id="menu-contact" ref="contactGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.contactGarden, 'contactGarden', 'resetContactNode')"></div>
+
+  <div id="resume-label" class="menu-item">
+    <div id="resume" class="menu-label">resume</div>
+  </div>
+  <!-- <div id="menu-resume" ref="resumeGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.resumeGarden, 'resumeGarden', 'resetResumeNode')"></div> -->
+  <div id="menu-resume" ref="resumeGarden" class="menu-item"></div>
+  
+  <div id="about-label" class="menu-item">
+    <router-link :to="{ path: '/about' }"></router-link>
+    <div id="about" class="menu-label">about</div>
+  </div>
+  <!-- <div id="menu-about" ref="aboutGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.aboutGarden, 'aboutGarden', 'resetAboutNode')"></div> -->
+  <div id="menu-about" ref="aboutGarden" class="menu-item"></div>
+  
+  <div id="design-label" class="menu-item">
+    <div id="design" class="menu-label">design</div>
+  </div>
+  <!-- <div id="menu-design" ref="designGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.designGarden, 'designGarden', 'resetDesignNode')"></div> -->
+  <div id="menu-design" ref="designGarden" class="menu-item"></div>
+  
+  <div id="code-label" class="menu-item">
+    <div id="code" class="menu-label">code</div>
+  </div>
+  <!-- <div id="menu-code" ref="codeGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.codeGarden, 'codeGarden', 'resetCodeNode')"></div> -->
+  <div id="menu-code" ref="codeGarden" class="menu-item"></div>
+  
+  <div id="contact-label" class="menu-item">
+    <div id="contact" class="menu-label">contact</div>
+  </div>
+  <!-- <div id="menu-contact" ref="contactGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.contactGarden, 'contactGarden', 'resetContactNode')"></div> -->
+  <div id="menu-contact" ref="contactGarden" class="menu-item"></div>
 </div>
    
 </template>
@@ -234,10 +260,26 @@ export default {
   //   // background-color: rgba(0,0,0,0.1);
   // }
 
+  .menu-label {
+    position: absolute;
+    color: black;
+    font-size: 250%;
+    padding: 4px 8px;
+  }
+    body.nightmode .menu-label {
+      color: white;
+    }
   .menu-item {
     position: absolute;
   }
+    .menu-item a {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 100;
+    }
 
+    #resume-label,
     #menu-resume {
       // height: 8%;
       height: calc((100vh - 75px) * 0.08);
@@ -247,6 +289,10 @@ export default {
       // top: calc((100vh - 75px) * 0.25);
       left: 19%;
     }
+      #resume {
+        bottom: 0;
+      }
+    #about-label,
     #menu-about {
       // height: 28%;
       height: calc((100vh - 75px) * 0.28);
@@ -256,6 +302,19 @@ export default {
       // top: calc((100vh - 75px) * 0.05);
       left: calc(49% + 10px);
     }
+      // #about-label a {
+      //   // display: inline-block;
+      //   height: 100%;
+      //   width: 100%;
+      //   position: absolute;
+      //   z-index: 100;
+      // }
+      #about {
+        right: 0;
+        transform: rotate(90deg) translate(100%, 0);
+        transform-origin: top right;
+      }
+    #design-label,
     #menu-design {
       // height: 38%;
       height: calc((100vh - 75px) * 0.38);
@@ -265,6 +324,12 @@ export default {
       // top: calc(((100vh - 75px) * 0.33) + 10px);
       left: 29%;
     }
+      #design {
+        bottom: 0;
+        transform: rotate(-90deg) translate(0, 100%);
+        transform-origin: bottom left;
+      }
+    #code-label,
     #menu-code {
       // height: 60%;
       height: calc((100vh - 75px) * 0.6);
@@ -274,6 +339,10 @@ export default {
       // top: calc(((100vh - 75px) * 0.33) + 10px);
       left: calc(41% + 10px);
     }
+      #code {
+        right: 0;
+      }
+    #contact-label,
     #menu-contact {
       // height: 30%;
       height: calc((100vh - 75px) * 0.3);
@@ -283,5 +352,9 @@ export default {
       // top: calc(((100vh - 75px) * 0.33) + 10px);
       left: calc(59% + 20px);
     }
+      #contact {
+        right: 0;
+        bottom: 0;
+      }
 
 </style>
