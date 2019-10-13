@@ -30,35 +30,46 @@ export default class NodeGarden {
 
     this.mouseUp = this.mouseUp.bind(this);
 
-    this.container.addEventListener('mousedown', (e) => {
-      console.log("down");
-      e.stopPropagation();
-      bcr = this.container.getBoundingClientRect();
-      scrollPos = {
-        x: window.scrollX,
-        y: window.scrollY
-      };
-      // Add mouse node
-      mouseNode = new Node(this);
-      mouseNode.x = (e.pageX - scrollPos.x - bcr.left) * devicePixelRatio;
-      mouseNode.y = (e.pageY - scrollPos.y - bcr.top) * devicePixelRatio;
-      mouseNode.m = 15;
+    // if (this.container.id === "node-garden-container") {
+      this.container.addEventListener('mousedown', (e) => {
+        console.log(e.target);
+        console.log("down");
+        console.log(this.container);
+        // if (this.container.id === "node-garden-container") {
+          if (e.target.id === "menu") {
+          e.stopPropagation();
+          bcr = this.container.getBoundingClientRect();
+          scrollPos = {
+            x: window.scrollX,
+            y: window.scrollY
+          };
+          // Add mouse node
+          mouseNode = new Node(this);
+          mouseNode.x = (e.pageX - scrollPos.x - bcr.left) * devicePixelRatio;
+          mouseNode.y = (e.pageY - scrollPos.y - bcr.top) * devicePixelRatio;
+          mouseNode.m = 15;
 
-      mouseNode.update = () => {};
-      mouseNode.reset = () => {};
-      mouseNode.render = () => {};
+          mouseNode.update = () => {};
+          mouseNode.reset = () => {};
+          mouseNode.render = () => {};
 
-      this.nodes.unshift(mouseNode);
+          this.nodes.unshift(mouseNode);
 
-      this.container.addEventListener("mousemove", this.mouseMove);
-      this.container.addEventListener("mouseup", this.mouseUp);
-    });
+          this.container.addEventListener("mousemove", this.mouseMove);
+          this.container.addEventListener("mouseup", this.mouseUp);
+        } else {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+      });
+    // }
 
     this.container.appendChild(this.canvas);
     this.resize();
   }
 
   mouseMove(e) {
+    console.log("move");
     mouseNode.x = (e.pageX - scrollPos.x - bcr.left) * devicePixelRatio;
     mouseNode.y = (e.pageY - scrollPos.y - bcr.top) * devicePixelRatio; 
   }
