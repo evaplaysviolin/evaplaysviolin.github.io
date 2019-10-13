@@ -1,6 +1,8 @@
 <template>
 
-<div id="header-container"></div>
+<div id="header-container">
+  <router-link :to="{ path: '/' }">home</router-link>
+</div>
 
 </template>
 
@@ -27,6 +29,7 @@ export default {
   width: 100%;
   position: fixed;
   top: 0;
+  @include flex-center;
   // border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   // background-color: rgba(0, 0, 0, 0.1);
 
