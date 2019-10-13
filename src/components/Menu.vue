@@ -5,6 +5,7 @@
   <canvas id="menu" ref="menu"></canvas>
 
   <div id="resume-label" class="menu-item">
+    <router-link :to="{ path: '/resume' }"></router-link>
     <div id="resume" class="menu-label">resume</div>
   </div>
   <!-- <div id="menu-resume" ref="resumeGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.resumeGarden, 'resumeGarden', 'resetResumeNode')"></div> -->
@@ -18,18 +19,21 @@
   <div id="menu-about" ref="aboutGarden" class="menu-item"></div>
   
   <div id="design-label" class="menu-item">
+    <router-link :to="{ path: '/design' }"></router-link>
     <div id="design" class="menu-label">design</div>
   </div>
   <!-- <div id="menu-design" ref="designGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.designGarden, 'designGarden', 'resetDesignNode')"></div> -->
   <div id="menu-design" ref="designGarden" class="menu-item"></div>
   
   <div id="code-label" class="menu-item">
+    <router-link :to="{ path: '/code' }"></router-link>
     <div id="code" class="menu-label">code</div>
   </div>
   <!-- <div id="menu-code" ref="codeGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.codeGarden, 'codeGarden', 'resetCodeNode')"></div> -->
   <div id="menu-code" ref="codeGarden" class="menu-item"></div>
   
   <div id="contact-label" class="menu-item">
+    <router-link :to="{ path: '/contact' }"></router-link>
     <div id="contact" class="menu-label">contact</div>
   </div>
   <!-- <div id="menu-contact" ref="contactGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.contactGarden, 'contactGarden', 'resetContactNode')"></div> -->
@@ -265,6 +269,7 @@ export default {
     color: black;
     font-size: 250%;
     padding: 4px 8px;
+    user-select: none;
   }
     body.nightmode .menu-label {
       color: white;
