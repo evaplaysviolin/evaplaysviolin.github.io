@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 
 // import Banner from "./components/Banner.vue";
 import Header from "./components/Header.vue";
+import About from "./components/About.vue";
 
 Vue.use(VueRouter);
 
@@ -18,10 +19,11 @@ const routes = [
     }
   },
   {
-    path: "/test",
-    name: "test",
+    path: "/about",
+    name: "about",
     components: {
       "header": Header,
+      default: About
       // "navigation": Navigation,
       // "sub-banner": SubBanner,
       // default: CollectionSearch
