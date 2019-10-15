@@ -105,7 +105,7 @@ export default class NodeGarden {
     //   });
     // }
     console.log("over");
-    this.force = 20;
+    this.force = 15;
     // this.container.addEventListener("mouseleave", (e) => {
     //   console.log("leave");
     //   this.force = 3;
