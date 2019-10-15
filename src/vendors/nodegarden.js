@@ -14,6 +14,9 @@ export default class NodeGarden {
     this.started = false;
     this.nightmode = false;
 
+    this.force = 3;
+    // this.container.force = 3;
+
     // Pink
     this.color1 = "222, 22, 79";
     // Blue
@@ -28,7 +31,29 @@ export default class NodeGarden {
     }
     // this.canvas.id = 'nodegarden';
 
+    // this.canvas.id = `${this.container.id}-canvas`;
+
     this.mouseUp = this.mouseUp.bind(this);
+    this.mouseOver = this.mouseOver.bind(this);
+    this.mouseLeave = this.mouseLeave.bind(this);
+
+    if (this.container.id !== "node-garden-container") {
+      this.container.addEventListener("mouseover", this.mouseOver);
+    }
+
+    // this.container.addEventListener("mouseover", (e) => {
+    //   console.log(this.container);
+    //   if (e.target.id === "about-link") {
+    //     // console.log("hello");
+    //     // this.force = 10;
+    //     // e.target.force = 10;
+    //     e.target.addEventListener("mouseleave", (e) => {
+    //       // console.log("goodbye");
+    //       // this.force = 3;
+    //       // e.target.force = 3;
+    //     });
+    //   }
+    // });
 
     // if (this.container.id === "node-garden-container") {
       this.container.addEventListener('mousedown', (e) => {
@@ -66,6 +91,32 @@ export default class NodeGarden {
 
     this.container.appendChild(this.canvas);
     this.resize();
+  }
+
+  mouseOver(e) {
+    // if (e.target.id === "menu-about-canvas") {
+    //   console.log("mouseover");
+    //   this.force = 100;
+    //   console.log(this.force);
+    //   e.target.addEventListener("mouseleave", (e) => {
+    //     console.log("mouseleave");
+    //     this.force = 3;
+    //     console.log(this.force);
+    //   });
+    // }
+    console.log("over");
+    this.force = 20;
+    // this.container.addEventListener("mouseleave", (e) => {
+    //   console.log("leave");
+    //   this.force = 3;
+    // });
+    this.container.addEventListener("mouseleave", this.mouseLeave);
+  }
+
+  mouseLeave(e) {
+    this.container.removeEventListener("mouseleave", this.mouseLeave);
+    console.log("leave");
+    this.force = 3;
   }
 
   mouseMove(e) {
@@ -173,7 +224,8 @@ export default class NodeGarden {
         const squaredDistance = nodeA.squaredDistanceTo(nodeB);
 
         // calculate gravity force
-        const force = 3 * (nodeA.m * nodeB.m) / squaredDistance;
+        // const force = 3 * (nodeA.m * nodeB.m) / squaredDistance;
+        const force = this.force * (nodeA.m * nodeB.m) / squaredDistance;
 
         const opacity = force * 100;
 
