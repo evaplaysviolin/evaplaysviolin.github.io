@@ -20,7 +20,8 @@ const routes = [
       // "navigation": Navigation,
       // "featured-partners": FeaturedPartners,
       // "featured-galleries": FeaturedGalleries
-    }
+    },
+    // props: { "header": true }
   },
   {
     path: "/resume",
@@ -31,7 +32,8 @@ const routes = [
       // "navigation": Navigation,
       // "sub-banner": SubBanner,
       // default: CollectionSearch
-    }
+    },
+    // props: { "header": true }
   },
   {
     path: "/about",
@@ -42,7 +44,8 @@ const routes = [
       // "navigation": Navigation,
       // "sub-banner": SubBanner,
       // default: CollectionSearch
-    }
+    },
+    // props: { "header": true }
   },
   {
     path: "/design",
@@ -53,7 +56,8 @@ const routes = [
       // "navigation": Navigation,
       // "sub-banner": SubBanner,
       // default: CollectionSearch
-    }
+    },
+    // props: { "header": true }
   },
   {
     path: "/code",
@@ -64,7 +68,8 @@ const routes = [
       // "navigation": Navigation,
       // "sub-banner": SubBanner,
       // default: CollectionSearch
-    }
+    },
+    // props: { "header": true }
   },
   {
     path: "/contact",
@@ -75,7 +80,8 @@ const routes = [
       // "navigation": Navigation,
       // "sub-banner": SubBanner,
       // default: CollectionSearch
-    }
+    },
+    // props: { "header": true }
   },
   // {
   //   path: "/partner/:database/:country/:id/:language",

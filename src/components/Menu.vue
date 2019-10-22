@@ -6,7 +6,7 @@
 
   <div id="resume-label" class="menu-item">
     <!-- <router-link :to="{ path: '/resume' }"></router-link> -->
-    <div id="resume" class="menu-label">resume</div>
+    <div class="menu-label">resume</div>
   </div>
   <!-- <div id="menu-resume" ref="resumeGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.resumeGarden, 'resumeGarden', 'resetResumeNode')"></div> -->
   <div id="menu-resume" ref="resumeGarden" class="menu-item">
@@ -15,7 +15,7 @@
   
   <div id="about-label" class="menu-item">
     <!-- <router-link :to="{ path: '/about' }" id="about-link"></router-link> -->
-    <div id="about" class="menu-label">about</div>
+    <div class="menu-label">about</div>
   </div>
   <!-- <div id="menu-about" ref="aboutGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.aboutGarden, 'aboutGarden', 'resetAboutNode')"></div> -->
   <div id="menu-about" ref="aboutGarden" class="menu-item">
@@ -24,7 +24,7 @@
   
   <div id="design-label" class="menu-item">
     <!-- <router-link :to="{ path: '/design' }"></router-link> -->
-    <div id="design" class="menu-label">design</div>
+    <div class="menu-label">design</div>
   </div>
   <!-- <div id="menu-design" ref="designGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.designGarden, 'designGarden', 'resetDesignNode')"></div> -->
   <div id="menu-design" ref="designGarden" class="menu-item">
@@ -33,7 +33,7 @@
   
   <div id="code-label" class="menu-item">
     <!-- <router-link :to="{ path: '/code' }"></router-link> -->
-    <div id="code" class="menu-label">code</div>
+    <div class="menu-label">code</div>
   </div>
   <!-- <div id="menu-code" ref="codeGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.codeGarden, 'codeGarden', 'resetCodeNode')"></div> -->
   <div id="menu-code" ref="codeGarden" class="menu-item">
@@ -42,7 +42,7 @@
   
   <div id="contact-label" class="menu-item">
     <!-- <router-link :to="{ path: '/contact' }"></router-link> -->
-    <div id="contact" class="menu-label">contact</div>
+    <div class="menu-label">contact</div>
   </div>
   <!-- <div id="menu-contact" ref="contactGarden" class="menu-item" @click.stop.prevent="gardenListener($event, $refs.contactGarden, 'contactGarden', 'resetContactNode')"></div> -->
   <div id="menu-contact" ref="contactGarden" class="menu-item">
@@ -93,13 +93,19 @@ export default {
     //   this.resizeApp();
     // }
     night () {
+      // console.log("watcher");
       this.resizeMenu();
       // this.toggleColors();
-      this.resumeGarden.toggleNightMode();
-      this.aboutGarden.toggleNightMode();
-      this.designGarden.toggleNightMode();
-      this.codeGarden.toggleNightMode();
-      this.contactGarden.toggleNightMode();
+      // this.resumeGarden.toggleNightMode();
+      // this.aboutGarden.toggleNightMode();
+      // this.designGarden.toggleNightMode();
+      // this.codeGarden.toggleNightMode();
+      // this.contactGarden.toggleNightMode();
+      this.resumeGarden.toggleNightMode(this.night);
+      this.aboutGarden.toggleNightMode(this.night);
+      this.designGarden.toggleNightMode(this.night);
+      this.codeGarden.toggleNightMode(this.night);
+      this.contactGarden.toggleNightMode(this.night);
     }
   },
   methods: {
@@ -151,6 +157,7 @@ export default {
     // },
     createMenuGardens() {
       for (let i = 0; i < menuItems.length; i++) {
+        // console.log(i);
         this.createGarden(menuItems[i], this.$refs[menuItems[i]]);
         this[menuItems[i]].start();
       }
@@ -191,7 +198,8 @@ export default {
           menuCtx.strokeStyle = lineGradient;
         } else {
           menuCtx.fillStyle = "#FFF";
-          menuCtx.strokeStyle = "rgb(100, 100, 100)";
+          // menuCtx.strokeStyle = "rgb(100, 100, 100)";
+          menuCtx.strokeStyle = "#000";
         }
 
         menuCtx.fillRect((scw * 0.19), (sch * 0.25), (scw * 0.3), (sch * 0.08));
@@ -251,7 +259,26 @@ export default {
     // this.codeGarden.start();
     // this.createGarden("contactGarden", this.$refs.contactGarden);
     // this.contactGarden.start();
-  }
+    this.resumeGarden.toggleNightMode(this.night);
+    this.aboutGarden.toggleNightMode(this.night);
+    this.designGarden.toggleNightMode(this.night);
+    this.codeGarden.toggleNightMode(this.night);
+    this.contactGarden.toggleNightMode(this.night);
+  },
+  // updated() {
+    // this.$nextTick(function() {
+    //   this.resumeGarden.toggleNightMode(this.night);
+    //   this.aboutGarden.toggleNightMode(this.night);
+    //   this.designGarden.toggleNightMode(this.night);
+    //   this.codeGarden.toggleNightMode(this.night);
+    //   this.contactGarden.toggleNightMode(this.night);
+    // });
+    // this.resumeGarden.toggleNightMode(this.night);
+    // this.aboutGarden.toggleNightMode(this.night);
+    // this.designGarden.toggleNightMode(this.night);
+    // this.codeGarden.toggleNightMode(this.night);
+    // this.contactGarden.toggleNightMode(this.night);
+  // }
 }
 
 </script>
@@ -299,9 +326,11 @@ export default {
         // width: calc(100% - 2px);
         // top: 1px;
         // right: 1px;
-        background-color: rgba(0, 0, 0, 0.1);
+        // background-color: rgba(0, 0, 0, 0.1);
+        background: linear-gradient(160deg, rgba(222,22,79,0.2) 0%, rgba(42,67,232,0.2) 50%, rgba(47,189,40,0.2) 100%);
       }
       body.nightmode .menu-item a:hover {
+        background: none;
         background-color: rgba(255, 255, 255, 0.1);
       }
 
@@ -315,7 +344,7 @@ export default {
       // top: calc((100vh - 75px) * 0.25);
       left: 19%;
     }
-      #resume {
+      #resume-label .menu-label {
         bottom: 0;
       }
     #about-label,
@@ -335,7 +364,7 @@ export default {
       //   position: absolute;
       //   z-index: 100;
       // }
-      #about {
+      #about-label .menu-label {
         right: 0;
         transform: rotate(90deg) translate(100%, 0);
         transform-origin: top right;
@@ -350,7 +379,7 @@ export default {
       // top: calc(((100vh - 75px) * 0.33) + 10px);
       left: 29%;
     }
-      #design {
+      #design-label .menu-label {
         bottom: 0;
         transform: rotate(-90deg) translate(0, 100%);
         transform-origin: bottom left;
@@ -365,7 +394,7 @@ export default {
       // top: calc(((100vh - 75px) * 0.33) + 10px);
       left: calc(41% + 10px);
     }
-      #code {
+      #code-label .menu-label {
         right: 0;
       }
     #contact-label,
@@ -378,7 +407,7 @@ export default {
       // top: calc(((100vh - 75px) * 0.33) + 10px);
       left: calc(59% + 20px);
     }
-      #contact {
+      #contact-label .menu-label {
         right: 0;
         bottom: 0;
       }

@@ -57,11 +57,11 @@ export default class NodeGarden {
 
     // if (this.container.id === "node-garden-container") {
       this.container.addEventListener('mousedown', (e) => {
-        console.log(e.target);
-        console.log("down");
+        // console.log(e.target);
+        // console.log("down");
         console.log(this.container);
         // if (this.container.id === "node-garden-container") {
-          if (e.target.id === "menu") {
+          // if (e.target.id === "menu") {
           e.stopPropagation();
           bcr = this.container.getBoundingClientRect();
           scrollPos = {
@@ -82,10 +82,10 @@ export default class NodeGarden {
 
           this.container.addEventListener("mousemove", this.mouseMove);
           this.container.addEventListener("mouseup", this.mouseUp);
-        } else {
-          e.stopPropagation();
-          e.preventDefault();
-        }
+        // } else {
+        //   e.stopPropagation();
+        //   e.preventDefault();
+        // }
       });
     // }
 
@@ -104,7 +104,7 @@ export default class NodeGarden {
     //     console.log(this.force);
     //   });
     // }
-    console.log("over");
+    // console.log("over");
     this.force = 15;
     // this.container.addEventListener("mouseleave", (e) => {
     //   console.log("leave");
@@ -115,12 +115,12 @@ export default class NodeGarden {
 
   mouseLeave(e) {
     this.container.removeEventListener("mouseleave", this.mouseLeave);
-    console.log("leave");
+    // console.log("leave");
     this.force = 3;
   }
 
   mouseMove(e) {
-    console.log("move");
+    // console.log("move");
     mouseNode.x = (e.pageX - scrollPos.x - bcr.left) * devicePixelRatio;
     mouseNode.y = (e.pageY - scrollPos.y - bcr.top) * devicePixelRatio; 
   }
@@ -128,7 +128,7 @@ export default class NodeGarden {
   mouseUp(e) {
     this.container.removeEventListener("mousemove", this.mouseMove);
     this.container.removeEventListener("mouseup", this.mouseUp);
-    console.log("up");
+    // console.log("up");
     for (let i = 0; i < this.nodes.length; i++) {
       if (this.nodes[i] === mouseNode) {
         this.nodes.splice(i--, 1);
@@ -182,20 +182,33 @@ export default class NodeGarden {
     }
   }
 
-  toggleNightMode () {
+  toggleNightMode (night) {
     let fillGradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
     fillGradient.addColorStop("0", `rgb(${this.color1})`);
     fillGradient.addColorStop("0.5" , `rgb(${this.color2})`);
     fillGradient.addColorStop("1.0", `rgb(${this.color3})`);
 
-    this.nightMode = !this.nightMode;
+    // console.log(this.night);
+    // console.log(night);
+    // this.nightMode = !this.nightMode;
+    // if (this.night) {
+    if (night) {
+      // console.log("night true");
+      this.nightMode = true;
+    } else {
+      // console.log("night false");
+      this.nightMode = false;
+    }
     if (this.nightMode) {
+      // console.log("nightmode true");
       this.ctx.fillStyle = '#ffffff';
       document.body.classList.add('nightmode');
     } else {
+      // console.log("nightmode false");
       this.ctx.fillStyle = fillGradient;
       document.body.classList.remove('nightmode');
     }
+    // console.log(this.ctx.fillStyle);
   }
 
   render (start, time) {
