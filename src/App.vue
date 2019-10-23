@@ -4,9 +4,11 @@
 
   <div id="page-container">
 
-    <div id="node-garden-container" 
-      ref="nodeGardenContainer" 
-      @click.stop.prevent="gardenListener($event, $refs.nodeGardenContainer, 'nodeGarden', 'resetNode')">
+    <!-- Contains node garden serving as background -->
+    <div id="background-container" 
+      ref="backgroundContainer" 
+      @click.stop.prevent="gardenListener($event, $refs.backgroundContainer, 'background', 'resetNode')">
+      <!-- Show menu on home page, otherwise only display the node garden -->
       <Menu v-if="$route.path === '/'" :night="night"></Menu>
     </div>
 
@@ -20,8 +22,10 @@
       </div>
     </div>
 
+    <!-- Header is placed into "header-section" -->
     <router-view name="header" :night="night"></router-view>
-    <div id="inner-page-container">
+    <!-- Container for sub-pages -->
+    <div id="subpage-container">
     <!-- Set up "views" for components -->
     <!-- Empty view is where main components for other pages is inserted -->
     <!-- Refer to route.js -->
@@ -40,9 +44,11 @@
 
 <script>
 
+// Node garden code
 import NodeGarden from './vendors/nodegarden.js';
-import Menu from "./components/Menu.vue";
+// Node garden mixins
 import garden from "./mixins/garden.js";
+import Menu from "./components/Menu.vue";
 // import media from "./mixins/media.js";
 export default {
   name: "App",
@@ -54,47 +60,58 @@ export default {
   data() {
     return {
       // pixelRatio: window.devicePixelRatio,
-      nodeGarden: {},
+      // Contains node garden
+      background: {},
       // date: new Date(),
+      // Keeps track of nodes on the page
       resetNode: 0,
+      // Night mode controller
       night: false,
       // appHeight: null,
       // appWidth: null,
     }
   },
-  watch: {
-    "$route" (to, from) {
-      this.resizeApp();
-    }
-  },
+  // watch: {
+  //   "$route" (to, from) {
+  //     this.resizeApp();
+  //   }
+  // },
   methods: {
+    // Controls "night" prop, which controls night mode (checking prop)
+    // toggleNightMode() is inside nodegarden.js
     nightToggle() {
       // this.night = !this.night;
       this.night = !this.night;
       // this.nodeGarden.toggleNightMode();
-      this.nodeGarden.toggleNightMode(this.night);
+      this.background.toggleNightMode(this.night);
       this.resizeApp();
     },
+    // Sets height and width of app (which determines size of other items)
+    // setAppHeightAndWidth() is inside garden.js
     resizeApp() {
-      this.setAppHeightAndWidth(this.$refs.nodeGardenContainer);
+      this.setAppHeightAndWidth(this.$refs.backgroundContainer);
     }
   },
   mounted() {
     // start simulation
     // this.createGarden();
-    this.createGarden("nodeGarden", this.$refs.nodeGardenContainer);
-    this.nodeGarden.start();
+    // Create and start garden
+    // createGarden() is inside garden.js
+    // start() is inside nodegarden.js
+    this.createGarden("background", this.$refs.backgroundContainer);
+    this.background.start();
     // this.nodeGarden.toggleNightMode(this.night);
 
     // trigger nightMode automatically
+    // Night mode triggers automatically
     if (this.date.getHours() > 18 || this.date.getHours() < 6) {
       // this.nodeGarden.toggleNightMode();
       this.night = true;
-      this.nodeGarden.toggleNightMode(this.night);
+      this.background.toggleNightMode(this.night);
     }
-
+    // Listen for window size changes
     window.addEventListener('resize', () => {
-      this.nodeGarden.resize();
+      this.background.resize();
       this.resizeApp();
     });
 
@@ -163,7 +180,8 @@ body {
   overflow-y: auto;
 }
 
-#node-garden-container {
+#background-container {
+  // Height subtracts header section from top
   height: calc(100% - 75px);
   width: 100%;
   position: fixed;
@@ -202,8 +220,9 @@ body {
       color: white;
     }
 
-#inner-page-container {
+#subpage-container {
   @include flex-center;
+  // Height subtracts header section from top
   height: calc(100% - 75px);
   width: 100%;
 }
