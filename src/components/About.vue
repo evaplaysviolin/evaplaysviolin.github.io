@@ -43,12 +43,12 @@ export default {
       let ctx = canvas.getContext("2d");
       let container = this.$refs.about;
       let measurements = container.getBoundingClientRect();
-      console.log(measurements.width);
-      console.log(measurements.height);
+      // console.log(measurements.width);
+      // console.log(measurements.height);
       canvas.width = measurements.width;
-      console.log(canvas.width);
+      // console.log(canvas.width);
       canvas.height = measurements.height;
-      console.log(canvas.height);
+      // console.log(canvas.height);
       // canvas.width = 300;
       // canvas.height = 100;
 

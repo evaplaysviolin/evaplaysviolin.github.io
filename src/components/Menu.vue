@@ -164,7 +164,7 @@ export default {
       // this.toggleColors();
     },
     resizeMenu() {
-      this.setAppHeightAndWidth(this.$parent.$refs.nodeGardenContainer);
+      this.setAppHeightAndWidth(this.$parent.$refs.backgroundContainer);
 
       // if (this.$route.path === "/") {
         this.$refs.menu.height = this.appHeight;
