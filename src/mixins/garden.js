@@ -15,7 +15,7 @@ export default {
       // this.nodeGarden = new NodeGarden(container);
       this[prop] = new NodeGarden(container);
     },
-    gardenListener(e, container, ref, resetNode) {
+    gardenListener(e, container, prop, resetNode) {
       e.stopPropagation();
       e.preventDefault();
       const bcr = container.getBoundingClientRect();
@@ -24,10 +24,10 @@ export default {
         y: window.scrollY
       };
       this[resetNode]++;
-      if (this[resetNode] > this[ref].nodes.length - 1) {
+      if (this[resetNode] > this[prop].nodes.length - 1) {
         this[resetNode] = 1;
       }
-      this[ref].nodes[this[resetNode]].reset({
+      this[prop].nodes[this[resetNode]].reset({
         x: (e.pageX - scrollPos.x - bcr.left) * this.pixelRatio,
         y: (e.pageY - scrollPos.y - bcr.top) * this.pixelRatio,
         vx: 0,

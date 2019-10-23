@@ -37,7 +37,7 @@ export default class NodeGarden {
     this.mouseOver = this.mouseOver.bind(this);
     this.mouseLeave = this.mouseLeave.bind(this);
 
-    if (this.container.id !== "node-garden-container") {
+    if (this.container.id !== "background-container") {
       this.container.addEventListener("mouseover", this.mouseOver);
     }
 
