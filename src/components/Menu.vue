@@ -287,7 +287,6 @@ export default {
 
 <style lang="scss">
 
-
   #menu {
     position: fixed;
     overflow: hidden;
