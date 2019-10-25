@@ -30,6 +30,8 @@
     <!-- Empty view is where main components for other pages is inserted -->
     <!-- Refer to route.js -->
     <!-- <router-view name="banner"></router-view> -->
+      <!-- "Page" content is placed inside here -->
+      <!-- Borders outlining the "page" are created here (canvas is for night mode) -->
       <div id="subpage" ref="subpage" :class="subpage">
         <canvas 
           id="subpage-borders"
@@ -84,6 +86,7 @@ export default {
   //   }
   // },
   computed: {
+    // Applies correct borders to #subpage depending on day/night mode
     subpage: function() {
       return {
         "subpage-day": this.$route.path !== "/" && !this.night,
@@ -102,6 +105,7 @@ export default {
       this.resizeApp();
       this.createSubpageCanvas();
     },
+    // Create left and right borders for night mode subpages
     createSubpageCanvas() {
       let canvas = this.$refs.subpageBorders;
       let ctx = canvas.getContext("2d");
@@ -277,6 +281,7 @@ body {
   width: 80%;
   position: relative;
 }
+  // Prevent canvas from covering menu on homepage
   .subpage-container-index {
     z-index: -1;
   }
@@ -286,6 +291,7 @@ body {
     width: 100%;
     overflow-y: auto;
   }
+    // Add borders for day mode
     .subpage-day {
       border-left: 2px solid black;
       border-right: 2px solid black;
@@ -303,6 +309,7 @@ body {
     #subpage::-webkit-scrollbar-thumb:hover {
       background: rgb(175, 175, 175); 
     }
+  // Change borders to transparent for sizing (night mode)
   body.nightmode .subpage-night {
     background-color: rgba(black, 0.6);
     border-left: 2px solid transparent;
@@ -323,6 +330,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;
+    // Prevent canvas from blocking scroll bar
     pointer-events: none;
   }
 
