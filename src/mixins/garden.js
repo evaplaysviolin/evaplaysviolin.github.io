@@ -5,14 +5,12 @@ export default {
     return {
       pixelRatio: window.devicePixelRatio,
       date: new Date(),
-      // night: false,
       appHeight: null,
       appWidth: null,
     }
   },
   methods: {
     createGarden(prop, container) {
-      // this.nodeGarden = new NodeGarden(container);
       this[prop] = new NodeGarden(container);
     },
     gardenListener(e, container, prop, resetNode) {
