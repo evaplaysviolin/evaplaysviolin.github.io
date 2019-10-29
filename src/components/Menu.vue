@@ -227,9 +227,9 @@ export default {
     .menu-item a:hover {
       // Same linear gradient as used in canvases
       background: linear-gradient(160deg, 
-        rgba(222,22,79,0.2) 0%, 
-        rgba(42,67,232,0.2) 50%, 
-        rgba(47,189,40,0.2) 100%);
+        rgba(222, 22, 79, 0.2) 0%, 
+        rgba(42, 67, 232, 0.2) 50%, 
+        rgba(47, 189, 40, 0.2) 100%);
     }
     body.nightmode .menu-item a:hover {
       background: none;
