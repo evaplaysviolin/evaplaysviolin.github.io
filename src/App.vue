@@ -289,6 +289,7 @@ body {
     position: sticky;
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
     overflow-y: auto;
   }
     // Add borders for day mode
