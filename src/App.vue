@@ -279,6 +279,7 @@ body {
   // Height subtracts header section from top
   height: calc(100% - 75px);
   width: 80%;
+  max-width: 1450px;
   position: relative;
 }
   // Prevent canvas from covering menu on homepage
