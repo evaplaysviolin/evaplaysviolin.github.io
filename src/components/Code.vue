@@ -8,11 +8,6 @@
         <div class="fade" v-if="detailsOpen"></div>
         <img :src="image(example, 'large')" />
       </div>
-      <!-- <div class="small-container">
-        <div class="small image-container"><img :src="image(example, '1')" /></div>
-        <div class="small image-container"><img :src="image(example, '2')" /></div>
-        <div class="small image-container"><img :src="image(example, '3')" /></div>
-      </div> -->
       <div class="example-detail" v-if="current === index">
         <div class="detail-close" 
           :style="position"
@@ -71,10 +66,12 @@ export default {
       this.detailsOpen = false;
     },
     getPosition: function () {
+      // Exit if detail window is closed
+      if (!this.detailsOpen) {
+        return;
+      }
       // Get size of close button
-      console.log(document.getElementsByClassName("detail-close"));
       let element = document.getElementsByClassName("detail-close")[0];
-      console.log(element);
       let x = element.getBoundingClientRect();
       let height = x.height;
       let width = x.width;
@@ -87,14 +84,12 @@ export default {
       // Set top and left
       this.position.top = `${position.top}px`;
       this.position.left = `${left}px`;
-      console.log(this.position);
     }
   },
   mounted() {
     window.addEventListener("resize", this.getPosition);
   },
   updated() {
-    console.log("updated");
     if (this.detailsOpen) {
       this.getPosition();
     }
