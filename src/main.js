@@ -4,10 +4,10 @@ import App from "./App.vue";
 import router from "./route.js";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faMoon, faSun);
+library.add(faMoon, faSun, faTimes);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
