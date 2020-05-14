@@ -80,16 +80,26 @@ export default {
       },
     }
   },
+  watch: {
+    detailsOpen: function () {
+      if (this.detailsOpen) {
+        this.onResize();
+      }
+    }
+  },
   methods: {
     image: function (name, type) {
       return require(`../assets/${name}_${type}.png`);
     },
     setPin: function () {
-      let container = document.getElementById("examples-container");
+      console.log("hello");
+      let container = document.getElementById("code-container");
       let size = container.getBoundingClientRect();
       this.pin.width = `${size.width}px`;
-      this.pin.top = `${size.top}px`;
-      this.pin.left = `${size.left}px`;
+      let examples = document.getElementById("examples-container");
+      let position = examples.getBoundingClientRect();
+      this.pin.top = `${position.top}px`;
+      this.pin.left = `${position.left}px`;
     },
     openDetails: function (index) {
       this.setPin();
@@ -117,18 +127,22 @@ export default {
       // Set top and left
       this.position.top = `${position.top}px`;
       this.position.left = `${left}px`;
-    }
-  },
-  mounted() {
-    window.addEventListener("resize", this.getPosition);
-  },
-  updated() {
-    if (this.detailsOpen) {
+    },
+    onResize: function () {
+      this.setPin();
       this.getPosition();
     }
   },
+  mounted() {
+    window.addEventListener("resize", this.onResize);
+  },
+  // updated() {
+  //   if (this.detailsOpen) {
+  //     this.onResize();
+  //   }
+  // },
   beforeDestroy() {
-    window.removeEventListener("resize", this.getPosition);
+    window.removeEventListener("resize", this.onResize);
   }
 }
 
@@ -147,7 +161,8 @@ export default {
   @include flex-center;
   height: 100%;
   width: 100%;
-  padding: 50px;
+  // padding: 50px;
+  // margin: 50px;
 }
 
 #examples-container {
@@ -155,6 +170,8 @@ export default {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 50px;
   width: 100%;
+  padding: 50px;
+  // margin: 50px;
   // position: relative;
 }
   .example {
