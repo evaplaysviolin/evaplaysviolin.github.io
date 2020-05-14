@@ -74,47 +74,61 @@ export default {
       },
       pin: {
         position: "fixed",
+        // height: null,
         width: null,
         top: 0,
         left: 0
       },
+      initialTop: null,
     }
   },
-  watch: {
-    detailsOpen: function () {
-      if (this.detailsOpen) {
-        this.onResize();
-      }
-    }
-  },
+  // watch: {
+  //   detailsOpen: function () {
+  //     if (this.detailsOpen) {
+  //       this.setPositions();
+  //     }
+  //   }
+  // },
   methods: {
     image: function (name, type) {
       return require(`../assets/${name}_${type}.png`);
     },
+    getInitialTop: function () {
+      let element = document.getElementById("examples-container");
+      let position = element.getBoundingClientRect();
+      this.initialTop = `${position.top}px`;
+    },
     setPin: function () {
       console.log("hello");
-      let container = document.getElementById("code-container");
-      let size = container.getBoundingClientRect();
-      this.pin.width = `${size.width}px`;
-      let examples = document.getElementById("examples-container");
+      // let container = document.getElementById("code-container");
+
+      // let container = document.getElementsByClassName("example-detail")[0];
+      // console.log(document.getElementsByClassName("example-detail"));
+      // let size = container.getBoundingClientRect();
+      // this.pin.width = `${size.width}px`;
+      let examples = document.getElementById("code-container");
       let position = examples.getBoundingClientRect();
-      this.pin.top = `${position.top}px`;
+      // this.pin.height = `${position.height}px`
+      this.pin.width = `${position.width}px`;
+      console.log(position.top, position.left);
+      // this.pin.top = `${position.top}px`;
+      this.pin.top = this.initialTop;
       this.pin.left = `${position.left}px`;
     },
     openDetails: function (index) {
-      this.setPin();
+      this.getInitialTop();
       this.current = index;
       this.detailsOpen = true;
+      // this.setPositions();
+      this.$nextTick(function () {
+        this.setPositions();
+      });
     },
     closeDetails: function () {
       this.current = null;
       this.detailsOpen = false;
     },
     getPosition: function () {
-      // Exit if detail window is closed
-      if (!this.detailsOpen) {
-        return;
-      }
       // Get size of close button
       let element = document.getElementsByClassName("detail-close")[0];
       let x = element.getBoundingClientRect();
@@ -128,21 +142,25 @@ export default {
       this.position.top = `${position.top}px`;
       this.position.left = `${left}px`;
     },
-    onResize: function () {
+    setPositions: function () {
+      // Exit if detail window is closed
+      if (!this.detailsOpen) {
+        return;
+      }
       this.setPin();
       this.getPosition();
     }
   },
   mounted() {
-    window.addEventListener("resize", this.onResize);
+    window.addEventListener("resize", this.setPositions);
   },
   // updated() {
   //   if (this.detailsOpen) {
-  //     this.onResize();
+  //     this.setPositions();
   //   }
   // },
   beforeDestroy() {
-    window.removeEventListener("resize", this.onResize);
+    window.removeEventListener("resize", this.setPositions);
   }
 }
 
