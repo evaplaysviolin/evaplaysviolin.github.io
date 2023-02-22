@@ -1,0 +1,24 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin image-scale {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+@mixin font-default {
+  font-size: 175%;
+}
+@mixin font-smaller {
+  font-size: 125%;
+}
+
+// @mixin button-styles {
+//   border: none;
+//   background-color: transparent;
+//   cursor: pointer;
+// }
