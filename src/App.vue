@@ -7,9 +7,9 @@
     <!-- Contains node garden serving as background -->
     <div id="background-container" 
       ref="backgroundContainer" 
-      @click.stop.prevent="gardenListener($event, $refs.backgroundContainer, 'background', 'resetNode')">
+      @click="gardenListener($event, $refs.backgroundContainer, 'background', 'resetNode')">
       <!-- Show menu on home page, otherwise only display the node garden -->
-      <Menu v-if="$route.path === '/'" :night="night"></Menu>
+      <MenuPage v-if="$route.path === '/'" :night="night"></MenuPage>
     </div>
 
     <!-- Placeholder section for header component -->
@@ -57,14 +57,14 @@
 import NodeGarden from './vendors/nodegarden.js';
 // Node garden mixins
 import garden from "./mixins/garden.js";
-import Menu from "./components/Menu.vue";
+import MenuPage from "./components/MenuPage.vue";
 // import media from "./mixins/media.js";
 export default {
   name: "App",
   // mixins: [media],
   mixins: [garden],
   components: {
-    "Menu": Menu
+    "MenuPage": MenuPage
   },
   data() {
     return {
@@ -249,6 +249,7 @@ body {
   @include flex-center;
   justify-content: space-between;
   position: relative;
+  // z-index: 45;
 }
   #mode-container {
     height: 75px;
@@ -273,6 +274,13 @@ body {
       background-color: black;
       color: white;
     }
+#header-container {
+  background-color: white;
+  z-index: 10;
+}
+  body.nightmode #header-container {
+    background-color: black;
+  }
 
 #subpage-container {
   @include flex-center;
@@ -292,6 +300,9 @@ body {
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    // Firefox
+    scrollbar-width: thin;
+    scrollbar-color: rgb(200, 200, 200) rgb(235, 235, 235);
   }
     // Add borders for day mode
     .subpage-day {
@@ -299,6 +310,7 @@ body {
       border-right: 2px solid black;
       background-color: rgba(white, 0.6);
     }
+    // Chrome
     #subpage::-webkit-scrollbar {
       width: 6px;
     }
@@ -316,7 +328,12 @@ body {
     background-color: rgba(black, 0.6);
     border-left: 2px solid transparent;
     border-right: 2px solid transparent;
-  }
+  } 
+    // Firefox
+    body.nightmode #subpage {
+      scrollbar-color: rgb(85, 85, 85) rgb(50, 50, 50);
+    }
+    // Chrome
     body.nightmode #subpage::-webkit-scrollbar-track {
       background: rgb(50, 50, 50); 
     }

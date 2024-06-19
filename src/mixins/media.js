@@ -3,7 +3,9 @@ export default {
   methods: {
     checkMediaQuery: function() {
       // this.lessThan974 = window.matchMedia("(max-width: 974px)").matches;
+      this.lessThan949 = window.matchMedia("(max-width: 949px)").matches;
       // this.lessThan849 = window.matchMedia("(max-width: 849px)").matches;
+      this.lessThan899 = window.matchMedia("(max-width: 899px)").matches;
       // this.lessThan724 = window.matchMedia("(max-width: 724px)").matches;
       // this.lessThan599 = window.matchMedia("(max-width: 599px)").matches;
       // this.lessThan499 = window.matchMedia("(max-width: 499px)").matches;

@@ -31,14 +31,13 @@
         </div>
         <div class="content-wrapper">
           <div class="large-detail image-container"><img :src="image(example, 'large')" /></div>
+          <div v-if="lessThan949" class="detail-text detail-text-small" v-html="descriptions[index]"></div>
           <div class="small-container">
             <div class="small image-container"><img :src="image(example, '1')" /></div>
             <div class="small image-container"><img :src="image(example, '2')" /></div>
             <div class="small image-container"><img :src="image(example, '3')" /></div>
           </div>
-          <div class="detail-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer bibendum sem at nisi feugiat luctus. Quisque mollis elit lorem, facilisis vehicula leo rutrum non. Quisque ullamcorper pharetra orci, quis venenatis magna dictum sed. In pharetra orci eros, sit amet fringilla dui interdum id. Proin feugiat diam id iaculis pretium. Morbi ac ex eu turpis tincidunt bibendum ullamcorper ut nibh. Nunc vitae consequat massa. Suspendisse vitae est nec mi maximus maximus. Vivamus pretium, orci vitae tristique aliquam, sapien nisl efficitur orci, et ullamcorper sapien mauris id justo. Nulla pulvinar porta nulla sed feugiat. Pellentesque mollis et leo eget viverra. Nunc interdum purus tellus, at porta velit ullamcorper nec. Curabitur porta sem placerat mi tincidunt consequat. Mauris sagittis imperdiet lectus sed mattis. In ut libero et turpis facilisis ultrices a sit amet orci. Nunc pulvinar scelerisque eleifend. Donec feugiat augue sed justo auctor faucibus. Nam ut nisl non est cursus pharetra. Curabitur vestibulum magna eget lectus egestas tempus. Vestibulum massa justo, facilisis id nulla at, eleifend auctor risus. Ut id nibh sem. Phasellus at ullamcorper orci. Cras ac diam massa. Nullam scelerisque ex eu fermentum elementum. Vivamus a urna non tortor molestie vulputate. In nec justo quis urna convallis volutpat. Quisque laoreet eros eu pulvinar posuere. Mauris ut venenatis magna, et commodo nisl. Proin purus nulla, gravida a consequat eget, vestibulum sed enim. Nunc vitae arcu libero. Mauris a tortor felis. Sed sed erat quis lorem congue ornare vitae in dui. In cursus nec magna eget gravida. Maecenas finibus feugiat magna quis lobortis. Suspendisse lacinia quam vel dolor molestie vulputate. Nam ut vulputate massa. Aenean maximus erat odio. Duis lacinia ac est maximus sodales. Curabitur risus risus, commodo nec euismod in, varius ac augue. Vivamus tempor dignissim augue vitae aliquam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis eget iaculis lorem, fringilla luctus neque. Nunc quam tortor, vestibulum quis libero ac, consectetur vestibulum tellus. Curabitur imperdiet nisi diam, vitae mattis purus porttitor quis. In sed sem ligula. Vivamus fringilla placerat nisi, in efficitur diam viverra in. Praesent elit quam, consectetur quis est quis, congue mattis lorem. Aenean tempor, eros sit amet semper viverra, tellus quam posuere mauris, eget condimentum nisl elit id quam. Donec sed convallis purus, vel suscipit sem. Proin porta mauris ac eleifend elementum. Proin tellus leo, semper consectetur odio sed, molestie ultricies sem. Vivamus condimentum, purus fringilla mattis euismod, mi lectus mollis metus, at posuere augue libero et erat. Morbi laoreet ultricies nulla, id sodales nisi feugiat vel. Nam sit amet eleifend felis. Aenean eleifend velit sem, et sagittis erat accumsan et. Nulla quis dolor rutrum, finibus arcu eget, ornare nisl. Integer ultrices dictum nibh vel sodales. In facilisis dolor eu condimentum congue. Nullam sed maximus nibh. Vivamus interdum dolor sed leo molestie, sed maximus enim tristique. Morbi imperdiet eget massa quis lobortis. Nullam mollis finibus urna, a auctor massa rhoncus ut. Suspendisse orci quam, congue nec nisl at, eleifend porta libero.
-          </div>
+          <div v-if="!lessThan949" class="detail-text" v-html="descriptions[index]"></div>
         </div>
       </div>
     </div>
@@ -51,21 +50,36 @@
 
 <script>
 
+import { descriptions } from "../descriptions.js";
+import media from "../mixins/media.js";
 export default { 
-  name: "Code",
+  name: "CodePage",
+  mixins: [media],
   data() {
     return {
+      lessThan949: window.matchMedia("(max-width: 949px)").matches,
+      descriptions: descriptions,
       examples: [
+        "exhibitions",
+        "portal",
+        "books",
+        "explore",
+        "dynasties",
         "dxa",        
         "simon",
-        "ttt",
+        // "ttt",
         "pomodoro",
         "calculator"
       ],
       titles: [
+        "MWNF Exhibitions",
+        "MWNF Portal",
+        "MWNF Books",
+        "Explore with MWNF",
+        "DIA Dynasties",
         "Discover MWNF Galleries",
         "Simon Says",
-        "Tic Tac Toe",
+        // "Tic Tac Toe",
         "Pomodoro Clock",
         "JavaScript Calculator"
       ],
@@ -80,7 +94,7 @@ export default {
         position: "fixed",
         width: null,
         top: 0,
-        left: 0
+        left: 0,
       },
       initialTop: null,
     }
@@ -170,6 +184,7 @@ export default {
 
 #code-container {
   @include flex-center;
+  position: relative;
   height: 100%;
   width: 100%;
   // padding: 50px;
@@ -177,27 +192,33 @@ export default {
 }
 
 #examples-container {
+  align-self: flex-start;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 50px;
   width: 100%;
   padding: 50px;
-  // margin: 50px;
   // position: relative;
 }
   .example {
     @include flex-center;
     flex-direction: column;
+    height: 100%;
+    width: 100%
     // position: relative;
     // margin-bottom: 50px;
   }
     .large {
+      height: 100%;
       width: 100%;
       position: relative;
       // box-shadow: 0px 0px 10px 0px rgba(128, 128, 128, 0.5);
       // width: 60%;
       // margin-bottom: 10px;
     }
+      .large img {
+        object-fit: cover;
+      }
       .large:hover {
         cursor: pointer;
       }
@@ -223,7 +244,7 @@ export default {
           font-weight: bold;
           text-align: center;
           text-shadow: 0 0 5px black;
-          box-shadow: inset 0 0 0 200px rgba(black, 0.35);
+          box-shadow: inset 0 0 0 200px rgba(black, 0.5);
           padding: 50px;
           // color: black;
           // box-shadow: inset 0 0 0 200px rgba(white, 0.5);
@@ -257,7 +278,7 @@ export default {
   width: 100%;
   // background-color: rgba(white, 0.8);
   padding: 50px;
-  z-index: 1;
+  z-index: 5;
 }
   .detail-close {
     position: fixed;
@@ -276,6 +297,7 @@ export default {
       color: white;
     }
   .content-wrapper {
+    height: 100%;
     width: 60%;
   }
     .large-detail {
@@ -301,9 +323,10 @@ export default {
           box-shadow: 0px 0px 10px 0px rgba(64, 64, 64, 0.5);
         }
     .detail-text {
+      @include font-default;
       width: 100%;
       color: black;
-      background-color: rgba(white, 0.5);
+      background-color: rgba(white, 0.8);
       box-shadow: 0px 0px 10px 0px rgba(192, 192, 192, 0.5);
       // border-radius: 20px;
       padding: 20px;
@@ -313,9 +336,85 @@ export default {
         background-color: rgba(black, 0.5);
         box-shadow: 0px 0px 10px 0px rgba(64, 64, 64, 0.5);
       }
+      .detail-text::v-deep div {
+        margin: 20px;
+      }
+      .detail-text::v-deep a {
+        color: black;
+      }
+        body.nightmode .detail-text::v-deep a {
+          color: white;
+        }
 
 .image-container img {
   @include image-scale;
+}
+
+@media only screen and (max-width: 1549px) {
+  #examples-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+    .content-wrapper {
+      width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1099px) {
+  #examples-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .mouseover-text {
+    box-shadow: inset 0 0 0 500px rgba(black, 0.5);
+  }
+  .fade::after {
+    box-shadow: inset 0 0 0 500px rgba(white, 0.85);
+  }
+  body.nightmode .fade::after {
+    box-shadow: inset 0 0 0 500px rgba(black, 0.9);
+  }
+    .content-wrapper {
+      width: 100%;
+    }
+  .example-detail {
+    padding: 50px 0;
+  }
+}
+
+@media only screen and (max-width: 949px) {
+  .detail-text {
+    @include font-smaller;
+  }
+  .detail-text-small {
+    margin-bottom: 20px;
+  }
+  .image-container {
+    margin-bottom: 20px;
+  }
+  .small-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 749px) {
+  #examples-container {
+    padding: 50px 30px;
+  }
+  .detail-text::v-deep div {
+    margin: 20px 0;
+  }
+  .example-detail {
+    padding: 50px 30px;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  #examples-container {
+    padding: 30px;
+  }
+  .detail-text::v-deep div {
+    margin: 10px 0;
+  }
 }
 
 </style>

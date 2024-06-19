@@ -14,8 +14,8 @@ export default {
       this[prop] = new NodeGarden(container);
     },
     gardenListener(e, container, prop, resetNode) {
-      e.stopPropagation();
-      e.preventDefault();
+      // e.stopPropagation();
+      // e.preventDefault();
       const bcr = container.getBoundingClientRect();
       const scrollPos = {
         x: window.scrollX,

@@ -10,6 +10,13 @@
   width: 100%;
 }
 
+@mixin font-default {
+  font-size: 175%;
+}
+@mixin font-smaller {
+  font-size: 125%;
+}
+
 // @mixin button-styles {
 //   border: none;
 //   background-color: transparent;

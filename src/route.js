@@ -2,12 +2,11 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 // import Banner from "./components/Banner.vue";
-import Header from "./components/Header.vue";
-import Resume from "./components/Resume.vue";
-import About from "./components/About.vue";
-import Design from "./components/Design.vue";
-import Code from "./components/Code.vue";
-import Contact from "./components/Contact.vue";
+import HeaderComponent from "./components/HeaderComponent.vue";
+import AboutPage from "./components/AboutPage.vue";
+import DesignPage from "./components/DesignPage.vue";
+import CodePage from "./components/CodePage.vue";
+import ContactPage from "./components/ContactPage.vue";
 
 Vue.use(VueRouter);
 
@@ -16,7 +15,7 @@ const routes = [
     path: "/",
     name: "home",
     components: {
-      "header": Header,
+      "header": HeaderComponent,
       // "navigation": Navigation,
       // "featured-partners": FeaturedPartners,
       // "featured-galleries": FeaturedGalleries
@@ -24,23 +23,11 @@ const routes = [
     // props: { "header": true }
   },
   {
-    path: "/resume",
-    name: "resume",
-    components: {
-      "header": Header,
-      default: Resume
-      // "navigation": Navigation,
-      // "sub-banner": SubBanner,
-      // default: CollectionSearch
-    },
-    // props: { "header": true }
-  },
-  {
     path: "/about",
     name: "about",
     components: {
-      "header": Header,
-      default: About
+      "header": HeaderComponent,
+      default: AboutPage
       // "navigation": Navigation,
       // "sub-banner": SubBanner,
       // default: CollectionSearch
@@ -51,8 +38,8 @@ const routes = [
     path: "/design",
     name: "design",
     components: {
-      "header": Header,
-      default: Design
+      "header": HeaderComponent,
+      default: DesignPage
       // "navigation": Navigation,
       // "sub-banner": SubBanner,
       // default: CollectionSearch
@@ -63,8 +50,8 @@ const routes = [
     path: "/code",
     name: "code",
     components: {
-      "header": Header,
-      default: Code
+      "header": HeaderComponent,
+      default: CodePage
       // "navigation": Navigation,
       // "sub-banner": SubBanner,
       // default: CollectionSearch
@@ -75,8 +62,8 @@ const routes = [
     path: "/contact",
     name: "contact",
     components: {
-      "header": Header,
-      default: Contact
+      "header": HeaderComponent,
+      default: ContactPage
       // "navigation": Navigation,
       // "sub-banner": SubBanner,
       // default: CollectionSearch

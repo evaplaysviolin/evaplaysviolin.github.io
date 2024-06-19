@@ -3,7 +3,7 @@
 <div id="header-container" ref="headerContainer">
   <!-- Canvas with a gradient line pretending to be border-bottom for night mode -->
   <canvas id="header-border" ref="headerBorder" v-show="night"></canvas>
-  <router-link :to="{ path: '/' }">home</router-link>
+  <router-link :to="{ path: '/' }" class="home-link">home</router-link>
 </div>
 
 </template>
@@ -13,7 +13,7 @@
 <script>
 
 export default { 
-  name: "Header",
+  name: "HeaderComponent",
   props: ["night"],
   data() {
     return {
@@ -83,5 +83,16 @@ export default {
     // No pointer events for canvas that overlays everything
     pointer-events: none;
   }
+
+  .home-link {
+    color: black;
+    text-decoration: none;
+  }
+    body.nightmode .home-link {
+      color: white;
+    }
+    .home-link:hover {
+      text-decoration: underline;
+    }
 
 </style>
