@@ -1,5 +1,7 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+// import Vue from "vue";
+// import VueRouter from "vue-router";
+import { createApp } from "vue"
+import { createRouter, createWebHistory } from 'vue-router'
 
 // import Banner from "./components/Banner.vue";
 import HeaderComponent from "./components/HeaderComponent.vue";
@@ -8,7 +10,7 @@ import DesignPage from "./components/DesignPage.vue";
 import CodePage from "./components/CodePage.vue";
 import ContactPage from "./components/ContactPage.vue";
 
-Vue.use(VueRouter);
+// Vue.use(VueRouter);
 
 const routes = [
   {
@@ -16,11 +18,7 @@ const routes = [
     name: "home",
     components: {
       "header": HeaderComponent,
-      // "navigation": Navigation,
-      // "featured-partners": FeaturedPartners,
-      // "featured-galleries": FeaturedGalleries
     },
-    // props: { "header": true }
   },
   {
     path: "/about",
@@ -28,11 +26,7 @@ const routes = [
     components: {
       "header": HeaderComponent,
       default: AboutPage
-      // "navigation": Navigation,
-      // "sub-banner": SubBanner,
-      // default: CollectionSearch
     },
-    // props: { "header": true }
   },
   {
     path: "/design",
@@ -40,11 +34,7 @@ const routes = [
     components: {
       "header": HeaderComponent,
       default: DesignPage
-      // "navigation": Navigation,
-      // "sub-banner": SubBanner,
-      // default: CollectionSearch
     },
-    // props: { "header": true }
   },
   {
     path: "/code",
@@ -52,11 +42,7 @@ const routes = [
     components: {
       "header": HeaderComponent,
       default: CodePage
-      // "navigation": Navigation,
-      // "sub-banner": SubBanner,
-      // default: CollectionSearch
     },
-    // props: { "header": true }
   },
   {
     path: "/contact",
@@ -64,30 +50,27 @@ const routes = [
     components: {
       "header": HeaderComponent,
       default: ContactPage
-      // "navigation": Navigation,
-      // "sub-banner": SubBanner,
-      // default: CollectionSearch
     },
-    // props: { "header": true }
   },
-  // {
-  //   path: "/partner/:database/:country/:id/:language",
-  //   name: "partner",
-  //   components: {
-  //     "navigation": Navigation,
-  //     "sub-banner": SubBanner,
-  //     default: PartnerProfile,
-  //   }
-  // },
-  // {
-  //   path: "*",
-  //   redirect: "/error"
-  // }
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/error"
+  },
 ];
 
-export default new VueRouter({
+// export default new VueRouter({
+//   routes,
+//   scrollBehavior(to, from, savedPosition) {
+//     return window.scrollTo({ top: 0, behavior: "smooth" });
+//   }
+// });
+
+const router = createRouter({
+  history: createWebHistory(),
   routes,
-  scrollBehavior(to, from, savedPosition) {
-    return window.scrollTo({ top: 0, behavior: "smooth" });
+  scrollBehavior() {
+      return window.scrollTo({ top: 0, behavior: "smooth" });
   }
 });
+
+export default router;

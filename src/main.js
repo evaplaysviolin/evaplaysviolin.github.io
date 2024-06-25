@@ -1,20 +1,24 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import App from "./App.vue";
-import router from "./route.js";
+import { createApp } from "vue"
+import App from "./App.vue"
+import router from "./route.js"
 
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMoon, faSun, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+import { faMoon, faSun, faTimes, faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+// import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faMoon, faSun, faTimes, faGithub);
+library.add(
+  faMoon, 
+  faSun, 
+  faTimes,
+  faUpRightFromSquare, 
+  faGithub
+);
 
-Vue.component("font-awesome-icon", FontAwesomeIcon);
+let app = createApp(App)
+    .use(router)
+    .component("font-awesome-icon", FontAwesomeIcon)
 
-Vue.config.productionTip = false;
-
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount("#app");
+app.config.performance = true;
+app.mount("#app")
