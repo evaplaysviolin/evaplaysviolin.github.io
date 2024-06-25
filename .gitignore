@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .DS_Store
 node_modules
 /dist
@@ -19,3 +20,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+=======
+node_modules/
+package-lock.json
+>>>>>>> d1ddf5529086ef48e4d9f10fb65c90eb058f4f3d
