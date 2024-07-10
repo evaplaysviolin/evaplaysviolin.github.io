@@ -54,7 +54,7 @@ const routes = [
   },
   {
     path: "/:pathMatch(.*)*",
-    redirect: "/error"
+    redirect: "/"
   },
 ];
 
