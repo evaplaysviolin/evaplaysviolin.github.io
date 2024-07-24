@@ -1,7 +1,7 @@
 // import Vue from "vue";
 // import VueRouter from "vue-router";
 import { createApp } from "vue"
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 // import Banner from "./components/Banner.vue";
 import HeaderComponent from "./components/HeaderComponent.vue";
@@ -66,7 +66,7 @@ const routes = [
 // });
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
   scrollBehavior() {
       return window.scrollTo({ top: 0, behavior: "smooth" });
