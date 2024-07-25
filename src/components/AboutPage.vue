@@ -4,7 +4,7 @@
   <p>(they/she)</p>
   <p>originally from san francisco, now residing across the bay in richmond</p>
   <p>i enjoy cooking and crafting</p>
-  <p>i also like trying out new hobbies and learning things! i made a cute frog friend in blender recently and written some bots</p>
+  <p>i also like trying out new hobbies and learning things! i made a cute frog friend in blender recently and have written some bots</p>
   <p>my two cats, kaya and toast, are the best. please ask me for pictures</p>
 </div>
 
